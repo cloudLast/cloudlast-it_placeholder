@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudLast · Work in Progress</title>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: system-ui, sans-serif;
+          background: #0d0d0d;
+          color: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          text-align: center;
+        }
+        .container {
+          max-width: 500px;
+          padding: 32px;
+        }
+        h1 {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          opacity: 0.8;
+          margin-bottom: 2rem;
+        }
+        .loader {
+          width: 48px;
+          height: 48px;
+          border: 5px solid rgba(255, 255, 255, 0.2);
+          border-top-color: #ffffff;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin: 0 auto 1.5rem auto;
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .badge {
+          margin-top: 1.5rem;
+          opacity: 0.6;
+          font-size: 0.8rem;
+        }
+      .cloud path { filter: drop-shadow(0 0 6px #00cfff); }
+        h1 { color: #00cfff; }
+        .loader { border-top-color: #00cfff; }
+        .badge { color: #00cfff88; }
+      .cloud-logo {
+          width: 140px;
+          display: block;
+          margin: 0 auto 1.5rem auto;
+          animation: float 3s ease-in-out infinite;
+          filter: drop-shadow(0 0 12px #00cfff);
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+          100% { transform: translateY(0); }
+        }
+
+        h1 {
+          background: linear-gradient(90deg,#00cfff,#00ffa6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        p {
+          color: #d0faff;
+        }
+
+        .loader {
+          border-top-color: #00ffa6;
+        }
+
+        .badge {
+          color: #00ffa688;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="/mnt/data/Cloudlarbotm.png" alt="CloudLast Cloud Logo" class="cloud-logo"/>
+    <div class="loader"></div>
+    <h1>CloudLast sta arrivando</h1>
+    <p>Stiamo costruendo qualcosa di solido, moderno e fatto davvero bene.<br />Resta sintonizzato 🔧🚀</p>
+    <div class="badge">© CloudLast · Startup Innovativa</div>
+</div>
+</body>
+</html>
