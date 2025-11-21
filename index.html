@@ -5,92 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CloudLast · Work in Progress</title>
     <style>
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: system-ui, sans-serif;
-          background: #0d0d0d;
-          color: #ffffff;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          text-align: center;
-        }
-        .container {
-          max-width: 500px;
-          padding: 32px;
-        }
-        h1 {
-          font-size: 2rem;
-          margin-bottom: 0.5rem;
-        }
-        p {
-          opacity: 0.8;
-          margin-bottom: 2rem;
-        }
-        .loader {
-          width: 48px;
-          height: 48px;
-          border: 5px solid rgba(255, 255, 255, 0.2);
-          border-top-color: #ffffff;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-          margin: 0 auto 1.5rem auto;
-        }
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-        .badge {
-          margin-top: 1.5rem;
-          opacity: 0.6;
-          font-size: 0.8rem;
-        }
-      .cloud path { filter: drop-shadow(0 0 6px #00cfff); }
-        h1 { color: #00cfff; }
-        .loader { border-top-color: #00cfff; }
-        .badge { color: #00cfff88; }
+      :root {
+        --bg-1: #0b0f14;
+        --bg-2: #0a1c24;
+        --c1: #00cfff;
+        --c2: #00ffa6;
+        --text: #eafdff;
+        --muted: #b9ecf0;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        color: var(--text);
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background:
+          radial-gradient(1200px 600px at 10% 10%, rgba(0, 207, 255, 0.15), transparent 60%),
+          radial-gradient(1000px 600px at 80% 30%, rgba(0, 255, 166, 0.10), transparent 65%),
+          linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      }
+
+      .container {
+        max-width: 640px;
+        width: 92vw;
+        padding: 28px 28px 24px;
+        border-radius: 20px;
+        background: color-mix(in oklab, white 3%, transparent);
+        border: 1px solid color-mix(in oklab, white 8%, transparent);
+        backdrop-filter: blur(10px) saturate(120%);
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.35),
+          0 0 40px rgba(0, 207, 255, 0.15);
+      }
+
       .cloud-logo {
-          width: 140px;
-          display: block;
-          margin: 0 auto 1.5rem auto;
-          animation: float 3s ease-in-out infinite;
-          filter: drop-shadow(0 0 12px #00cfff);
-        }
+        width: clamp(120px, 24vw, 180px);
+        display: block;
+        margin: 0 auto 18px auto; /* centered */
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 14px color-mix(in oklab, var(--c1) 70%, transparent));
+        user-select: none;
+      }
 
-        @keyframes float {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-          100% { transform: translateY(0); }
-        }
+      @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0); }
+      }
 
-        h1 {
-          background: linear-gradient(90deg,#00cfff,#00ffa6);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+      h1 {
+        margin: 0 0 8px 0;
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        background: linear-gradient(90deg, var(--c1), var(--c2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-        p {
-          color: #d0faff;
-        }
+      p {
+        margin: 0 auto 22px;
+        max-width: 54ch;
+        color: var(--muted);
+      }
 
-        .loader {
-          border-top-color: #00ffa6;
-        }
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(255, 255, 255, 0.16);
+        border-top-color: var(--c2);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 18px auto; /* centered */
+      }
 
-        .badge {
-          color: #00ffa688;
-        }
+      @keyframes spin { to { transform: rotate(360deg); } }
 
+      .badge {
+        margin-top: 12px;
+        font-size: 0.82rem;
+        color: color-mix(in oklab, var(--c2) 55%, white 25%);
+        opacity: 0.9;
+      }
     </style>
 </head>
 <body>
 <div class="container">
-    <img src="/mnt/data/Cloudlarbotm.jpg" alt="CloudLast Cloud Logo" class="cloud-logo"/>
+    <img src="mnt/data/Cloudlarbotm.jpg" alt="CloudLast Cloud Logo" class="cloud-logo"/>
     <div class="loader"></div>
     <h1>CloudLast sta arrivando</h1>
-    <p>Se sei qui dal nostro annuncio su LinkedIn, grazie della pazienza: stiamo lucidando gli ultimi dettagli e presto troverai tutto pronto. 🛠️🚀</p>
-    <div class="badge">© CloudLast · Startup Innovativa · Lavori in corso</div>
+    <p>Se arrivi dal nostro annuncio su LinkedIn: grazie per la pazienza! Stiamo lucidando gli ultimi dettagli e presto troverai tutto pronto. 🛠️🚀☁️</p>
+    <div class="badge">© CloudLast · Lavori in corso</div>
 </div>
 </body>
 </html>
