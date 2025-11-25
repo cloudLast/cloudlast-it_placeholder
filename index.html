@@ -212,7 +212,7 @@
         [data-theme="light"] .theme-toggle .icon.sun { opacity: 1; }
 
         @media (prefers-reduced-motion: reduce) {
-          .theme-toggle, .theme-toggle .knob, .lang-indicator { transition: none !important; }
+          .theme-toggle, .theme-toggle .knob, .lang-indicator, .whatsapp-fab-btn { transition: none !important; }
         }
 
         /* ========================================= */
@@ -376,6 +376,101 @@
         [data-current-lang="fr"] [data-lang="en"],
         [data-current-lang="fr"] [data-lang="es"] { display: none; }
 
+        /* ========================================= */
+        /*               WHATSAPP STYLES             */
+        /* ========================================= */
+        .card--whatsapp {
+          position: relative;
+          background: linear-gradient(180deg, rgba(37,211,102,0.12), rgba(37,211,102,0.06));
+          border-color: rgba(37,211,102,0.35);
+          box-shadow: 0 8px 24px rgba(37,211,102,0.18);
+        }
+        .card--whatsapp:hover {
+          box-shadow:
+            0 0 0 1px rgba(37,211,102,0.55),
+            0 0 34px rgba(37,211,102,0.22);
+        }
+        .wa-row {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .wa-ico {
+          display: inline-flex;
+          width: 22px;
+          height: 22px;
+          border-radius: 6px;
+          box-shadow: 0 0 12px rgba(37,211,102,0.35);
+        }
+        .wa-ico svg { display: block; width: 22px; height: 22px; }
+        .wa-link { font-weight: 700; }
+
+        /* Floating WhatsApp button */
+        .whatsapp-fab {
+          position: fixed;
+          right: calc(20px + constant(safe-area-inset-right));
+          right: calc(20px + env(safe-area-inset-right));
+          bottom: calc(20px + constant(safe-area-inset-bottom));
+          bottom: calc(20px + env(safe-area-inset-bottom));
+          z-index: 60;
+        }
+        .whatsapp-fab-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 16px;
+          min-height: 48px;
+          min-width: 48px;
+          border-radius: 999px;
+          color: #001013;
+          font-weight: 800;
+          text-decoration: none;
+          background: linear-gradient(135deg, rgba(37,211,102,1), rgba(0,255,166,0.95));
+          box-shadow: 0 16px 34px rgba(37,211,102,0.32);
+          border: 1px solid rgba(255,255,255,0.45);
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+          transition: transform .2s ease, box-shadow .25s ease, filter .25s ease;
+        }
+        .whatsapp-fab-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 0 0 1px rgba(37,211,102,0.66), 0 0 36px rgba(37,211,102,0.28);
+          filter: saturate(1.05);
+        }
+        .whatsapp-fab-btn:focus-visible {
+          outline: 2px solid var(--accent-2);
+          outline-offset: 3px;
+        }
+        .whatsapp-fab-btn .wa-ico { box-shadow: none; }
+
+        @media (max-width: 420px) {
+          .whatsapp-fab-btn { padding: 10px 14px; }
+          .whatsapp-fab-btn .wa-label { display: none; }
+        }
+
+        /* Hide FAB on tablets; re-show on large desktops */
+        @media (min-width: 768px) {
+          .whatsapp-fab { display: none; }
+        }
+        @media (min-width: 1200px) {
+          .whatsapp-fab { display: block; }
+          .whatsapp-fab-btn { padding: 10px 14px; box-shadow: 0 10px 22px rgba(37,211,102,0.22); }
+          .whatsapp-fab-btn .wa-label { display: inline; }
+        }
+
+        /* Ultra-small phones: move FAB to the left and lift slightly */
+        @media (max-width: 360px) {
+          .whatsapp-fab {
+            right: auto;
+            left: calc(16px + constant(safe-area-inset-left));
+            left: calc(16px + env(safe-area-inset-left));
+            bottom: calc(28px + constant(safe-area-inset-bottom));
+            bottom: calc(28px + env(safe-area-inset-bottom));
+          }
+        }
+
+        @media print { .whatsapp-fab { display: none !important; } }
+
     </style>
 </head>
 
@@ -435,7 +530,7 @@
         <h2 data-lang="fr">Services</h2>
 
         <div class="grid">
-            <article class="card">
+            <article class="card" data-wa-key="servizi-mobile">
                 <h3 data-lang="it">App Mobile</h3>
                 <h3 data-lang="en">Mobile Apps</h3>
                 <h3 data-lang="es">Aplicaciones móviles</h3>
@@ -447,7 +542,7 @@
                 <p data-lang="fr">Expériences fluides pour iOS et Android.</p>
             </article>
 
-            <article class="card">
+            <article class="card" data-wa-key="servizi-cloud">
                 <h3 data-lang="it">Cloud & Backend</h3>
                 <h3 data-lang="en">Cloud & Backend</h3>
                 <h3 data-lang="es">Cloud & Backend</h3>
@@ -459,7 +554,7 @@
                 <p data-lang="fr">APIs sécurisées et scalables.</p>
             </article>
 
-            <article class="card">
+            <article class="card" data-wa-key="servizi-ai">
                 <h3 data-lang="it">AI & Automazione</h3>
                 <h3 data-lang="en">AI & Automation</h3>
                 <h3 data-lang="es">IA y Automatización</h3>
@@ -471,7 +566,7 @@
                 <p data-lang="fr">Processus intelligents pour réduire coûts et délais.</p>
             </article>
 
-            <article class="card">
+            <article class="card" data-wa-key="servizi-cybersecurity">
                 <h3 data-lang="it">Cybersecurity</h3>
                 <h3 data-lang="en">Cybersecurity</h3>
                 <h3 data-lang="es">Ciberseguridad</h3>
@@ -800,7 +895,27 @@
                 </p>
             </article>
 
-            <article class="card">
+            <article class="card card--whatsapp">
+                <h3>WhatsApp</h3>
+                <p>
+                    <span class="wa-row">
+                      <span class="wa-ico" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="32" height="32" rx="8" fill="#25D366"/>
+                          <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
+                        </svg>
+                      </span>
+                      <a class="wa-link" data-lang="it" href="https://wa.me/393204255705?text=Ciao%20CloudLast%2C%20vorrei%20informazioni.%20Grazie%21" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp">Scrivici su WhatsApp</a>
+                      <a class="wa-link" data-lang="en" href="https://wa.me/393204255705?text=Hi%20CloudLast%2C%20I%27d%20like%20some%20info.%20Thanks%21" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">Chat on WhatsApp</a>
+                      <a class="wa-link" data-lang="es" href="https://wa.me/393204255705?text=Hola%20CloudLast%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n.%20Gracias%21" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">Escríbenos por WhatsApp</a>
+                      <a class="wa-link" data-lang="fr" href="https://wa.me/393204255705?text=Bonjour%20CloudLast%2C%20j%27aimerais%20des%20infos.%20Merci%21" target="_blank" rel="noopener noreferrer" aria-label="Écris‑nous sur WhatsApp">Écris‑nous sur WhatsApp</a>
+                    </span>
+                    <br>
+                    <small style="color: var(--muted);">+39 320 425 5705</small>
+                </p>
+            </article>
+
+            <article class="card" data-wa-key="contatti-form">
                 <h3 data-lang="it">Form Contatto</h3>
                 <h3 data-lang="en">Contact Form</h3>
                 <h3 data-lang="es">Formulario</h3>
@@ -845,6 +960,49 @@
     </footer>
 
 </main>
+
+<!-- Floating WhatsApp button with localized labels -->
+<div class="whatsapp-fab" role="group" aria-label="WhatsApp quick contact">
+  <a class="whatsapp-fab-btn" data-lang="it" href="https://wa.me/393204255705?text=Ciao%20CloudLast%2C%20vorrei%20informazioni.%20Grazie%21" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp" title="Scrivici su WhatsApp">
+    <span class="wa-ico" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="16" fill="#25D366"/>
+        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
+      </svg>
+    </span>
+    <span class="wa-label">WhatsApp</span>
+  </a>
+
+  <a class="whatsapp-fab-btn" data-lang="en" href="https://wa.me/393204255705?text=Hi%20CloudLast%2C%20I%27d%20like%20some%20info.%20Thanks%21" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <span class="wa-ico" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="16" fill="#25D366"/>
+        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
+      </svg>
+    </span>
+    <span class="wa-label">WhatsApp</span>
+  </a>
+
+  <a class="whatsapp-fab-btn" data-lang="es" href="https://wa.me/393204255705?text=Hola%20CloudLast%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n.%20Gracias%21" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
+    <span class="wa-ico" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="16" fill="#25D366"/>
+        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
+      </svg>
+    </span>
+    <span class="wa-label">WhatsApp</span>
+  </a>
+
+  <a class="whatsapp-fab-btn" data-lang="fr" href="https://wa.me/393204255705?text=Bonjour%20CloudLast%2C%20j%27aimerais%20des%20infos.%20Merci%21" target="_blank" rel="noopener noreferrer" aria-label="Écris‑nous sur WhatsApp" title="Écris‑nous sur WhatsApp">
+    <span class="wa-ico" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="16" fill="#25D366"/>
+        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
+      </svg>
+    </span>
+    <span class="wa-label">WhatsApp</span>
+  </a>
+</div>
 
 <!-- ========================================= -->
 <!--                 SCRIPTS                   -->
@@ -916,6 +1074,133 @@
         const current = root.getAttribute('data-theme');
         setTheme(current === 'dark' ? 'light' : 'dark');
       });
+    })();
+
+    // WhatsApp links: localized + section/card-aware message
+    (function () {
+      const phone = '393204255705';
+      const langBtns = Array.from(document.querySelectorAll('.lang-btn'));
+      const elementToKey = new Map();
+
+      // Map sections to semantic keys
+      const sections = [
+        { sel: '.hero.section', key: 'home' },
+        { sel: '#servizi', key: 'servizi' },
+        { sel: '#founder', key: 'founder' },
+        { sel: '#uffici', key: 'uffici' },
+        { sel: '#contatti', key: 'contatti' },
+      ];
+
+      const names = {
+        it: {
+          home: 'Home', servizi: 'Servizi', founder: 'Founder', uffici: 'Uffici', contatti: 'Contatti', 'contatti-form': 'Form Contatto',
+          'servizi-mobile': 'App Mobile', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'AI & Automazione', 'servizi-cybersecurity': 'Cybersecurity'
+        },
+        en: {
+          home: 'Home', servizi: 'Services', founder: 'Founder', uffici: 'Offices', contatti: 'Contacts', 'contatti-form': 'Contact Form',
+          'servizi-mobile': 'Mobile Apps', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'AI & Automation', 'servizi-cybersecurity': 'Cybersecurity'
+        },
+        es: {
+          home: 'Inicio', servizi: 'Servicios', founder: 'Fundador', uffici: 'Oficinas', contatti: 'Contacto', 'contatti-form': 'Formulario',
+          'servizi-mobile': 'Aplicaciones móviles', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'IA y Automatización', 'servizi-cybersecurity': 'Ciberseguridad'
+        },
+        fr: {
+          home: 'Accueil', servizi: 'Services', founder: 'Fondateur', uffici: 'Bureaux', contatti: 'Contacts', 'contatti-form': 'Formulaire',
+          'servizi-mobile': 'Apps mobiles', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'IA & Automatisation', 'servizi-cybersecurity': 'Cybersécurité'
+        },
+      };
+
+      const base = {
+        it: (s) => `Ciao CloudLast, vorrei informazioni${s ? ' su ' + s : ''}. Grazie!`,
+        en: (s) => `Hi CloudLast, I'd like some info${s ? ' about ' + s : ''}. Thanks!`,
+        es: (s) => `Hola CloudLast, me gustaría información${s ? ' sobre ' + s : ''}. ¡Gracias!`,
+        fr: (s) => `Bonjour CloudLast, j'aimerais des infos${s ? ' sur ' + s : ''}. Merci !`,
+      };
+
+      const labels = {
+        it: 'Scrivici su WhatsApp',
+        en: 'Chat on WhatsApp',
+        es: 'Escríbenos por WhatsApp',
+        fr: 'Écris‑nous sur WhatsApp',
+      };
+
+      let currentKey = 'home';
+      let visibleSection = { key: 'home', ratio: 0 };
+      let visibleDetail = null;
+
+      function buildHref(lang) {
+        const localized = names[lang] || names.it;
+        const n = localized[currentKey] || '';
+        const text = (base[lang] || base.it)(n || '');
+        return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      }
+
+      function applyLinks() {
+        ['it', 'en', 'es', 'fr'].forEach((lang) => {
+          const href = buildHref(lang);
+          const title = labels[lang] || labels.it;
+          document.querySelectorAll(`.whatsapp-fab-btn[data-lang="${lang}"]`).forEach((a) => {
+            a.setAttribute('href', href);
+            a.setAttribute('title', title);
+          });
+          document.querySelectorAll(`.wa-link[data-lang="${lang}"]`).forEach((a) => {
+            a.setAttribute('href', href);
+            a.setAttribute('title', title);
+          });
+        });
+      }
+
+      // Observe sections and detailed cards to infer context
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          const key = elementToKey.get(e.target);
+          if (!key) return;
+          const isDetail = key.startsWith('servizi-') || key === 'contatti-form';
+          if (e.isIntersecting) {
+            if (isDetail) {
+              if (!visibleDetail || e.intersectionRatio >= (visibleDetail.ratio || 0)) {
+                visibleDetail = { key, ratio: e.intersectionRatio };
+              }
+            } else {
+              if (!visibleSection || e.intersectionRatio >= (visibleSection.ratio || 0)) {
+                visibleSection = { key, ratio: e.intersectionRatio };
+              }
+            }
+          } else {
+            if (visibleDetail && visibleDetail.key === key) visibleDetail = null;
+            if (visibleSection && visibleSection.key === key) visibleSection = { key: 'home', ratio: 0 };
+          }
+        });
+
+        const nextKey = (visibleDetail && visibleDetail.key) || (visibleSection && visibleSection.key) || 'home';
+        if (nextKey !== currentKey) {
+          currentKey = nextKey;
+          applyLinks();
+        }
+      }, { threshold: [0.5, 0.75] });
+
+      sections.forEach(({ sel, key }) => {
+        const el = document.querySelector(sel);
+        if (el) {
+          elementToKey.set(el, key);
+          io.observe(el);
+        }
+      });
+
+      // Detailed cards
+      document.querySelectorAll('[data-wa-key]').forEach((el) => {
+        const key = el.getAttribute('data-wa-key');
+        if (!key) return;
+        elementToKey.set(el, key);
+        io.observe(el);
+      });
+
+      // Initial
+      applyLinks();
+
+      // Update on language switch
+      langBtns.forEach((b) => b.addEventListener('click', () => requestAnimationFrame(applyLinks)));
+      window.addEventListener('resize', () => applyLinks());
     })();
 </script>
 
