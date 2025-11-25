@@ -236,6 +236,29 @@
           backdrop-filter: blur(20px);
           box-shadow: 0 20px 40px var(--shadow), inset 0 0 0 1px rgba(255,255,255,0.06);
           animation: float 12s ease-in-out infinite alternate;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-card::after {
+          content: "";
+          position: absolute;
+          inset: 6px;
+          border-radius: var(--radius-lg);
+          border: 1px solid rgba(255,255,255,0.05);
+          pointer-events: none;
+        }
+
+        .hero-card::before {
+          content: "";
+          position: absolute;
+          width: 220px;
+          height: 220px;
+          right: -60px;
+          top: -80px;
+          background: radial-gradient(circle, rgba(0,255,166,0.18), transparent 55%);
+          filter: blur(12px);
+          pointer-events: none;
         }
 
         @keyframes float {
@@ -264,6 +287,40 @@
           margin: 2px 0 0 0;
           font-size: 17px;
           color: var(--muted);
+        }
+
+        .hero .cta-row {
+          margin-top: 16px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          align-items: center;
+        }
+
+        .btn-ghost {
+          padding: 13px 16px;
+          border-radius: 18px;
+          border: 1px solid rgba(255,255,255,0.14);
+          color: var(--text);
+          background: rgba(255,255,255,0.04);
+          font-weight: 700;
+          cursor: pointer;
+          transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+        }
+
+        .btn-ghost:hover { border-color: rgba(0,255,166,0.45); transform: translateY(-2px); }
+
+        .pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 12px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.14);
+          color: var(--muted);
+          font-weight: 600;
+          font-size: 13px;
         }
 
         /* Avatar utility for profile-like images */
@@ -303,6 +360,40 @@
           box-shadow: 0 0 0 1px rgba(0,255,166,0.5),
                       0 0 34px rgba(0,255,166,0.18);
         }
+
+        .ribbon {
+          display: grid;
+          gap: 14px;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          padding: 16px;
+          border-radius: var(--radius-lg);
+          background: linear-gradient(90deg, rgba(0,255,166,0.08), rgba(0,207,255,0.08));
+          border: 1px solid rgba(255,255,255,0.1);
+          box-shadow: 0 10px 24px var(--shadow);
+        }
+
+        .ribbon-item {
+          display: grid;
+          gap: 6px;
+          align-content: start;
+        }
+
+        .ribbon-title {
+          font-weight: 800;
+          font-size: 20px;
+          color: var(--text);
+        }
+
+        .muted { color: var(--muted); }
+
+        .glow-card {
+          background: radial-gradient(140% 140% at 10% 20%, rgba(0,255,166,0.09), transparent 40%),
+                      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 14px 32px var(--shadow);
+        }
+
+        .tag { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); }
 
         /* ========================================= */
         /*               CONTACT FORM                */
@@ -498,6 +589,39 @@
     </button>
 </div>
 
+<header>
+    <nav class="nav-bar">
+        <a class="nav-brand" href="#top">
+            <img src="mnt/data/logo.png" alt="CloudLast logo" width="40" height="40" loading="lazy" decoding="async" />
+            <span>CloudLast</span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-link" href="#servizi" data-lang="it">Servizi</a>
+            <a class="nav-link" href="#servizi" data-lang="en">Services</a>
+            <a class="nav-link" href="#servizi" data-lang="es">Servicios</a>
+            <a class="nav-link" href="#servizi" data-lang="fr">Services</a>
+
+            <a class="nav-link" href="#founder" data-lang="it">Founder</a>
+            <a class="nav-link" href="#founder" data-lang="en">Founder</a>
+            <a class="nav-link" href="#founder" data-lang="es">Fundador</a>
+            <a class="nav-link" href="#founder" data-lang="fr">Fondateur</a>
+
+            <a class="nav-link" href="#contatti" data-lang="it">Contatti</a>
+            <a class="nav-link" href="#contatti" data-lang="en">Contact</a>
+            <a class="nav-link" href="#contatti" data-lang="es">Contacto</a>
+            <a class="nav-link" href="#contatti" data-lang="fr">Contact</a>
+        </div>
+        <div class="nav-links" style="justify-content: flex-end; flex: 1;">
+            <a class="btn-ghost" href="#contatti">
+                <span data-lang="it">Prenota una call</span>
+                <span data-lang="en">Book a call</span>
+                <span data-lang="es">Agenda una llamada</span>
+                <span data-lang="fr">Réserver un call</span>
+            </a>
+        </div>
+    </nav>
+</header>
+
 <main class="container">
 
     <!-- ========================================= -->
@@ -508,6 +632,12 @@
         <div class="hero-card">
             <img src="mnt/data/logo.png" alt="CloudLast Logo" width="90" height="90" decoding="async" fetchpriority="high" />
             <div>
+                <div class="pill">
+                    <span data-lang="it">Boutique cloud-native</span>
+                    <span data-lang="en">Cloud-native boutique</span>
+                    <span data-lang="es">Boutique cloud-native</span>
+                    <span data-lang="fr">Boutique cloud-native</span>
+                </div>
                 <h1>CloudLast</h1>
                 <p class="slogan">
                     <span data-lang="it">Think Cloud. Build Last.</span>
@@ -515,6 +645,58 @@
                     <span data-lang="es">Think Cloud. Build Last.</span>
                     <span data-lang="fr">Think Cloud. Build Last.</span>
                 </p>
+                <div class="cta-row">
+                    <button class="btn-primary" type="button" onclick="document.getElementById('servizi').scrollIntoView({behavior:'smooth'});">
+                        <span data-lang="it">Scopri i servizi</span>
+                        <span data-lang="en">Explore services</span>
+                        <span data-lang="es">Ver servicios</span>
+                        <span data-lang="fr">Voir les services</span>
+                    </button>
+                    <a class="btn-ghost" href="#contatti">
+                        <span data-lang="it">Parla con noi</span>
+                        <span data-lang="en">Talk with us</span>
+                        <span data-lang="es">Hablemos</span>
+                        <span data-lang="fr">Échanger</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="ribbon">
+            <div class="ribbon-item">
+                <div class="tag" data-lang="it">Affidabilità</div>
+                <div class="tag" data-lang="en">Reliability</div>
+                <div class="tag" data-lang="es">Fiabilidad</div>
+                <div class="tag" data-lang="fr">Fiabilité</div>
+                <div class="ribbon-title">99.95% SLA</div>
+                <p class="muted" data-lang="it">Architetture progettate per la resilienza continua.</p>
+                <p class="muted" data-lang="en">Architectures engineered for continuous resilience.</p>
+                <p class="muted" data-lang="es">Arquitecturas diseñadas para la resiliencia continua.</p>
+                <p class="muted" data-lang="fr">Architectures conçues pour une résilience continue.</p>
+            </div>
+            <div class="ribbon-item">
+                <div class="tag" data-lang="it">Velocità</div>
+                <div class="tag" data-lang="en">Speed</div>
+                <div class="tag" data-lang="es">Velocidad</div>
+                <div class="tag" data-lang="fr">Vitesse</div>
+                <div class="ribbon-title">4-6 settimane</div>
+                <p class="muted" data-lang="it">MVP cloud-first consegnati senza compromessi.</p>
+                <p class="muted" data-lang="en">Cloud-first MVPs delivered without compromises.</p>
+                <p class="muted" data-lang="es">MVP cloud-first entregados sin compromisos.</p>
+                <p class="muted" data-lang="fr">MVP cloud-first livrés sans compromis.</p>
+            </div>
+            <div class="ribbon-item">
+                <div class="tag" data-lang="it">Sicurezza</div>
+                <div class="tag" data-lang="en">Security</div>
+                <div class="tag" data-lang="es">Seguridad</div>
+                <div class="tag" data-lang="fr">Sécurité</div>
+                <div class="ribbon-title">Hardening continuo</div>
+                <p class="muted" data-lang="it">Assessment periodici, zero tolleranza ai rischi superflui.</p>
+                <p class="muted" data-lang="en">Periodic assessments, zero tolerance to needless risk.</p>
+                <p class="muted" data-lang="es">Evaluaciones periódicas, cero tolerancia al riesgo innecesario.</p>
+                <p class="muted" data-lang="fr">Audits réguliers, tolérance zéro au risque inutile.</p>
             </div>
         </div>
     </section>
@@ -577,6 +759,48 @@
                 <p data-lang="es">Protección continua de datos e infraestructura.</p>
                 <p data-lang="fr">Protection continue des données et infrastructures.</p>
             </article>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!--                METODO PREMIUM              -->
+    <!-- ========================================= -->
+
+    <section class="section" id="metodo">
+        <div class="card glow-card">
+            <h2 data-lang="it">Metodo boutique</h2>
+            <h2 data-lang="en">Boutique method</h2>
+            <h2 data-lang="es">Método boutique</h2>
+            <h2 data-lang="fr">Méthode boutique</h2>
+
+            <p class="muted" data-lang="it">Strategy sprint, prototipo rapido e delivery assistito: trasformiamo le idee in prodotti di fascia alta.</p>
+            <p class="muted" data-lang="en">Strategy sprint, rapid prototype and assisted delivery: we turn ideas into high-end products.</p>
+            <p class="muted" data-lang="es">Strategy sprint, prototipo rápido y entrega asistida: convertimos ideas en productos de alta gama.</p>
+            <p class="muted" data-lang="fr">Strategy sprint, prototype rapide et delivery assisté : nous transformons les idées en produits premium.</p>
+
+            <div class="grid" style="margin-top:16px;">
+                <div class="card" style="background: transparent; box-shadow:none; border-color: rgba(255,255,255,0.12);">
+                    <h3>01 · Discovery</h3>
+                    <p class="muted" data-lang="it">Workshop executive, mappatura rischi, piano di security by design.</p>
+                    <p class="muted" data-lang="en">Executive workshop, risk mapping, security-by-design plan.</p>
+                    <p class="muted" data-lang="es">Workshop ejecutivo, mapa de riesgos y plan de seguridad by design.</p>
+                    <p class="muted" data-lang="fr">Workshop exécutif, cartographie des risques et plan security by design.</p>
+                </div>
+                <div class="card" style="background: transparent; box-shadow:none; border-color: rgba(255,255,255,0.12);">
+                    <h3>02 · Build</h3>
+                    <p class="muted" data-lang="it">Squad dedicata con QA continuo, infrastruttura osservabile e costi sotto controllo.</p>
+                    <p class="muted" data-lang="en">Dedicated squad with continuous QA, observable infra and costs under control.</p>
+                    <p class="muted" data-lang="es">Squad dedicada con QA continuo, infraestructura observable y costes controlados.</p>
+                    <p class="muted" data-lang="fr">Équipe dédiée avec QA continu, infra observable et coûts maîtrisés.</p>
+                </div>
+                <div class="card" style="background: transparent; box-shadow:none; border-color: rgba(255,255,255,0.12);">
+                    <h3>03 · Grow</h3>
+                    <p class="muted" data-lang="it">Monitoraggio proattivo, runbook condivisi e roadmap evolutive a trimestre.</p>
+                    <p class="muted" data-lang="en">Proactive monitoring, shared runbooks and quarterly evolutive roadmaps.</p>
+                    <p class="muted" data-lang="es">Monitorización proactiva, runbook compartidos y roadmap evolutivas trimestrales.</p>
+                    <p class="muted" data-lang="fr">Monitoring proactif, runbooks partagés et roadmaps évolutives trimestrielles.</p>
+                </div>
+            </div>
         </div>
     </section>
 
