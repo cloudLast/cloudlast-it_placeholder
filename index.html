@@ -1,601 +1,927 @@
-<link rel="icon" type="image/x-icon" href="mnt/data/logo.ico" /><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it" data-current-lang="it" data-theme="dark">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CloudLast • Think Cloud. Build Last.</title>
     <link rel="icon" type="image/x-icon" href="/mnt/data/logo.ico" />
+
     <!-- ========================================= -->
     <!--                 GLOBAL STYLE               -->
     <!-- ========================================= -->
 
     <style>
-        :root {
-          --bg-1: #070b10;
-          --bg-2: #0c1a22;
-          --accent-1: #00cfff;
-          --accent-2: #00ffa6;
-          --text: #e9fbff;
-          --muted: #9bd3dd;
-          --card: rgba(255, 255, 255, 0.04);
-          --card-border: rgba(255, 255, 255, 0.12);
-          --shadow: rgba(0,0,0,0.45);
-          --maxw: 900px;
-          --radius-lg: 44px;
-          --radius-xl: 52px;
-          --radius-md: 36px;
-        }
+      :root {
+        --bg-1: #070b10;
+        --bg-2: #0c1a22;
+        --accent-1: #00cfff;
+        --accent-2: #00ffa6;
+        --text: #e9fbff;
+        --muted: #9bd3dd;
+        --card: rgba(255, 255, 255, 0.04);
+        --card-border: rgba(255, 255, 255, 0.12);
+        --shadow: rgba(0, 0, 0, 0.45);
+        --maxw: 900px;
+        --radius-lg: 44px;
+        --radius-xl: 52px;
+        --radius-md: 36px;
+      }
 
-        /* Base image defaults for layout stability */
-        img {
-          display: block;
-          max-width: 100%;
-          height: auto;
-        }
+      /* Base image defaults for layout stability */
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
 
-        /* Light Theme */
-        [data-theme="light"] {
-          --bg-1: #f7fafc;
-          --bg-2: #eef2f5;
-          --text: #0e1b21;
-          --muted: #4c5b62;
-          --card: rgba(0,0,0,0.04);
-          --card-border: rgba(0,0,0,0.12);
-          --shadow: rgba(0,0,0,0.22);
-        }
+      /* Light Theme */
+      [data-theme="light"] {
+        --bg-1: #f7fafc;
+        --bg-2: #eef2f5;
+        --text: #0e1b21;
+        --muted: #4c5b62;
+        --card: rgba(0, 0, 0, 0.04);
+        --card-border: rgba(0, 0, 0, 0.12);
+        --shadow: rgba(0, 0, 0, 0.22);
+      }
 
-        * {
-          box-sizing: border-box;
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        body {
-          margin: 0;
-          font-family: -apple-system, Inter, system-ui, sans-serif;
-          background: radial-gradient(1200px 800px at 20% 10%, rgba(0,207,255,0.12), transparent 60%),
-                      radial-gradient(1000px 600px at 80% 10%, rgba(0,255,166,0.10), transparent 55%),
-                      linear-gradient(180deg, var(--bg-1), var(--bg-2));
-          background-attachment: fixed;
-          color: var(--text);
-          line-height: 1.6;
-          scroll-behavior: smooth;
-        }
+      body {
+        margin: 0;
+        font-family: -apple-system, Inter, system-ui, sans-serif;
+        background: radial-gradient(
+            1200px 800px at 20% 10%,
+            rgba(0, 207, 255, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 600px at 80% 10%,
+            rgba(0, 255, 166, 0.1),
+            transparent 55%
+          ),
+          linear-gradient(180deg, var(--bg-1), var(--bg-2));
+        background-attachment: fixed;
+        color: var(--text);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
 
-        ::selection {
-          background: rgba(0,207,255,0.25);
-          color: var(--text);
-        }
+      ::selection {
+        background: rgba(0, 207, 255, 0.25);
+        color: var(--text);
+      }
 
-        a { color: var(--accent-1); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+      a {
+        color: var(--accent-1);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
-        .container {
+      .container {
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .section {
+        margin: 56px 0;
+      }
+      .section h2 {
+        font-size: 28px;
+        margin-bottom: 18px;
+        color: var(--text);
+        text-shadow: 0 0 24px rgba(0, 255, 166, 0.15);
+        text-align: left;
+      }
+
+      /* ========================================= */
+      /*              LANGUAGE SWITCHER            */
+      /* ========================================= */
+
+      .lang-switcher {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 50;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px; /* spacing for internal padding calc */
+        padding: 6px;
+        border-radius: 999px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid var(--card-border);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 10px 26px var(--shadow);
+      }
+
+      .lang-switcher-inner {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .lang-indicator {
+        position: absolute;
+        left: 0;
+        top: 2px;
+        height: calc(100% - 4px);
+        width: 0;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+        box-shadow: 0 8px 24px rgba(0, 255, 166, 0.25),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+        transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+          width 0.35s cubic-bezier(0.2, 0.9, 0.2, 1);
+        pointer-events: none;
+      }
+
+      .lang-btn {
+        position: relative;
+        z-index: 1;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        background: transparent;
+        color: var(--muted);
+        border: none;
+        cursor: pointer;
+        transition: color 0.25s ease, transform 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .lang-btn:hover {
+        color: var(--text);
+      }
+      .lang-btn:active {
+        transform: scale(0.98);
+      }
+      .lang-btn[aria-pressed="true"] {
+        color: #001013;
+      }
+
+      /* ========================================= */
+      /*                 HEADER                    */
+      /* ========================================= */ /* =============================== */
+      /*  NAVBAR CORRETTA E CENTRATA    */
+      /* =============================== */
+
+      .navbar-wrapper {
+        width: 100%;
+        display: flex;
+        position: fixed; /* rimane bloccata */
+        top: 0;
+        left: 0;
+        z-index: 50;
+      }
+
+      /* Contenitore centrale massimo */
+      .navbar-center {
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        margin-top: 1.5%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 90px; /* spazio centrale ampio */
+      }
+
+      .navbar-logo img {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+
+      /* Sezione testo principale (Servizi / Founder / Contatti) */
+      .nav-central-links {
+        display: flex;
+        gap: 60px; /* spazio preciso tra gli elementi */
+        align-items: center;
+        font-size: 17px;
+      }
+
+      /* ====================================== */
+      /*  DESKTOP LARGE > 1400px                */
+      /* ====================================== */
+
+      @media (max-width: 1400px) {
+        .navbar-wrapper {
           width: 100%;
-          max-width: var(--maxw);
-          margin: 0 auto;
-          padding: 24px;
-        }
-
-        .section { margin: 56px 0; }
-        .section h2 {
-          font-size: 28px;
-          margin-bottom: 18px;
-          color: var(--text);
-          text-shadow: 0 0 24px rgba(0,255,166,0.15);
-          text-align: left;
-        }
-
-        /* ========================================= */
-        /*              LANGUAGE SWITCHER            */
-        /* ========================================= */
-
-        .lang-switcher {
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          z-index: 50;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px; /* spacing for internal padding calc */
-          padding: 6px;
-          border-radius: 999px;
-          background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-          border: 1px solid var(--card-border);
-          -webkit-backdrop-filter: blur(14px);
-          backdrop-filter: blur(14px);
-          box-shadow: 0 10px 26px var(--shadow);
-        }
-
-        .lang-switcher-inner {
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        .lang-indicator {
-          position: absolute;
-          left: 0;
-          top: 2px;
-          height: calc(100% - 4px);
-          width: 0;
-          border-radius: 999px;
-          background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
-          box-shadow: 0 8px 24px rgba(0,255,166,0.25), inset 0 0 0 1px rgba(255,255,255,0.35);
-          transition: transform .35s cubic-bezier(.2,.9,.2,1), width .35s cubic-bezier(.2,.9,.2,1);
-          pointer-events: none;
-        }
-
-        .lang-btn {
-          position: relative;
-          z-index: 1;
-          padding: 8px 14px;
-          border-radius: 999px;
-          font-size: 14px;
-          font-weight: 700;
-          background: transparent;
-          color: var(--muted);
-          border: none;
-          cursor: pointer;
-          transition: color .25s ease, transform .15s ease;
-          -webkit-tap-highlight-color: transparent;
-        }
-
-        .lang-btn:hover { color: var(--text); }
-        .lang-btn:active { transform: scale(0.98); }
-        .lang-btn[aria-pressed="true"] { color: #001013; }
-
-        /* ========================================= */
-        /*                 THEME SWITCHER            */
-        /* ========================================= */
-
-        .theme-switcher {
-          position: fixed;
-          right: 20px;
-          top: 20px;
-          z-index: 50;
-        }
-
-        .theme-toggle {
-          position: relative;
-          width: 74px;
-          height: 38px;
-          border-radius: 999px;
-          border: 1px solid var(--card-border);
-          cursor: pointer;
-          -webkit-backdrop-filter: blur(14px);
-          backdrop-filter: blur(14px);
-          background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-          box-shadow: 0 12px 28px var(--shadow), inset 0 0 0 1px rgba(255,255,255,0.06);
-          transition: transform .2s ease, box-shadow .25s ease, background .3s ease;
-          -webkit-tap-highlight-color: transparent;
-        }
-
-        .theme-toggle:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 0 0 1px rgba(0,255,166,0.55), 0 0 30px rgba(0,255,166,0.18);
-        }
-
-        .theme-toggle .icon {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 14px;
-          opacity: .65;
-          pointer-events: none;
-          transition: opacity .25s ease;
-        }
-
-        .theme-toggle .icon.sun { left: 10px; }
-        .theme-toggle .icon.moon { right: 10px; }
-
-        .theme-toggle .knob {
-          position: absolute;
-          top: 3px;
-          left: 3px;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background: radial-gradient(40% 40% at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.55)),
-                      linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.75));
-          box-shadow: 0 6px 16px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(0,0,0,0.06);
-          transition: transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .25s ease;
-        }
-
-        .theme-toggle:active .knob { box-shadow: 0 2px 8px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(0,0,0,0.08); }
-
-        /* Switched state (light mode) */
-        .theme-toggle[aria-checked="true"] .knob {
-          transform: translateX(36px);
-        }
-
-        [data-theme="dark"] .theme-toggle .icon.moon { opacity: 1; }
-        [data-theme="light"] .theme-toggle .icon.sun { opacity: 1; }
-
-        @media (prefers-reduced-motion: reduce) {
-          .theme-toggle, .theme-toggle .knob, .lang-indicator, .whatsapp-fab-btn { transition: none !important; }
-        }
-
-        /* ========================================= */
-        /*                  HERO                     */
-        /* ========================================= */
-
-        .hero {
-          margin-top: 80px;
-        }
-
-        .hero-card {
-          border-radius: var(--radius-xl);
-          padding: 28px;
-          display: grid;
-          grid-template-columns: 100px 1fr;
-          gap: 20px;
-          align-items: center;
-          border: 1px solid var(--card-border);
-          background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-          -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-          box-shadow: 0 20px 40px var(--shadow), inset 0 0 0 1px rgba(255,255,255,0.06);
-          animation: float 12s ease-in-out infinite alternate;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .hero-card::after {
-          content: "";
-          position: absolute;
-          inset: 6px;
-          border-radius: var(--radius-lg);
-          border: 1px solid rgba(255,255,255,0.05);
-          pointer-events: none;
-        }
-
-        .hero-card::before {
-          content: "";
-          position: absolute;
-          width: 220px;
-          height: 220px;
-          right: -60px;
-          top: -80px;
-          background: radial-gradient(circle, rgba(0,255,166,0.18), transparent 55%);
-          filter: blur(12px);
-          pointer-events: none;
-        }
-
-        @keyframes float {
-          from { transform: translateY(0) rotateY(-2deg); }
-          to   { transform: translateY(-8px) rotateY(2deg); }
-        }
-
-        .hero img {
-          width: 90px;
-          height: 90px;
-          aspect-ratio: 1 / 1;
-          border-radius: 28px;
-          object-fit: cover;
-          box-shadow: 0 0 18px rgba(0,255,166,0.32);
-        }
-
-        .hero h1 {
-          font-size: 38px;
-          margin: 0;
-          background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .hero .slogan {
-          margin: 2px 0 0 0;
-          font-size: 17px;
-          color: var(--muted);
-        }
-
-        .hero .cta-row {
-          margin-top: 16px;
           display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
+          justify-content: center;
+          margin-top: 0;
+        }
+
+        .navbar-center {
+          display: flex;
           align-items: center;
-        }
 
-        .btn-ghost {
-          padding: 13px 16px;
-          border-radius: 18px;
-          border: 1px solid rgba(255,255,255,0.14);
-          color: var(--text);
-          background: rgba(255,255,255,0.04);
-          font-weight: 700;
-          cursor: pointer;
-          transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
-        }
-
-        .btn-ghost:hover { border-color: rgba(0,255,166,0.45); transform: translateY(-2px); }
-
-        .pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 12px;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.14);
-          color: var(--muted);
-          font-weight: 600;
-          font-size: 13px;
-        }
-
-        /* Avatar utility for profile-like images */
-        .avatar {
-          width: 92px;
-          height: 92px;
-          aspect-ratio: 1 / 1;
-          object-fit: cover;
-          border-radius: 28px;
-          box-shadow: 0 0 18px rgba(0,255,166,0.3);
-          flex: none;
-        }
-
-        /* ========================================= */
-        /*                GRID CARDS                 */
-        /* ========================================= */
-
-        .grid {
-          display: grid;
-          gap: 20px;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        }
-
-        .card {
-          padding: 22px;
-          border-radius: var(--radius-md);
-          background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-          border: 1px solid var(--card-border);
-          -webkit-backdrop-filter: blur(14px);
-          backdrop-filter: blur(14px);
-          transition: all .25s ease;
-          box-shadow: 0 8px 20px var(--shadow);
-        }
-
-        .card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 0 0 1px rgba(0,255,166,0.5),
-                      0 0 34px rgba(0,255,166,0.18);
-        }
-
-        .ribbon {
-          display: grid;
-          gap: 14px;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          padding: 16px;
-          border-radius: var(--radius-lg);
-          background: linear-gradient(90deg, rgba(0,255,166,0.08), rgba(0,207,255,0.08));
-          border: 1px solid rgba(255,255,255,0.1);
-          box-shadow: 0 10px 24px var(--shadow);
-        }
-
-        .ribbon-item {
-          display: grid;
-          gap: 6px;
-          align-content: start;
-        }
-
-        .ribbon-title {
-          font-weight: 800;
-          font-size: 20px;
-          color: var(--text);
-        }
-
-        .muted { color: var(--muted); }
-
-        .glow-card {
-          background: radial-gradient(140% 140% at 10% 20%, rgba(0,255,166,0.09), transparent 40%),
-                      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-          border: 1px solid rgba(255,255,255,0.12);
-          box-shadow: 0 14px 32px var(--shadow);
-        }
-
-        .tag { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); }
-
-        /* ========================================= */
-        /*               CONTACT FORM                */
-        /* ========================================= */
-
-        .form { display: grid; gap: 12px; }
-
-        .input, .textarea {
-          width: 100%;
-          border: 1px solid var(--card-border);
-          border-radius: 18px;
-          padding: 12px 14px;
-          color: var(--text);
-          background: rgba(255,255,255,0.05);
-          -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-          transition: border-color .25s, box-shadow .25s;
-        }
-
-        .input:focus, .textarea:focus {
-          border-color: rgba(0,255,166,0.6);
-          box-shadow: 0 0 0 2px rgba(0,255,166,0.25);
-          outline: none;
-        }
-
-        .textarea {
-          min-height: 110px;
-          resize: vertical;
-        }
-
-        .btn-primary {
-          padding: 14px 16px;
-          border-radius: 18px;
-          border: none;
-          font-weight: 700;
-          cursor: pointer;
-          color: #001013;
-          background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
-          box-shadow: 0 12px 26px rgba(0,255,166,0.22);
-          transition: all .25s;
-        }
-
-        .btn-primary:hover {
-          transform: translateY(-2px);
-        }
-
-        footer {
-          text-align: center;
-          margin: 60px 0 30px;
-          color: var(--muted);
-          font-size: 14px;
-        }
-
-        /* ========================================= */
-        /*              MULTILINGUA RULES            */
-        /* ========================================= */
-
-        [data-current-lang="it"] [data-lang="en"],
-        [data-current-lang="it"] [data-lang="es"],
-        [data-current-lang="it"] [data-lang="fr"] { display: none; }
-
-        [data-current-lang="en"] [data-lang="it"],
-        [data-current-lang="en"] [data-lang="es"],
-        [data-current-lang="en"] [data-lang="fr"] { display: none; }
-
-        [data-current-lang="es"] [data-lang="it"],
-        [data-current-lang="es"] [data-lang="en"],
-        [data-current-lang="es"] [data-lang="fr"] { display: none; }
-
-        [data-current-lang="fr"] [data-lang="it"],
-        [data-current-lang="fr"] [data-lang="en"],
-        [data-current-lang="fr"] [data-lang="es"] { display: none; }
-
-        /* ========================================= */
-        /*               WHATSAPP STYLES             */
-        /* ========================================= */
-        .card--whatsapp {
+          gap: 25px; /* distanza perfetta logo ↔ centro ↔ bottone */
+          padding: 8px 0;
+          left: 10%;
+          margin-top: 1%;
           position: relative;
-          background: linear-gradient(180deg, rgba(37,211,102,0.12), rgba(37,211,102,0.06));
-          border-color: rgba(37,211,102,0.35);
-          box-shadow: 0 8px 24px rgba(37,211,102,0.18);
+          z-index: 20;
         }
-        .card--whatsapp:hover {
-          box-shadow:
-            0 0 0 1px rgba(37,211,102,0.55),
-            0 0 34px rgba(37,211,102,0.22);
-        }
-        .wa-row {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .wa-ico {
-          display: inline-flex;
-          width: 22px;
-          height: 22px;
-          border-radius: 6px;
-          box-shadow: 0 0 12px rgba(37,211,102,0.35);
-        }
-        .wa-ico svg { display: block; width: 22px; height: 22px; }
-        .wa- { font-weight: 700; }
 
-        /* Floating WhatsApp button */
+        .navbar-logo {
+          display: flex;
+          align-items: center;
+        }
+
+        .navbar-logo img {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          object-fit: cover;
+        }
+
+        .navbar-actions {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+        .nav-central-links {
+          display: flex;
+          gap: 60px; /* spazio preciso tra gli elementi */
+          align-items: center;
+          font-size: 17px;
+        }
+      }
+
+      /* =============================== */
+      /*  RESPONSIVE < 770px            */
+      /* =============================== */
+
+      @media (max-width: 900px) {
+        .navbar-wrapper {
+          position: relative;
+          margin-top: 85px; /* distanza naturale dentro la card */
+          z-index: 10;
+        }
+
+        .navbar-center {
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+          left: 3%;
+        }
+
+        .navbar-logo img {
+          width: 38px;
+          height: 38px;
+        }
+
+        .navbar-actions {
+          justify-content: center;
+        }
+        .nav-central-links {
+          display: flex;
+          gap: 60px; /* spazio preciso tra gli elementi */
+          align-items: center;
+          font-size: 17px;
+        }
+      }
+
+      @media (max-width: 580px) {
+        .navbar-wrapper {
+          position: relative;
+          margin-top: 85px; /* distanza naturale dentro la card */
+          z-index: 10;
+        }
+
+        .navbar-center {
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+          left: 3%;
+        }
+
+        .navbar-logo img {
+          width: 38px;
+          height: 38px;
+        }
+
+        .navbar-actions {
+          justify-content: center;
+        }
+        .nav-central-links {
+          display: flex;
+          gap: 10px; /* spazio preciso tra gli elementi */
+          align-items: center;
+          font-size: 17px;
+        }
+      }
+
+      /* ========================================= */
+      /*                 THEME SWITCHER            */
+      /* ========================================= */
+
+      .theme-switcher {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 50;
+      }
+
+      .theme-toggle {
+        position: relative;
+        width: 74px;
+        height: 38px;
+        border-radius: 999px;
+        border: 1px solid var(--card-border);
+        cursor: pointer;
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 255, 255, 0.04)
+        );
+        box-shadow: 0 12px 28px var(--shadow),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        transition: transform 0.2s ease, box-shadow 0.25s ease,
+          background 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px rgba(0, 255, 166, 0.55),
+          0 0 30px rgba(0, 255, 166, 0.18);
+      }
+
+      .theme-toggle .icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        opacity: 0.65;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .theme-toggle .icon.sun {
+        left: 10px;
+      }
+      .theme-toggle .icon.moon {
+        right: 10px;
+      }
+
+      .theme-toggle .knob {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: radial-gradient(
+            40% 40% at 30% 30%,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.55)
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 255, 255, 0.75)
+          );
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35),
+          inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+        transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+          box-shadow 0.25s ease;
+      }
+
+      .theme-toggle:active .knob {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35),
+          inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Switched state (light mode) */
+      .theme-toggle[aria-checked="true"] .knob {
+        transform: translateX(36px);
+      }
+
+      [data-theme="dark"] .theme-toggle .icon.moon {
+        opacity: 1;
+      }
+      [data-theme="light"] .theme-toggle .icon.sun {
+        opacity: 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .theme-toggle,
+        .theme-toggle .knob,
+        .lang-indicator,
+        .whatsapp-fab-btn {
+          transition: none !important;
+        }
+      }
+
+      /* ========================================= */
+      /*                  HERO                     */
+      /* ========================================= */
+
+      .hero {
+        margin-top: 80px;
+      }
+
+      .hero-card {
+        border-radius: var(--radius-xl);
+        padding: 28px;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 20px;
+        align-items: center;
+        border: 1px solid var(--card-border);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.03)
+        );
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 40px var(--shadow),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        animation: float 12s ease-in-out infinite alternate;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        pointer-events: none;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: -60px;
+        top: -80px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 255, 166, 0.18),
+          transparent 55%
+        );
+        filter: blur(12px);
+        pointer-events: none;
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(0) rotateY(-2deg);
+        }
+        to {
+          transform: translateY(-8px) rotateY(2deg);
+        }
+      }
+
+      .hero img {
+        width: 90px;
+        height: 90px;
+        aspect-ratio: 1 / 1;
+        border-radius: 28px;
+        object-fit: cover;
+        box-shadow: 0 0 18px rgba(0, 255, 166, 0.32);
+      }
+
+      .hero h1 {
+        font-size: 38px;
+        margin: 0;
+        background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero .slogan {
+        margin: 2px 0 0 0;
+        font-size: 17px;
+        color: var(--muted);
+      }
+
+      .hero .cta-row {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .btn-ghost {
+        padding: 13px 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.25s ease,
+          border-color 0.2s ease;
+      }
+
+      .btn-ghost:hover {
+        border-color: rgba(0, 255, 166, 0.45);
+        transform: translateY(-2px);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      /* Avatar utility for profile-like images */
+      .avatar {
+        width: 92px;
+        height: 92px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 28px;
+        box-shadow: 0 0 18px rgba(0, 255, 166, 0.3);
+        flex: none;
+      }
+
+      /* ========================================= */
+      /*                GRID CARDS                 */
+      /* ========================================= */
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: var(--radius-md);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid var(--card-border);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        transition: all 0.25s ease;
+        box-shadow: 0 8px 20px var(--shadow);
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 0 1px rgba(0, 255, 166, 0.5),
+          0 0 34px rgba(0, 255, 166, 0.18);
+      }
+
+      .ribbon {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 255, 166, 0.08),
+          rgba(0, 207, 255, 0.08)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 24px var(--shadow);
+      }
+
+      .ribbon-item {
+        display: grid;
+        gap: 6px;
+        align-content: start;
+      }
+
+      .ribbon-title {
+        font-weight: 800;
+        font-size: 20px;
+        color: var(--text);
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .glow-card {
+        background: radial-gradient(
+            140% 140% at 10% 20%,
+            rgba(0, 255, 166, 0.09),
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.03)
+          );
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 14px 32px var(--shadow);
+      }
+
+      .tag {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ========================================= */
+      /*               CONTACT FORM                */
+      /* ========================================= */
+
+      .form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .input,
+      .textarea {
+        width: 100%;
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        padding: 12px 14px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.05);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        transition: border-color 0.25s, box-shadow 0.25s;
+      }
+
+      .input:focus,
+      .textarea:focus {
+        border-color: rgba(0, 255, 166, 0.6);
+        box-shadow: 0 0 0 2px rgba(0, 255, 166, 0.25);
+        outline: none;
+      }
+
+      .textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .btn-primary {
+        padding: 14px 16px;
+        border-radius: 18px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        color: #001013;
+        background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+        box-shadow: 0 12px 26px rgba(0, 255, 166, 0.22);
+        transition: all 0.25s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      footer {
+        text-align: center;
+        margin: 60px 0 30px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* ========================================= */
+      /*              MULTILINGUA RULES            */
+      /* ========================================= */
+
+      [data-current-lang="it"] [data-lang="en"],
+      [data-current-lang="it"] [data-lang="es"],
+      [data-current-lang="it"] [data-lang="fr"] {
+        display: none;
+      }
+
+      [data-current-lang="en"] [data-lang="it"],
+      [data-current-lang="en"] [data-lang="es"],
+      [data-current-lang="en"] [data-lang="fr"] {
+        display: none;
+      }
+
+      [data-current-lang="es"] [data-lang="it"],
+      [data-current-lang="es"] [data-lang="en"],
+      [data-current-lang="es"] [data-lang="fr"] {
+        display: none;
+      }
+
+      [data-current-lang="fr"] [data-lang="it"],
+      [data-current-lang="fr"] [data-lang="en"],
+      [data-current-lang="fr"] [data-lang="es"] {
+        display: none;
+      }
+
+      /* ========================================= */
+      /*               WHATSAPP STYLES             */
+      /* ========================================= */
+      .card--whatsapp {
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          rgba(37, 211, 102, 0.12),
+          rgba(37, 211, 102, 0.06)
+        );
+        border-color: rgba(37, 211, 102, 0.35);
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.18);
+      }
+      .card--whatsapp:hover {
+        box-shadow: 0 0 0 1px rgba(37, 211, 102, 0.55),
+          0 0 34px rgba(37, 211, 102, 0.22);
+      }
+      .wa-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .wa-ico {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        box-shadow: 0 0 12px rgba(37, 211, 102, 0.35);
+      }
+      .wa-ico svg {
+        display: block;
+        width: 22px;
+        height: 22px;
+      }
+      .wa- {
+        font-weight: 700;
+      }
+
+      /* Floating WhatsApp button */
+      .whatsapp-fab {
+        position: fixed;
+        right: calc(20px + constant(safe-area-inset-right));
+        right: calc(20px + env(safe-area-inset-right));
+        bottom: calc(20px + constant(safe-area-inset-bottom));
+        bottom: calc(20px + env(safe-area-inset-bottom));
+        z-index: 60;
+      }
+      .whatsapp-fab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        min-height: 48px;
+        min-width: 48px;
+        border-radius: 999px;
+        color: #001013;
+        font-weight: 800;
+        text-decoration: none;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 211, 102, 1),
+          rgba(0, 255, 166, 0.95)
+        );
+        box-shadow: 0 16px 34px rgba(37, 211, 102, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        transition: transform 0.2s ease, box-shadow 0.25s ease,
+          filter 0.25s ease;
+      }
+      .whatsapp-fab-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px rgba(37, 211, 102, 0.66),
+          0 0 36px rgba(37, 211, 102, 0.28);
+        filter: saturate(1.05);
+      }
+      .whatsapp-fab-btn:focus-visible {
+        outline: 2px solid var(--accent-2);
+        outline-offset: 3px;
+      }
+      .whatsapp-fab-btn .wa-ico {
+        box-shadow: none;
+      }
+
+      @media (max-width: 420px) {
+        .whatsapp-fab-btn {
+          padding: 10px 14px;
+        }
+        .whatsapp-fab-btn .wa-label {
+          display: none;
+        }
+      }
+
+      /* Hide FAB on tablets; re-show on large desktops */
+      @media (min-width: 768px) {
         .whatsapp-fab {
-          position: fixed;
-          right: calc(20px + constant(safe-area-inset-right));
-          right: calc(20px + env(safe-area-inset-right));
-          bottom: calc(20px + constant(safe-area-inset-bottom));
-          bottom: calc(20px + env(safe-area-inset-bottom));
-          z-index: 60;
+          display: none;
+        }
+      }
+      @media (min-width: 1200px) {
+        .whatsapp-fab {
+          display: block;
         }
         .whatsapp-fab-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 12px 16px;
-          min-height: 48px;
-          min-width: 48px;
-          border-radius: 999px;
-          color: #001013;
-          font-weight: 800;
-          text-decoration: none;
-          background: linear-gradient(135deg, rgba(37,211,102,1), rgba(0,255,166,0.95));
-          box-shadow: 0 16px 34px rgba(37,211,102,0.32);
-          border: 1px solid rgba(255,255,255,0.45);
-          -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-          transition: transform .2s ease, box-shadow .25s ease, filter .25s ease;
+          padding: 10px 14px;
+          box-shadow: 0 10px 22px rgba(37, 211, 102, 0.22);
         }
-        .whatsapp-fab-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 0 0 1px rgba(37,211,102,0.66), 0 0 36px rgba(37,211,102,0.28);
-          filter: saturate(1.05);
+        .whatsapp-fab-btn .wa-label {
+          display: inline;
         }
-        .whatsapp-fab-btn:focus-visible {
-          outline: 2px solid var(--accent-2);
-          outline-offset: 3px;
-        }
-        .whatsapp-fab-btn .wa-ico { box-shadow: none; }
+      }
 
-        @media (max-width: 420px) {
-          .whatsapp-fab-btn { padding: 10px 14px; }
-          .whatsapp-fab-btn .wa-label { display: none; }
+      /* Ultra-small phones: move FAB to the left and lift slightly */
+      @media (max-width: 360px) {
+        .whatsapp-fab {
+          right: auto;
+          left: calc(16px + constant(safe-area-inset-left));
+          left: calc(16px + env(safe-area-inset-left));
+          bottom: calc(28px + constant(safe-area-inset-bottom));
+          bottom: calc(28px + env(safe-area-inset-bottom));
         }
+      }
 
-        /* Hide FAB on tablets; re-show on large desktops */
-        @media (min-width: 768px) {
-          .whatsapp-fab { display: none; }
+      @media print {
+        .whatsapp-fab {
+          display: none !important;
         }
-        @media (min-width: 1200px) {
-          .whatsapp-fab { display: block; }
-          .whatsapp-fab-btn { padding: 10px 14px; box-shadow: 0 10px 22px rgba(37,211,102,0.22); }
-          .whatsapp-fab-btn .wa-label { display: inline; }
-        }
-
-        /* Ultra-small phones: move FAB to the left and lift slightly */
-        @media (max-width: 360px) {
-          .whatsapp-fab {
-            right: auto;
-            left: calc(16px + constant(safe-area-inset-left));
-            left: calc(16px + env(safe-area-inset-left));
-            bottom: calc(28px + constant(safe-area-inset-bottom));
-            bottom: calc(28px + env(safe-area-inset-bottom));
-          }
-        }
-
-        @media print { .whatsapp-fab { display: none !important; } }
-
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <!-- ========================================= -->
+    <!--           FIXED UI ELEMENTS               -->
+    <!-- ========================================= -->
 
-<!-- ========================================= -->
-<!--           FIXED UI ELEMENTS               -->
-<!-- ========================================= -->
-
-<div class="lang-switcher" role="group" aria-label="Language selector">
-    <div class="lang-switcher-inner">
-        <span class="lang-indicator" aria-hidden="true"></span>
-        <button class="lang-btn" data-set-lang="it" aria-pressed="true">🇮🇹 IT</button>
-        <button class="lang-btn" data-set-lang="en" aria-pressed="false">🇬🇧 EN</button>
-        <button class="lang-btn" data-set-lang="es" aria-pressed="false">🇪🇸 ES</button>
-        <button class="lang-btn" data-set-lang="fr" aria-pressed="false">🇫🇷 FR</button>
-    </div>
-</div>
-
-<div class="theme-switcher">
-    <button id="themeToggle" class="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle theme">
-        <span class="icon sun">☀️</span>
-        <span class="icon moon">🌙</span>
-        <span class="knob"></span>
-    </button>
-</div>
-
-<header>
-    <nav class="nav-bar">
-        <a class="nav-brand" href="#top">
-            <img src="mnt/data/logo.png" alt="CloudLast logo" width="40" height="40" loading="lazy" decoding="async" />
-            <span>CloudLast</span>
-        </a>
-        <div class="nav-s">
+    <header>
+      <div class="navbar-wrapper">
+        <div class="navbar-center">
+          <div class="navbar-logo">
+            <div
+              class="lang-switcher"
+              role="group"
+              aria-label="Language selector"
+            >
+              <div class="lang-switcher-inner">
+                <span class="lang-indicator" aria-hidden="true"></span>
+                <button class="lang-btn" data-set-lang="it" aria-pressed="true">
+                  🇮🇹 IT
+                </button>
+                <button
+                  class="lang-btn"
+                  data-set-lang="en"
+                  aria-pressed="false"
+                >
+                  🇬🇧 EN
+                </button>
+                <button
+                  class="lang-btn"
+                  data-set-lang="es"
+                  aria-pressed="false"
+                >
+                  🇪🇸 ES
+                </button>
+                <button
+                  class="lang-btn"
+                  data-set-lang="fr"
+                  aria-pressed="false"
+                >
+                  🇫🇷 FR
+                </button>
+              </div>
+            </div>
+            <a href="#top">
+              <img
+                src="mnt/data/logo.png"
+                alt="CloudLast logo"
+                width="40"
+                height="40"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+          <div class="nav-central-links">
             <a class="nav-" href="#servizi" data-lang="it">Servizi</a>
             <a class="nav-" href="#servizi" data-lang="en">Services</a>
             <a class="nav-" href="#servizi" data-lang="es">Servicios</a>
@@ -610,823 +936,1291 @@
             <a class="nav-" href="#contatti" data-lang="en">Contact</a>
             <a class="nav-" href="#contatti" data-lang="es">Contacto</a>
             <a class="nav-" href="#contatti" data-lang="fr">Contact</a>
-        </div>
-        <div class="nav-s" style="justify-content: flex-end; flex: 1;">
-            <a class="btn-ghost" href="#contatti">
+          </div>
+          <div class="navbar-actions">
+            <div class="nav-s" style="justify-content: flex-end; flex: 1">
+              <a class="btn-ghost" href="#contatti">
                 <span data-lang="it">Prenota una call</span>
                 <span data-lang="en">Book a call</span>
                 <span data-lang="es">Agenda una llamada</span>
                 <span data-lang="fr">Réserver un call</span>
-            </a>
+              </a>
+            </div>
+            <div class="theme-switcher">
+              <button
+                id="themeToggle"
+                class="theme-toggle"
+                role="switch"
+                aria-checked="false"
+                aria-label="Toggle theme"
+              >
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+                <span class="knob"></span>
+              </button>
+            </div>
+          </div>
         </div>
-    </nav>
-</header>
+      </div>
+    </header>
 
-<main class="container">
+    <main class="container">
+      <!-- ========================================= -->
+      <!--                    HERO                   -->
+      <!-- ========================================= -->
 
-    <!-- ========================================= -->
-    <!--                    HERO                   -->
-    <!-- ========================================= -->
-
-    <section class="hero section">
+      <section class="hero section">
         <div class="hero-card">
-            <img src="mnt/data/logo.png" alt="CloudLast Logo" width="90" height="90" decoding="async" fetchpriority="high" />
-            <div>
-                <div class="pill">
-                    <span data-lang="it">Boutique cloud-native</span>
-                    <span data-lang="en">Cloud-native boutique</span>
-                    <span data-lang="es">Boutique cloud-native</span>
-                    <span data-lang="fr">Boutique cloud-native</span>
-                </div>
-                <h1>CloudLast</h1>
-                <p class="slogan">
-                    <span data-lang="it">Think Cloud. Build Last.</span>
-                    <span data-lang="en">Think Cloud. Build Last.</span>
-                    <span data-lang="es">Think Cloud. Build Last.</span>
-                    <span data-lang="fr">Think Cloud. Build Last.</span>
-                </p>
-                <div class="cta-row">
-                    <button class="btn-primary" type="button" onclick="document.getElementById('servizi').scrollIntoView({behavior:'smooth'});">
-                        <span data-lang="it">Scopri i servizi</span>
-                        <span data-lang="en">Explore services</span>
-                        <span data-lang="es">Ver servicios</span>
-                        <span data-lang="fr">Voir les services</span>
-                    </button>
-                    <a class="btn-ghost" href="#contatti">
-                        <span data-lang="it">Parla con noi</span>
-                        <span data-lang="en">Talk with us</span>
-                        <span data-lang="es">Hablemos</span>
-                        <span data-lang="fr">Échanger</span>
-                    </a>
-                </div>
+          <img
+            src="mnt/data/logo.png"
+            alt="CloudLast Logo"
+            width="90"
+            height="90"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <div>
+            <h1>CloudLast</h1>
+            <p class="slogan">
+              <span data-lang="it">Think Cloud. Build Last.</span>
+              <span data-lang="en">Think Cloud. Build Last.</span>
+              <span data-lang="es">Think Cloud. Build Last.</span>
+              <span data-lang="fr">Think Cloud. Build Last.</span>
+            </p>
+            <div class="cta-row">
+              <button
+                class="btn-primary"
+                type="button"
+                onclick="document.getElementById('servizi').scrollIntoView({behavior:'smooth'});"
+              >
+                <span data-lang="it">Scopri i servizi</span>
+                <span data-lang="en">Explore services</span>
+                <span data-lang="es">Ver servicios</span>
+                <span data-lang="fr">Voir les services</span>
+              </button>
+              <a class="btn-ghost" href="#contatti">
+                <span data-lang="it">Parla con noi</span>
+                <span data-lang="en">Talk with us</span>
+                <span data-lang="es">Hablemos</span>
+                <span data-lang="fr">Échanger</span>
+              </a>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="section">
+      <section class="section">
         <div class="ribbon">
-            <div class="ribbon-item">
-                <div class="tag" data-lang="it">Affidabilità</div>
-                <div class="tag" data-lang="en">Reliability</div>
-                <div class="tag" data-lang="es">Fiabilidad</div>
-                <div class="tag" data-lang="fr">Fiabilité</div>
-                <div class="ribbon-title">99.95% SLA</div>
-                <p class="muted" data-lang="it">Architetture progettate per la resilienza continua.</p>
-                <p class="muted" data-lang="en">Architectures engineered for continuous resilience.</p>
-                <p class="muted" data-lang="es">Arquitecturas diseñadas para la resiliencia continua.</p>
-                <p class="muted" data-lang="fr">Architectures conçues pour une résilience continue.</p>
-            </div>
-            <div class="ribbon-item">
-                <div class="tag" data-lang="it">Velocità</div>
-                <div class="tag" data-lang="en">Speed</div>
-                <div class="tag" data-lang="es">Velocidad</div>
-                <div class="tag" data-lang="fr">Vitesse</div>
-                <div class="ribbon-title">4-6 settimane</div>
-                <p class="muted" data-lang="it">MVP cloud-first consegnati senza compromessi.</p>
-                <p class="muted" data-lang="en">Cloud-first MVPs delivered without compromises.</p>
-                <p class="muted" data-lang="es">MVP cloud-first entregados sin compromisos.</p>
-                <p class="muted" data-lang="fr">MVP cloud-first livrés sans compromis.</p>
-            </div>
-            <div class="ribbon-item">
-                <div class="tag" data-lang="it">Sicurezza</div>
-                <div class="tag" data-lang="en">Security</div>
-                <div class="tag" data-lang="es">Seguridad</div>
-                <div class="tag" data-lang="fr">Sécurité</div>
-                <div class="ribbon-title">Hardening continuo</div>
-                <p class="muted" data-lang="it">Assessment periodici, zero tolleranza ai rischi superflui.</p>
-                <p class="muted" data-lang="en">Periodic assessments, zero tolerance to needless risk.</p>
-                <p class="muted" data-lang="es">Evaluaciones periódicas, cero tolerancia al riesgo innecesario.</p>
-                <p class="muted" data-lang="fr">Audits réguliers, tolérance zéro au risque inutile.</p>
-            </div>
+          <div class="ribbon-item">
+            <div class="tag" data-lang="it">Affidabilità</div>
+            <div class="tag" data-lang="en">Reliability</div>
+            <div class="tag" data-lang="es">Fiabilidad</div>
+            <div class="tag" data-lang="fr">Fiabilité</div>
+            <div class="ribbon-title">99.95% SLA</div>
+            <p class="muted" data-lang="it">
+              Architetture progettate per la resilienza continua.
+            </p>
+            <p class="muted" data-lang="en">
+              Architectures engineered for continuous resilience.
+            </p>
+            <p class="muted" data-lang="es">
+              Arquitecturas diseñadas para la resiliencia continua.
+            </p>
+            <p class="muted" data-lang="fr">
+              Architectures conçues pour une résilience continue.
+            </p>
+          </div>
+          <div class="ribbon-item">
+            <div class="tag" data-lang="it">Velocità</div>
+            <div class="tag" data-lang="en">Speed</div>
+            <div class="tag" data-lang="es">Velocidad</div>
+            <div class="tag" data-lang="fr">Vitesse</div>
+            <div class="ribbon-title">4-6 settimane</div>
+            <p class="muted" data-lang="it">
+              MVP cloud-first consegnati senza compromessi.
+            </p>
+            <p class="muted" data-lang="en">
+              Cloud-first MVPs delivered without compromises.
+            </p>
+            <p class="muted" data-lang="es">
+              MVP cloud-first entregados sin compromisos.
+            </p>
+            <p class="muted" data-lang="fr">
+              MVP cloud-first livrés sans compromis.
+            </p>
+          </div>
+          <div class="ribbon-item">
+            <div class="tag" data-lang="it">Sicurezza</div>
+            <div class="tag" data-lang="en">Security</div>
+            <div class="tag" data-lang="es">Seguridad</div>
+            <div class="tag" data-lang="fr">Sécurité</div>
+            <div class="ribbon-title">Hardening continuo</div>
+            <p class="muted" data-lang="it">
+              Assessment periodici, zero tolleranza ai rischi superflui.
+            </p>
+            <p class="muted" data-lang="en">
+              Periodic assessments, zero tolerance to needless risk.
+            </p>
+            <p class="muted" data-lang="es">
+              Evaluaciones periódicas, cero tolerancia al riesgo innecesario.
+            </p>
+            <p class="muted" data-lang="fr">
+              Audits réguliers, tolérance zéro au risque inutile.
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--                 SERVIZI                   -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--                 SERVIZI                   -->
+      <!-- ========================================= -->
 
-    <section class="section" id="servizi">
+      <section class="section" id="servizi">
         <h2 data-lang="it">Servizi</h2>
         <h2 data-lang="en">Services</h2>
         <h2 data-lang="es">Servicios</h2>
         <h2 data-lang="fr">Services</h2>
 
         <div class="grid">
-            <article class="card" data-wa-key="servizi-mobile">
-                <h3 data-lang="it">App Mobile</h3>
-                <h3 data-lang="en">Mobile Apps</h3>
-                <h3 data-lang="es">Aplicaciones móviles</h3>
-                <h3 data-lang="fr">Apps mobiles</h3>
+          <article class="card" data-wa-key="servizi-mobile">
+            <h3 data-lang="it">App Mobile</h3>
+            <h3 data-lang="en">Mobile Apps</h3>
+            <h3 data-lang="es">Aplicaciones móviles</h3>
+            <h3 data-lang="fr">Apps mobiles</h3>
 
-                <p data-lang="it">Esperienze fluide e moderne per iOS e Android.</p>
-                <p data-lang="en">Smooth, modern experiences for iOS and Android.</p>
-                <p data-lang="es">Experiencias fluidas y modernas para iOS y Android.</p>
-                <p data-lang="fr">Expériences fluides pour iOS et Android.</p>
-            </article>
+            <p data-lang="it">Esperienze fluide e moderne per iOS e Android.</p>
+            <p data-lang="en">
+              Smooth, modern experiences for iOS and Android.
+            </p>
+            <p data-lang="es">
+              Experiencias fluidas y modernas para iOS y Android.
+            </p>
+            <p data-lang="fr">Expériences fluides pour iOS et Android.</p>
+          </article>
 
-            <article class="card" data-wa-key="servizi-cloud">
-                <h3 data-lang="it">Cloud & Backend</h3>
-                <h3 data-lang="en">Cloud & Backend</h3>
-                <h3 data-lang="es">Cloud & Backend</h3>
-                <h3 data-lang="fr">Cloud & Backend</h3>
+          <article class="card" data-wa-key="servizi-cloud">
+            <h3 data-lang="it">Cloud & Backend</h3>
+            <h3 data-lang="en">Cloud & Backend</h3>
+            <h3 data-lang="es">Cloud & Backend</h3>
+            <h3 data-lang="fr">Cloud & Backend</h3>
 
-                <p data-lang="it">API sicure e scalabili.</p>
-                <p data-lang="en">Secure, scalable APIs.</p>
-                <p data-lang="es">APIs seguras y escalables.</p>
-                <p data-lang="fr">APIs sécurisées et scalables.</p>
-            </article>
+            <p data-lang="it">API sicure e scalabili.</p>
+            <p data-lang="en">Secure, scalable APIs.</p>
+            <p data-lang="es">APIs seguras y escalables.</p>
+            <p data-lang="fr">APIs sécurisées et scalables.</p>
+          </article>
 
-            <article class="card" data-wa-key="servizi-ai">
-                <h3 data-lang="it">AI & Automazione</h3>
-                <h3 data-lang="en">AI & Automation</h3>
-                <h3 data-lang="es">IA y Automatización</h3>
-                <h3 data-lang="fr">IA & Automatisation</h3>
+          <article class="card" data-wa-key="servizi-ai">
+            <h3 data-lang="it">AI & Automazione</h3>
+            <h3 data-lang="en">AI & Automation</h3>
+            <h3 data-lang="es">IA y Automatización</h3>
+            <h3 data-lang="fr">IA & Automatisation</h3>
 
-                <p data-lang="it">Processi intelligenti che riducono tempi e costi.</p>
-                <p data-lang="en">Smart workflows that reduce time and cost.</p>
-                <p data-lang="es">Procesos inteligentes que reducen tiempos y costes.</p>
-                <p data-lang="fr">Processus intelligents pour réduire coûts et délais.</p>
-            </article>
+            <p data-lang="it">
+              Processi intelligenti che riducono tempi e costi.
+            </p>
+            <p data-lang="en">Smart workflows that reduce time and cost.</p>
+            <p data-lang="es">
+              Procesos inteligentes que reducen tiempos y costes.
+            </p>
+            <p data-lang="fr">
+              Processus intelligents pour réduire coûts et délais.
+            </p>
+          </article>
 
-            <article class="card" data-wa-key="servizi-cybersecurity">
-                <h3 data-lang="it">Cybersecurity</h3>
-                <h3 data-lang="en">Cybersecurity</h3>
-                <h3 data-lang="es">Ciberseguridad</h3>
-                <h3 data-lang="fr">Cybersécurité</h3>
+          <article class="card" data-wa-key="servizi-cybersecurity">
+            <h3 data-lang="it">Cybersecurity</h3>
+            <h3 data-lang="en">Cybersecurity</h3>
+            <h3 data-lang="es">Ciberseguridad</h3>
+            <h3 data-lang="fr">Cybersécurité</h3>
 
-                <p data-lang="it">Protezione continua di dati e infrastrutture.</p>
-                <p data-lang="en">Continuous protection of data and infrastructure.</p>
-                <p data-lang="es">Protección continua de datos e infraestructura.</p>
-                <p data-lang="fr">Protection continue des données et infrastructures.</p>
-            </article>
+            <p data-lang="it">Protezione continua di dati e infrastrutture.</p>
+            <p data-lang="en">
+              Continuous protection of data and infrastructure.
+            </p>
+            <p data-lang="es">
+              Protección continua de datos e infraestructura.
+            </p>
+            <p data-lang="fr">
+              Protection continue des données et infrastructures.
+            </p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--                METODO PREMIUM              -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--                METODO PREMIUM              -->
+      <!-- ========================================= -->
 
-    <section class="section" id="metodo">
+      <section class="section" id="metodo">
         <div class="card glow-card">
-            <h2 data-lang="it">Metodo boutique</h2>
-            <h2 data-lang="en">Boutique method</h2>
-            <h2 data-lang="es">Método boutique</h2>
-            <h2 data-lang="fr">Méthode boutique</h2>
+          <h2 data-lang="it">Metodo boutique</h2>
+          <h2 data-lang="en">Boutique method</h2>
+          <h2 data-lang="es">Método boutique</h2>
+          <h2 data-lang="fr">Méthode boutique</h2>
 
-            <p class="muted" data-lang="it">Strategy sprint, prototipo rapido e delivery assistito: trasformiamo le idee in prodotti di fascia alta.</p>
-            <p class="muted" data-lang="en">Strategy sprint, rapid prototype and assisted delivery: we turn ideas into high-end products.</p>
-            <p class="muted" data-lang="es">Strategy sprint, prototipo rápido y entrega asistida: convertimos ideas en productos de alta gama.</p>
-            <p class="muted" data-lang="fr">Strategy sprint, prototype rapide et delivery assisté : nous transformons les idées en produits premium.</p>
+          <p class="muted" data-lang="it">
+            Strategy sprint, prototipo rapido e delivery assistito: trasformiamo
+            le idee in prodotti di fascia alta.
+          </p>
+          <p class="muted" data-lang="en">
+            Strategy sprint, rapid prototype and assisted delivery: we turn
+            ideas into high-end products.
+          </p>
+          <p class="muted" data-lang="es">
+            Strategy sprint, prototipo rápido y entrega asistida: convertimos
+            ideas en productos de alta gama.
+          </p>
+          <p class="muted" data-lang="fr">
+            Strategy sprint, prototype rapide et delivery assisté : nous
+            transformons les idées en produits premium.
+          </p>
 
-            <div class="grid" style="margin-top:16px;">
-                <div class="card" style="background: transparent; box-shadow:none; border-color: rgba(255,255,255,0.12);">
-                    <h3>01 · Discovery</h3>
-                    <p class="muted" data-lang="it">Workshop executive, mappatura rischi, piano di security by design.</p>
-                    <p class="muted" data-lang="en">Executive workshop, risk mapping, security-by-design plan.</p>
-                    <p class="muted" data-lang="es">Workshop ejecutivo, mapa de riesgos y plan de seguridad by design.</p>
-                    <p class="muted" data-lang="fr">Workshop exécutif, cartographie des risques et plan security by design.</p>
-                </div>
-                <div class="card" style="background: transparent; box-shadow:none; border-color: rgba(255,255,255,0.12);">
-                    <h3>02 · Build</h3>
-                    <p class="muted" data-lang="it">Squad dedicata con QA continuo, infrastruttura osservabile e costi sotto controllo.</p>
-                    <p class="muted" data-lang="en">Dedicated squad with continuous QA, observable infra and costs under control.</p>
-                    <p class="muted" data-lang="es">Squad dedicada con QA continuo, infraestructura observable y costes controlados.</p>
-                    <p class="muted" data-lang="fr">Équipe dédiée avec QA continu, infra observable et coûts maîtrisés.</p>
-                </div>
-                <div class="card" style="background: transparent; box-shadow:none; border-color: rgba(255,255,255,0.12);">
-                    <h3>03 · Grow</h3>
-                    <p class="muted" data-lang="it">Monitoraggio proattivo, runbook condivisi e roadmap evolutive a trimestre.</p>
-                    <p class="muted" data-lang="en">Proactive monitoring, shared runbooks and quarterly evolutive roadmaps.</p>
-                    <p class="muted" data-lang="es">Monitorización proactiva, runbook compartidos y roadmap evolutivas trimestrales.</p>
-                    <p class="muted" data-lang="fr">Monitoring proactif, runbooks partagés et roadmaps évolutives trimestrielles.</p>
-                </div>
+          <div class="grid" style="margin-top: 16px">
+            <div
+              class="card"
+              style="
+                background: transparent;
+                box-shadow: none;
+                border-color: rgba(255, 255, 255, 0.12);
+              "
+            >
+              <h3>01 · Discovery</h3>
+              <p class="muted" data-lang="it">
+                Workshop executive, mappatura rischi, piano di security by
+                design.
+              </p>
+              <p class="muted" data-lang="en">
+                Executive workshop, risk mapping, security-by-design plan.
+              </p>
+              <p class="muted" data-lang="es">
+                Workshop ejecutivo, mapa de riesgos y plan de seguridad by
+                design.
+              </p>
+              <p class="muted" data-lang="fr">
+                Workshop exécutif, cartographie des risques et plan security by
+                design.
+              </p>
             </div>
+            <div
+              class="card"
+              style="
+                background: transparent;
+                box-shadow: none;
+                border-color: rgba(255, 255, 255, 0.12);
+              "
+            >
+              <h3>02 · Build</h3>
+              <p class="muted" data-lang="it">
+                Squad dedicata con QA continuo, infrastruttura osservabile e
+                costi sotto controllo.
+              </p>
+              <p class="muted" data-lang="en">
+                Dedicated squad with continuous QA, observable infra and costs
+                under control.
+              </p>
+              <p class="muted" data-lang="es">
+                Squad dedicada con QA continuo, infraestructura observable y
+                costes controlados.
+              </p>
+              <p class="muted" data-lang="fr">
+                Équipe dédiée avec QA continu, infra observable et coûts
+                maîtrisés.
+              </p>
+            </div>
+            <div
+              class="card"
+              style="
+                background: transparent;
+                box-shadow: none;
+                border-color: rgba(255, 255, 255, 0.12);
+              "
+            >
+              <h3>03 · Grow</h3>
+              <p class="muted" data-lang="it">
+                Monitoraggio proattivo, runbook condivisi e roadmap evolutive a
+                trimestre.
+              </p>
+              <p class="muted" data-lang="en">
+                Proactive monitoring, shared runbooks and quarterly evolutive
+                roadmaps.
+              </p>
+              <p class="muted" data-lang="es">
+                Monitorización proactiva, runbook compartidos y roadmap
+                evolutivas trimestrales.
+              </p>
+              <p class="muted" data-lang="fr">
+                Monitoring proactif, runbooks partagés et roadmaps évolutives
+                trimestrielles.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--                 FOUNDER CARD              -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--                 FOUNDER CARD              -->
+      <!-- ========================================= -->
 
-    <section class="section" id="founder">
+      <section class="section" id="founder">
         <h2 data-lang="it">Founder</h2>
         <h2 data-lang="en">Founder</h2>
         <h2 data-lang="es">Fundador</h2>
         <h2 data-lang="fr">Fondateur</h2>
 
-        <div class="card" style="display:flex; gap:20px; align-items:flex-start;">
-            <img class="avatar" src="mnt/data/carlo.jpeg" alt="Carlo Gennaro • Founder CloudLast" width="92" height="92" loading="lazy" decoding="async" />
+        <div
+          class="card"
+          style="display: flex; gap: 20px; align-items: flex-start"
+        >
+          <img
+            class="avatar"
+            src="mnt/data/carlo.jpeg"
+            alt="Carlo Gennaro • Founder CloudLast"
+            width="92"
+            height="92"
+            loading="lazy"
+            decoding="async"
+          />
 
-            <div>
-                <h3>Carlo Gennaro</h3>
+          <div>
+            <h3>Carlo Gennaro</h3>
 
-                <p data-lang="it">
-                    Nato a Napoli il 21/09/1994, appassionato da sempre di tecnologia, innovazione e sicurezza informatica.<br>
-                    Possiedo certificazioni Apple e Google, con account sviluppatore attivi e la possibilità di pubblicare app sugli store ufficiali.<br><br>
-                    CloudLast nasce dalla mia visione: creare prodotti digitali solidi, etici e costruiti per durare.
-                </p>
+            <p data-lang="it">
+              Nato a Napoli il 21/09/1994, appassionato da sempre di tecnologia,
+              innovazione e sicurezza informatica.<br />
+              Possiedo certificazioni Apple e Google, con account sviluppatore
+              attivi e la possibilità di pubblicare app sugli store
+              ufficiali.<br /><br />
+              CloudLast nasce dalla mia visione: creare prodotti digitali
+              solidi, etici e costruiti per durare.
+            </p>
 
-                <p data-lang="en">
-                    Born in Naples on 21/09/1994, passionate about technology, innovation and cybersecurity since childhood.<br>
-                    I hold Apple and Google developer certifications with full publishing capability on official app stores.<br><br>
-                    CloudLast comes from my vision: building digital products that are solid, ethical and built to last.
-                </p>
+            <p data-lang="en">
+              Born in Naples on 21/09/1994, passionate about technology,
+              innovation and cybersecurity since childhood.<br />
+              I hold Apple and Google developer certifications with full
+              publishing capability on official app stores.<br /><br />
+              CloudLast comes from my vision: building digital products that are
+              solid, ethical and built to last.
+            </p>
 
-                <p data-lang="es">
-                    Nacido en Nápoles el 21/09/1994, apasionado de la tecnología, la innovación y la ciberseguridad.<br>
-                    Poseo certificaciones de Apple y Google, con cuentas activas y capacidad de publicación en sus tiendas oficiales.<br><br>
-                    CloudLast nace de mi visión: crear productos digitales sólidos, éticos y duraderos.
-                </p>
+            <p data-lang="es">
+              Nacido en Nápoles el 21/09/1994, apasionado de la tecnología, la
+              innovación y la ciberseguridad.<br />
+              Poseo certificaciones de Apple y Google, con cuentas activas y
+              capacidad de publicación en sus tiendas oficiales.<br /><br />
+              CloudLast nace de mi visión: crear productos digitales sólidos,
+              éticos y duraderos.
+            </p>
 
-                <p data-lang="fr">
-                    Né à Naples le 21/09/1994, passionné de technologie, d’innovation et de cybersécurité.<br>
-                    Je possède des certifications Apple et Google, avec capacité de publication sur les stores officiels.<br><br>
-                    CloudLast vient de ma vision : créer des produits numériques solides, éthiques et durables.
-                </p>
-            </div>
+            <p data-lang="fr">
+              Né à Naples le 21/09/1994, passionné de technologie, d’innovation
+              et de cybersécurité.<br />
+              Je possède des certifications Apple et Google, avec capacité de
+              publication sur les stores officiels.<br /><br />
+              CloudLast vient de ma vision : créer des produits numériques
+              solides, éthiques et durables.
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--                 VALORI                    -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--                 VALORI                    -->
+      <!-- ========================================= -->
 
-    <section class="section" id="valori">
+      <section class="section" id="valori">
         <h2 data-lang="it">Identità, Sicurezza e Valori</h2>
         <h2 data-lang="en">Identity, Security & Values</h2>
         <h2 data-lang="es">Identidad, Seguridad y Valores</h2>
         <h2 data-lang="fr">Identité, Sécurité & Valeurs</h2>
 
         <div class="grid">
-            <article class="card">
-                <h3 data-lang="it">Privacy & GDPR</h3>
-                <h3 data-lang="en">Privacy & GDPR</h3>
-                <h3 data-lang="es">Privacidad & GDPR</h3>
-                <h3 data-lang="fr">Confidentialité & RGPD</h3>
+          <article class="card">
+            <h3 data-lang="it">Privacy & GDPR</h3>
+            <h3 data-lang="en">Privacy & GDPR</h3>
+            <h3 data-lang="es">Privacidad & GDPR</h3>
+            <h3 data-lang="fr">Confidentialité & RGPD</h3>
 
-                <p data-lang="it">Riservatezza, controllo dei dati e conformità europea.</p>
-                <p data-lang="en">Confidentiality, data control and EU compliance.</p>
-                <p data-lang="es">Confidencialidad, control de datos y cumplimiento europeo.</p>
-                <p data-lang="fr">Confidentialité, contrôle des données et conformité UE.</p>
-            </article>
+            <p data-lang="it">
+              Riservatezza, controllo dei dati e conformità europea.
+            </p>
+            <p data-lang="en">
+              Confidentiality, data control and EU compliance.
+            </p>
+            <p data-lang="es">
+              Confidencialidad, control de datos y cumplimiento europeo.
+            </p>
+            <p data-lang="fr">
+              Confidentialité, contrôle des données et conformité UE.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3>Cybersecurity</h3>
-                <p data-lang="it">Best practice, monitoraggio e risposta rapida.</p>
-                <p data-lang="en">Best practices, monitoring and rapid response.</p>
-                <p data-lang="es">Buenas prácticas, monitoreo y respuesta rápida.</p>
-                <p data-lang="fr">Bonnes pratiques, surveillance et réponse rapide.</p>
-            </article>
+          <article class="card">
+            <h3>Cybersecurity</h3>
+            <p data-lang="it">Best practice, monitoraggio e risposta rapida.</p>
+            <p data-lang="en">Best practices, monitoring and rapid response.</p>
+            <p data-lang="es">
+              Buenas prácticas, monitoreo y respuesta rápida.
+            </p>
+            <p data-lang="fr">
+              Bonnes pratiques, surveillance et réponse rapide.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Legalità</h3>
-                <h3 data-lang="en">Legality</h3>
-                <h3 data-lang="es">Legalidad</h3>
-                <h3 data-lang="fr">Légalité</h3>
+          <article class="card">
+            <h3 data-lang="it">Legalità</h3>
+            <h3 data-lang="en">Legality</h3>
+            <h3 data-lang="es">Legalidad</h3>
+            <h3 data-lang="fr">Légalité</h3>
 
-                <p data-lang="it">Trasparenza, responsabilità e rispetto delle regole.</p>
-                <p data-lang="en">Transparency, accountability and respect for rules.</p>
-                <p data-lang="es">Transparencia, responsabilidad y respeto de las reglas.</p>
-                <p data-lang="fr">Transparence, responsabilité et respect des règles.</p>
-            </article>
+            <p data-lang="it">
+              Trasparenza, responsabilità e rispetto delle regole.
+            </p>
+            <p data-lang="en">
+              Transparency, accountability and respect for rules.
+            </p>
+            <p data-lang="es">
+              Transparencia, responsabilidad y respeto de las reglas.
+            </p>
+            <p data-lang="fr">
+              Transparence, responsabilité et respect des règles.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Valori & Qualità</h3>
-                <h3 data-lang="en">Values & Quality</h3>
-                <h3 data-lang="es">Valores & Calidad</h3>
-                <h3 data-lang="fr">Valeurs & Qualité</h3>
+          <article class="card">
+            <h3 data-lang="it">Valori & Qualità</h3>
+            <h3 data-lang="en">Values & Quality</h3>
+            <h3 data-lang="es">Valores & Calidad</h3>
+            <h3 data-lang="fr">Valeurs & Qualité</h3>
 
-                <p data-lang="it">Scelte corrette, lavoro curato e risultati affidabili.</p>
-                <p data-lang="en">Right choices, crafted work and reliable results.</p>
-                <p data-lang="es">Buenas decisiones, trabajo cuidado y resultados fiables.</p>
-                <p data-lang="fr">Bonnes décisions, travail soigné et résultats fiables.</p>
-            </article>
+            <p data-lang="it">
+              Scelte corrette, lavoro curato e risultati affidabili.
+            </p>
+            <p data-lang="en">
+              Right choices, crafted work and reliable results.
+            </p>
+            <p data-lang="es">
+              Buenas decisiones, trabajo cuidado y resultados fiables.
+            </p>
+            <p data-lang="fr">
+              Bonnes décisions, travail soigné et résultats fiables.
+            </p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--             PROGETTI FUTURI               -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--             PROGETTI FUTURI               -->
+      <!-- ========================================= -->
 
-    <section class="section" id="progetti">
+      <section class="section" id="progetti">
         <h2 data-lang="it">Progetti Futuri</h2>
         <h2 data-lang="en">Future Projects</h2>
         <h2 data-lang="es">Proyectos Futuros</h2>
         <h2 data-lang="fr">Projets Futurs</h2>
 
         <div class="grid">
-            <article class="card">
-                <h3 data-lang="it">Formazione Tecnica</h3>
-                <h3 data-lang="en">Technical Training</h3>
-                <h3 data-lang="es">Formación Técnica</h3>
-                <h3 data-lang="fr">Formation Technique</h3>
+          <article class="card">
+            <h3 data-lang="it">Formazione Tecnica</h3>
+            <h3 data-lang="en">Technical Training</h3>
+            <h3 data-lang="es">Formación Técnica</h3>
+            <h3 data-lang="fr">Formation Technique</h3>
 
-                <p data-lang="it">Percorsi pratici su linguaggi, cloud e sicurezza.</p>
-                <p data-lang="en">Hands-on training in languages, cloud and security.</p>
-                <p data-lang="es">Rutas prácticas en lenguajes, cloud y seguridad.</p>
-                <p data-lang="fr">Formations pratiques en langages, cloud et sécurité.</p>
-            </article>
+            <p data-lang="it">
+              Percorsi pratici su linguaggi, cloud e sicurezza.
+            </p>
+            <p data-lang="en">
+              Hands-on training in languages, cloud and security.
+            </p>
+            <p data-lang="es">
+              Rutas prácticas en lenguajes, cloud y seguridad.
+            </p>
+            <p data-lang="fr">
+              Formations pratiques en langages, cloud et sécurité.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Formazione Aziendale</h3>
-                <h3 data-lang="en">Corporate Training</h3>
-                <h3 data-lang="es">Formación Empresarial</h3>
-                <h3 data-lang="fr">Formation en Entreprise</h3>
+          <article class="card">
+            <h3 data-lang="it">Formazione Aziendale</h3>
+            <h3 data-lang="en">Corporate Training</h3>
+            <h3 data-lang="es">Formación Empresarial</h3>
+            <h3 data-lang="fr">Formation en Entreprise</h3>
 
-                <p data-lang="it">Competenze digitali per team e processi.</p>
-                <p data-lang="en">Digital skills for teams and processes.</p>
-                <p data-lang="es">Habilidades digitales para equipos y procesos.</p>
-                <p data-lang="fr">Compétences digitales pour équipes et processus.</p>
-            </article>
+            <p data-lang="it">Competenze digitali per team e processi.</p>
+            <p data-lang="en">Digital skills for teams and processes.</p>
+            <p data-lang="es">Habilidades digitales para equipos y procesos.</p>
+            <p data-lang="fr">
+              Compétences digitales pour équipes et processus.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Salute Mentale</h3>
-                <h3 data-lang="en">Mental Health</h3>
-                <h3 data-lang="es">Salud Mental</h3>
-                <h3 data-lang="fr">Santé Mentale</h3>
+          <article class="card">
+            <h3 data-lang="it">Salute Mentale</h3>
+            <h3 data-lang="en">Mental Health</h3>
+            <h3 data-lang="es">Salud Mental</h3>
+            <h3 data-lang="fr">Santé Mentale</h3>
 
-                <p data-lang="it">Persone al centro, ritmi umani e supporto.</p>
-                <p data-lang="en">People-first, humane rhythms and support.</p>
-                <p data-lang="es">Personas al centro, ritmos humanos y apoyo.</p>
-                <p data-lang="fr">Personnes au centre, rythme humain et soutien.</p>
-            </article>
+            <p data-lang="it">Persone al centro, ritmi umani e supporto.</p>
+            <p data-lang="en">People-first, humane rhythms and support.</p>
+            <p data-lang="es">Personas al centro, ritmos humanos y apoyo.</p>
+            <p data-lang="fr">Personnes au centre, rythme humain et soutien.</p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Impegno Ambientale</h3>
-                <h3 data-lang="en">Environmental Commitment</h3>
-                <h3 data-lang="es">Compromiso Ambiental</h3>
-                <h3 data-lang="fr">Engagement Environnemental</h3>
+          <article class="card">
+            <h3 data-lang="it">Impegno Ambientale</h3>
+            <h3 data-lang="en">Environmental Commitment</h3>
+            <h3 data-lang="es">Compromiso Ambiental</h3>
+            <h3 data-lang="fr">Engagement Environnemental</h3>
 
-                <p data-lang="it">Scelte sostenibili e misurabili nel tempo.</p>
-                <p data-lang="en">Sustainable choices with real impact.</p>
-                <p data-lang="es">Elecciones sostenibles con impacto real.</p>
-                <p data-lang="fr">Choix durables avec impact réel.</p>
-            </article>
-
+            <p data-lang="it">Scelte sostenibili e misurabili nel tempo.</p>
+            <p data-lang="en">Sustainable choices with real impact.</p>
+            <p data-lang="es">Elecciones sostenibles con impacto real.</p>
+            <p data-lang="fr">Choix durables avec impact réel.</p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--          PRODOTTI IN SVILUPPO             -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--          PRODOTTI IN SVILUPPO             -->
+      <!-- ========================================= -->
 
-    <section class="section" id="prodotti">
+      <section class="section" id="prodotti">
         <h2 data-lang="it">Prodotti in sviluppo</h2>
         <h2 data-lang="en">Products in development</h2>
         <h2 data-lang="es">Productos en desarrollo</h2>
         <h2 data-lang="fr">Produits en développement</h2>
 
         <div class="grid">
-            <article class="card">
-                <h3 data-lang="it">Obiettivo</h3>
-                <h3 data-lang="en">Goal</h3>
-                <h3 data-lang="es">Objetivo</h3>
-                <h3 data-lang="fr">Objectif</h3>
+          <article class="card">
+            <h3 data-lang="it">Obiettivo</h3>
+            <h3 data-lang="en">Goal</h3>
+            <h3 data-lang="es">Objetivo</h3>
+            <h3 data-lang="fr">Objectif</h3>
 
-                <p data-lang="it">Software pratico, semplice e utile davvero. Niente complicazioni inutili.</p>
-                <p data-lang="en">Practical, simple software that solves real problems. No bloat.</p>
-                <p data-lang="es">Software práctico, sencillo y útil de verdad. Sin complicaciones.</p>
-                <p data-lang="fr">Logiciels pratiques, simples et utiles. Pas de complexité inutile.</p>
-            </article>
+            <p data-lang="it">
+              Software pratico, semplice e utile davvero. Niente complicazioni
+              inutili.
+            </p>
+            <p data-lang="en">
+              Practical, simple software that solves real problems. No bloat.
+            </p>
+            <p data-lang="es">
+              Software práctico, sencillo y útil de verdad. Sin complicaciones.
+            </p>
+            <p data-lang="fr">
+              Logiciels pratiques, simples et utiles. Pas de complexité inutile.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Gestionale per estetica/beauty</h3>
-                <h3 data-lang="en">Management for beauty businesses</h3>
-                <h3 data-lang="es">Gestor para estética/beauty</h3>
-                <h3 data-lang="fr">Gestion pour activités esthétiques</h3>
+          <article class="card">
+            <h3 data-lang="it">Gestionale per estetica/beauty</h3>
+            <h3 data-lang="en">Management for beauty businesses</h3>
+            <h3 data-lang="es">Gestor para estética/beauty</h3>
+            <h3 data-lang="fr">Gestion pour activités esthétiques</h3>
 
-                <p data-lang="it">Agenda, clienti, trattamenti e pagamenti. Semplice e veloce.</p>
-                <p data-lang="en">Calendar, clients, treatments and payments. Simple and fast.</p>
-                <p data-lang="es">Agenda, clientes, tratamientos y pagos. Simple y rápido.</p>
-                <p data-lang="fr">Agenda, clients, soins et paiements. Simple et rapide.</p>
-            </article>
+            <p data-lang="it">
+              Agenda, clienti, trattamenti e pagamenti. Semplice e veloce.
+            </p>
+            <p data-lang="en">
+              Calendar, clients, treatments and payments. Simple and fast.
+            </p>
+            <p data-lang="es">
+              Agenda, clientes, tratamientos y pagos. Simple y rápido.
+            </p>
+            <p data-lang="fr">
+              Agenda, clients, soins et paiements. Simple et rapide.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Gestionale per PMI e studi</h3>
-                <h3 data-lang="en">Management for SMEs and firms</h3>
-                <h3 data-lang="es">Gestor para pymes y despachos</h3>
-                <h3 data-lang="fr">Gestion pour PME et cabinets</h3>
+          <article class="card">
+            <h3 data-lang="it">Gestionale per PMI e studi</h3>
+            <h3 data-lang="en">Management for SMEs and firms</h3>
+            <h3 data-lang="es">Gestor para pymes y despachos</h3>
+            <h3 data-lang="fr">Gestion pour PME et cabinets</h3>
 
-                <p data-lang="it">Preventivi, fatture, attività e scadenze. Chiaro e pratico.</p>
-                <p data-lang="en">Quotes, invoices, tasks and deadlines. Clear and practical.</p>
-                <p data-lang="es">Presupuestos, facturas, tareas y vencimientos. Claro y práctico.</p>
-                <p data-lang="fr">Devis, factures, tâches et échéances. Clair et pratique.</p>
-            </article>
+            <p data-lang="it">
+              Preventivi, fatture, attività e scadenze. Chiaro e pratico.
+            </p>
+            <p data-lang="en">
+              Quotes, invoices, tasks and deadlines. Clear and practical.
+            </p>
+            <p data-lang="es">
+              Presupuestos, facturas, tareas y vencimientos. Claro y práctico.
+            </p>
+            <p data-lang="fr">
+              Devis, factures, tâches et échéances. Clair et pratique.
+            </p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--               COSA CERCHIAMO              -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--               COSA CERCHIAMO              -->
+      <!-- ========================================= -->
 
-    <section class="section" id="cosa-cerchiamo">
+      <section class="section" id="cosa-cerchiamo">
         <h2 data-lang="it">Cosa cerchiamo</h2>
         <h2 data-lang="en">What we’re looking for</h2>
         <h2 data-lang="es">Qué buscamos</h2>
         <h2 data-lang="fr">Ce que nous cherchons</h2>
 
         <div class="grid">
-            <article class="card">
-                <h3 data-lang="it">Perché</h3>
-                <h3 data-lang="en">Why</h3>
-                <h3 data-lang="es">Por qué</h3>
-                <h3 data-lang="fr">Pourquoi</h3>
+          <article class="card">
+            <h3 data-lang="it">Perché</h3>
+            <h3 data-lang="en">Why</h3>
+            <h3 data-lang="es">Por qué</h3>
+            <h3 data-lang="fr">Pourquoi</h3>
 
-                <p data-lang="it">CloudLast è in crescita. Cerchiamo persone vere, curiose e affidabili. Non serve essere senior: contano l’attitudine e la voglia di imparare. Siamo piccoli ma con idee chiare.</p>
-                <p data-lang="en">CloudLast is growing. We look for real, curious and reliable people. You don’t need to be senior: attitude and willingness to learn matter. We’re small but clear about our direction.</p>
-                <p data-lang="es">CloudLast está creciendo. Buscamos personas reales, curiosas y fiables. No hace falta ser súper senior: cuentan la actitud y las ganas de aprender. Somos pequeños pero con ideas claras.</p>
-                <p data-lang="fr">CloudLast grandit. Nous cherchons des personnes vraies, curieuses et fiables. Pas besoin d’être super senior : comptent l’attitude et l’envie d’apprendre. Nous sommes petits mais avec les idées claires.</p>
-            </article>
+            <p data-lang="it">
+              CloudLast è in crescita. Cerchiamo persone vere, curiose e
+              affidabili. Non serve essere senior: contano l’attitudine e la
+              voglia di imparare. Siamo piccoli ma con idee chiare.
+            </p>
+            <p data-lang="en">
+              CloudLast is growing. We look for real, curious and reliable
+              people. You don’t need to be senior: attitude and willingness to
+              learn matter. We’re small but clear about our direction.
+            </p>
+            <p data-lang="es">
+              CloudLast está creciendo. Buscamos personas reales, curiosas y
+              fiables. No hace falta ser súper senior: cuentan la actitud y las
+              ganas de aprender. Somos pequeños pero con ideas claras.
+            </p>
+            <p data-lang="fr">
+              CloudLast grandit. Nous cherchons des personnes vraies, curieuses
+              et fiables. Pas besoin d’être super senior : comptent l’attitude
+              et l’envie d’apprendre. Nous sommes petits mais avec les idées
+              claires.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3 data-lang="it">Sviluppatore Flutter (anche junior)</h3>
-                <h3 data-lang="en">Flutter Developer (junior welcome)</h3>
-                <h3 data-lang="es">Desarrollador Flutter (también junior)</h3>
-                <h3 data-lang="fr">Développeur Flutter (junior accepté)</h3>
+          <article class="card">
+            <h3 data-lang="it">Sviluppatore Flutter (anche junior)</h3>
+            <h3 data-lang="en">Flutter Developer (junior welcome)</h3>
+            <h3 data-lang="es">Desarrollador Flutter (también junior)</h3>
+            <h3 data-lang="fr">Développeur Flutter (junior accepté)</h3>
 
-                <p data-lang="it">App mobile, basi solide e curiosità. Crescita costante, niente corse a vuoto.</p>
-                <p data-lang="en">Mobile apps, solid basics and curiosity. Steady growth, no busywork.</p>
-                <p data-lang="es">Apps móviles, bases sólidas y curiosidad. Crecimiento constante, sin relleno.</p>
-                <p data-lang="fr">Apps mobiles, bases solides et curiosité. Progression régulière, sans agitation inutile.</p>
-            </article>
+            <p data-lang="it">
+              App mobile, basi solide e curiosità. Crescita costante, niente
+              corse a vuoto.
+            </p>
+            <p data-lang="en">
+              Mobile apps, solid basics and curiosity. Steady growth, no
+              busywork.
+            </p>
+            <p data-lang="es">
+              Apps móviles, bases sólidas y curiosidad. Crecimiento constante,
+              sin relleno.
+            </p>
+            <p data-lang="fr">
+              Apps mobiles, bases solides et curiosité. Progression régulière,
+              sans agitation inutile.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3>Cybersecurity Specialist</h3>
-                <p data-lang="it">Valutazione dei rischi, misure concrete e supporto a team e clienti.</p>
-                <p data-lang="en">Risk assessment, concrete measures and support to team and clients.</p>
-                <p data-lang="es">Evaluación de riesgos, medidas concretas y apoyo a equipo y clientes.</p>
-                <p data-lang="fr">Évaluation des risques, mesures concrètes et support aux équipes et clients.</p>
-            </article>
+          <article class="card">
+            <h3>Cybersecurity Specialist</h3>
+            <p data-lang="it">
+              Valutazione dei rischi, misure concrete e supporto a team e
+              clienti.
+            </p>
+            <p data-lang="en">
+              Risk assessment, concrete measures and support to team and
+              clients.
+            </p>
+            <p data-lang="es">
+              Evaluación de riesgos, medidas concretas y apoyo a equipo y
+              clientes.
+            </p>
+            <p data-lang="fr">
+              Évaluation des risques, mesures concrètes et support aux équipes
+              et clients.
+            </p>
+          </article>
 
-            <article class="card">
-                <h3>Sales Manager</h3>
-                <p data-lang="it">Vendite semplici e oneste. Ascolto, relazioni e ritmo costante.</p>
-                <p data-lang="en">Simple, honest sales. Listening, relationships and steady pace.</p>
-                <p data-lang="es">Ventas simples y honestas. Escucha, relaciones y ritmo constante.</p>
-                <p data-lang="fr">Ventes simples et honnêtes. Écoute, relations et rythme régulier.</p>
-            </article>
+          <article class="card">
+            <h3>Sales Manager</h3>
+            <p data-lang="it">
+              Vendite semplici e oneste. Ascolto, relazioni e ritmo costante.
+            </p>
+            <p data-lang="en">
+              Simple, honest sales. Listening, relationships and steady pace.
+            </p>
+            <p data-lang="es">
+              Ventas simples y honestas. Escucha, relaciones y ritmo constante.
+            </p>
+            <p data-lang="fr">
+              Ventes simples et honnêtes. Écoute, relations et rythme régulier.
+            </p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--             UFFICI IN APERTURA            -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--             UFFICI IN APERTURA            -->
+      <!-- ========================================= -->
 
-    <section class="section" id="uffici">
+      <section class="section" id="uffici">
         <h2 data-lang="it">Uffici in apertura</h2>
         <h2 data-lang="en">Offices opening</h2>
         <h2 data-lang="es">Apertura de oficinas</h2>
         <h2 data-lang="fr">Ouverture des bureaux</h2>
 
         <div class="grid">
-            <article class="card">
-                <p data-lang="it">CloudLast sta crescendo: nei prossimi giorni apriremo i primi uffici fisici, mantenendo la flessibilità del lavoro da remoto.</p>
-                <p data-lang="en">CloudLast is growing: in the coming days we will open our first physical offices, while keeping remote work flexibility.</p>
-                <p data-lang="es">CloudLast está creciendo: en los próximos meses abriremos nuestras primeras oficinas físicas, manteniendo la flexibilidad del trabajo remoto.</p>
-                <p data-lang="fr">CloudLast grandit : dans les prochains mois nous ouvrirons nos premiers bureaux physiques, tout en gardant la flexibilité du travail à distance.</p>
-            </article>
+          <article class="card">
+            <p data-lang="it">
+              CloudLast sta crescendo: nei prossimi giorni apriremo i primi
+              uffici fisici, mantenendo la flessibilità del lavoro da remoto.
+            </p>
+            <p data-lang="en">
+              CloudLast is growing: in the coming days we will open our first
+              physical offices, while keeping remote work flexibility.
+            </p>
+            <p data-lang="es">
+              CloudLast está creciendo: en los próximos meses abriremos nuestras
+              primeras oficinas físicas, manteniendo la flexibilidad del trabajo
+              remoto.
+            </p>
+            <p data-lang="fr">
+              CloudLast grandit : dans les prochains mois nous ouvrirons nos
+              premiers bureaux physiques, tout en gardant la flexibilité du
+              travail à distance.
+            </p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <!-- ========================================= -->
-    <!--                 CONTATTI                  -->
-    <!-- ========================================= -->
+      <!-- ========================================= -->
+      <!--                 CONTATTI                  -->
+      <!-- ========================================= -->
 
-    <section class="section" id="contatti">
+      <section class="section" id="contatti">
         <h2 data-lang="it">Contatti</h2>
         <h2 data-lang="en">Contacts</h2>
         <h2 data-lang="es">Contacto</h2>
         <h2 data-lang="fr">Contacts</h2>
 
         <div class="grid">
+          <article class="card">
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:carlo.gennaro@cloudlast.io"
+                >carlo.gennaro@cloudlast.io</a
+              >
+            </p>
+          </article>
 
-            <article class="card">
-                <h3>Email</h3>
-                <p><a href="mailto:carlo.gennaro@cloudlast.io">carlo.gennaro@cloudlast.io</a></p>
-            </article>
+          <article class="card">
+            <h3>LinkedIn</h3>
+            <p>
+              <a
+                href="https://www.edin.com/in/carlo-gennaro-a22165185/"
+                target="_blank"
+                >linkedin.com/in/carlo-gennaro-a22165185</a
+              >
+            </p>
+          </article>
 
-            <article class="card">
-                <h3>edIn</h3>
-                <p>
-                    <a href="https://www.edin.com/in/carlo-gennaro-a22165185/" target="_blank">linkedin.com/in/carlo-gennaro-a22165185</a>
-                </p>
-            </article>
+          <article class="card">
+            <h3>Instagram</h3>
+            <p>
+              <a href="https://instagram.com/cloudlast.it" target="_blank"
+                >@cloudlast.it</a
+              >
+            </p>
+          </article>
 
-            <article class="card">
-                <h3>Instagram</h3>
-                <p>
-                    <a href="https://instagram.com/cloudlast.it" target="_blank">@cloudlast.it</a>
-                </p>
-            </article>
+          <article class="card card--whatsapp">
+            <h3>WhatsApp</h3>
+            <p>
+              <span class="wa-row">
+                <span class="wa-ico" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="32" height="32" rx="8" fill="#25D366" />
+                    <path
+                      d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z"
+                      fill="#001013"
+                    />
+                  </svg>
+                </span>
+                <a
+                  class="wa-link"
+                  data-lang="it"
+                  href="https://wa.me/393204255705?text=Ciao%20CloudLast%2C%20vorrei%20informazioni.%20Grazie%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Scrivici su WhatsApp"
+                  >Scrivici su WhatsApp</a
+                >
+                <a
+                  class="wa-link"
+                  data-lang="en"
+                  href="https://wa.me/393204255705?text=Hi%20CloudLast%2C%20I%27d%20like%20some%20info.%20Thanks%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat on WhatsApp"
+                  >Chat on WhatsApp</a
+                >
+                <a
+                  class="wa-link"
+                  data-lang="es"
+                  href="https://wa.me/393204255705?text=Hola%20CloudLast%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n.%20Gracias%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Escríbenos por WhatsApp"
+                  >Escríbenos por WhatsApp</a
+                >
+                <a
+                  class="wa-link"
+                  data-lang="fr"
+                  href="https://wa.me/393204255705?text=Bonjour%20CloudLast%2C%20j%27aimerais%20des%20infos.%20Merci%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Écris‑nous sur WhatsApp"
+                  >Écris‑nous sur WhatsApp</a
+                >
+              </span>
+              <br />
+              <small style="color: var(--muted)">+39 320 425 5705</small>
+            </p>
+          </article>
 
-            <article class="card card--whatsapp">
-                <h3>WhatsApp</h3>
-                <p>
-                    <span class="wa-row">
-                      <span class="wa-ico" aria-hidden="true">
-                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect width="32" height="32" rx="8" fill="#25D366"/>
-                          <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
-                        </svg>
-                      </span>
-                      <a class="wa-link" data-lang="it" href="https://wa.me/393204255705?text=Ciao%20CloudLast%2C%20vorrei%20informazioni.%20Grazie%21" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp">Scrivici su WhatsApp</a>
-                      <a class="wa-link" data-lang="en" href="https://wa.me/393204255705?text=Hi%20CloudLast%2C%20I%27d%20like%20some%20info.%20Thanks%21" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">Chat on WhatsApp</a>
-                      <a class="wa-link" data-lang="es" href="https://wa.me/393204255705?text=Hola%20CloudLast%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n.%20Gracias%21" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">Escríbenos por WhatsApp</a>
-                      <a class="wa-link" data-lang="fr" href="https://wa.me/393204255705?text=Bonjour%20CloudLast%2C%20j%27aimerais%20des%20infos.%20Merci%21" target="_blank" rel="noopener noreferrer" aria-label="Écris‑nous sur WhatsApp">Écris‑nous sur WhatsApp</a>
-                    </span>
-                    <br>
-                    <small style="color: var(--muted);">+39 320 425 5705</small>
-                </p>
-            </article>
+          <article class="card" data-wa-key="contatti-form">
+            <h3 data-lang="it">Form Contatto</h3>
+            <h3 data-lang="en">Contact Form</h3>
+            <h3 data-lang="es">Formulario</h3>
+            <h3 data-lang="fr">Formulaire</h3>
 
-            <article class="card" data-wa-key="contatti-form">
-                <h3 data-lang="it">Form Contatto</h3>
-                <h3 data-lang="en">Contact Form</h3>
-                <h3 data-lang="es">Formulario</h3>
-                <h3 data-lang="fr">Formulaire</h3>
+            <form
+              class="form"
+              action="mailto:carlo.gennaro@cloudlast.io"
+              method="post"
+              enctype="text/plain"
+            >
+              <label>
+                <span data-lang="it">Nome</span>
+                <span data-lang="en">Name</span>
+                <span data-lang="es">Nombre</span>
+                <span data-lang="fr">Nom</span>
+                <input class="input" type="text" name="Nome" required />
+              </label>
 
-                <form class="form" action="mailto:carlo.gennaro@cloudlast.io" method="post" enctype="text/plain">
-                    <label>
-                        <span data-lang="it">Nome</span>
-                        <span data-lang="en">Name</span>
-                        <span data-lang="es">Nombre</span>
-                        <span data-lang="fr">Nom</span>
-                        <input class="input" type="text" name="Nome" required />
-                    </label>
+              <label>
+                Email
+                <input class="input" type="email" name="Email" required />
+              </label>
 
-                    <label>
-                        Email
-                        <input class="input" type="email" name="Email" required />
-                    </label>
+              <label>
+                <span data-lang="it">Messaggio</span>
+                <span data-lang="en">Message</span>
+                <span data-lang="es">Mensaje</span>
+                <span data-lang="fr">Message</span>
+                <textarea class="textarea" name="Messaggio" required></textarea>
+              </label>
 
-                    <label>
-                        <span data-lang="it">Messaggio</span>
-                        <span data-lang="en">Message</span>
-                        <span data-lang="es">Mensaje</span>
-                        <span data-lang="fr">Message</span>
-                        <textarea class="textarea" name="Messaggio" required></textarea>
-                    </label>
-
-                    <button class="btn-primary" type="submit">
-                        <span data-lang="it">Invia</span>
-                        <span data-lang="en">Send</span>
-                        <span data-lang="es">Enviar</span>
-                        <span data-lang="fr">Envoyer</span>
-                    </button>
-                </form>
-            </article>
-
+              <button class="btn-primary" type="submit">
+                <span data-lang="it">Invia</span>
+                <span data-lang="en">Send</span>
+                <span data-lang="es">Enviar</span>
+                <span data-lang="fr">Envoyer</span>
+              </button>
+            </form>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <footer>
-        © CloudLast • Think Cloud. Build Last.
-    </footer>
+      <footer>© CloudLast • Think Cloud. Build Last.</footer>
+    </main>
 
-</main>
+    <!-- Floating WhatsApp button with localized labels -->
+    <div class="whatsapp-fab" role="group" aria-label="WhatsApp quick contact">
+      <a
+        class="whatsapp-fab-btn"
+        data-lang="it"
+        href="https://wa.me/393204255705?text=Ciao%20CloudLast%2C%20vorrei%20informazioni.%20Grazie%21"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Scrivici su WhatsApp"
+        title="Scrivici su WhatsApp"
+      >
+        <span class="wa-ico" aria-hidden="true">
+          <svg
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="16" fill="#25D366" />
+            <path
+              d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z"
+              fill="#001013"
+            />
+          </svg>
+        </span>
+        <span class="wa-label">WhatsApp</span>
+      </a>
 
-<!-- Floating WhatsApp button with localized labels -->
-<div class="whatsapp-fab" role="group" aria-label="WhatsApp quick contact">
-  <a class="whatsapp-fab-btn" data-lang="it" href="https://wa.me/393204255705?text=Ciao%20CloudLast%2C%20vorrei%20informazioni.%20Grazie%21" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp" title="Scrivici su WhatsApp">
-    <span class="wa-ico" aria-hidden="true">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="16" fill="#25D366"/>
-        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
-      </svg>
-    </span>
-    <span class="wa-label">WhatsApp</span>
-  </a>
+      <a
+        class="whatsapp-fab-btn"
+        data-lang="en"
+        href="https://wa.me/393204255705?text=Hi%20CloudLast%2C%20I%27d%20like%20some%20info.%20Thanks%21"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp"
+      >
+        <span class="wa-ico" aria-hidden="true">
+          <svg
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="16" fill="#25D366" />
+            <path
+              d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z"
+              fill="#001013"
+            />
+          </svg>
+        </span>
+        <span class="wa-label">WhatsApp</span>
+      </a>
 
-  <a class="whatsapp-fab-btn" data-lang="en" href="https://wa.me/393204255705?text=Hi%20CloudLast%2C%20I%27d%20like%20some%20info.%20Thanks%21" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
-    <span class="wa-ico" aria-hidden="true">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="16" fill="#25D366"/>
-        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
-      </svg>
-    </span>
-    <span class="wa-label">WhatsApp</span>
-  </a>
+      <a
+        class="whatsapp-fab-btn"
+        data-lang="es"
+        href="https://wa.me/393204255705?text=Hola%20CloudLast%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n.%20Gracias%21"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Escríbenos por WhatsApp"
+        title="Escríbenos por WhatsApp"
+      >
+        <span class="wa-ico" aria-hidden="true">
+          <svg
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="16" fill="#25D366" />
+            <path
+              d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z"
+              fill="#001013"
+            />
+          </svg>
+        </span>
+        <span class="wa-label">WhatsApp</span>
+      </a>
 
-  <a class="whatsapp-fab-btn" data-lang="es" href="https://wa.me/393204255705?text=Hola%20CloudLast%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n.%20Gracias%21" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
-    <span class="wa-ico" aria-hidden="true">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="16" fill="#25D366"/>
-        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
-      </svg>
-    </span>
-    <span class="wa-label">WhatsApp</span>
-  </a>
+      <a
+        class="whatsapp-fab-btn"
+        data-lang="fr"
+        href="https://wa.me/393204255705?text=Bonjour%20CloudLast%2C%20j%27aimerais%20des%20infos.%20Merci%21"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Écris‑nous sur WhatsApp"
+        title="Écris‑nous sur WhatsApp"
+      >
+        <span class="wa-ico" aria-hidden="true">
+          <svg
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="16" fill="#25D366" />
+            <path
+              d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z"
+              fill="#001013"
+            />
+          </svg>
+        </span>
+        <span class="wa-label">WhatsApp</span>
+      </a>
+    </div>
 
-  <a class="whatsapp-fab-btn" data-lang="fr" href="https://wa.me/393204255705?text=Bonjour%20CloudLast%2C%20j%27aimerais%20des%20infos.%20Merci%21" target="_blank" rel="noopener noreferrer" aria-label="Écris‑nous sur WhatsApp" title="Écris‑nous sur WhatsApp">
-    <span class="wa-ico" aria-hidden="true">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="16" fill="#25D366"/>
-        <path d="M16.01 7.5c-4.68 0-8.48 3.73-8.48 8.33 0 1.47.39 2.87 1.07 4.09l-1.14 4.16 4.27-1.1c1.18.64 2.53 1.02 3.97 1.02 4.68 0 8.48-3.73 8.48-8.33 0-4.6-3.8-8.33-8.48-8.33Zm4.88 11.93c-.2.56-1.15 1.06-1.62 1.12-.41.06-.93.09-1.5-.09-.35-.11-.79-.26-1.36-.51-2.39-1.04-3.95-3.45-4.07-3.61-.12-.16-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.98.22-.24.48-.29.64-.29h.46c.15 0 .35-.06.54.41.2.47.67 1.63.73 1.75.06.12.1.26.02.42-.08.17-.12.27-.24.41-.12.14-.26.31-.37.42-.12.12-.24.25-.1.49.14.24.63 1.03 1.36 1.67.93.81 1.71 1.07 1.95 1.19.24.12.39.11.53-.06.14-.17.61-.71.78-.95.16-.24.33-.2.54-.12.22.08 1.37.64 1.61.75.24.12.4.18.46.28.06.1.06.58-.14 1.14Z" fill="#001013"/>
-      </svg>
-    </span>
-    <span class="wa-label">WhatsApp</span>
-  </a>
-</div>
+    <!-- ========================================= -->
+    <!--                 SCRIPTS                   -->
+    <!-- ========================================= -->
 
-<!-- ========================================= -->
-<!--                 SCRIPTS                   -->
-<!-- ========================================= -->
+    <script>
+      // Language switching + segmented indicator
+      (function () {
+        const root = document.documentElement;
+        const container = document.querySelector(".lang-switcher-inner");
+        const indicator = document.querySelector(".lang-indicator");
+        const buttons = Array.from(document.querySelectorAll(".lang-btn"));
 
-<script>
-    // Language switching + segmented indicator
-    (function () {
-      const root = document.documentElement;
-      const container = document.querySelector('.lang-switcher-inner');
-      const indicator = document.querySelector('.lang-indicator');
-      const buttons = Array.from(document.querySelectorAll('.lang-btn'));
+        function positionIndicator(activeBtn) {
+          if (!activeBtn || !indicator || !container) return;
+          const left = activeBtn.offsetLeft;
+          const width = activeBtn.offsetWidth;
+          indicator.style.width = width + "px";
+          indicator.style.transform = "translateX(" + left + "px)";
+        }
 
-      function positionIndicator(activeBtn) {
-        if (!activeBtn || !indicator || !container) return;
-        const left = activeBtn.offsetLeft;
-        const width = activeBtn.offsetWidth;
-        indicator.style.width = width + 'px';
-        indicator.style.transform = 'translateX(' + left + 'px)';
-      }
+        function setLang(lang) {
+          root.setAttribute("data-current-lang", lang);
+          try {
+            localStorage.setItem("cloudlast-lang", lang);
+          } catch (_) {}
 
-      function setLang(lang) {
-        root.setAttribute('data-current-lang', lang);
-        try { localStorage.setItem('cloudlast-lang', lang); } catch(_) {}
-
-        buttons.forEach(b => {
-          const isActive = b.getAttribute('data-set-lang') === lang;
-          b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-          if (isActive) positionIndicator(b);
-        });
-      }
-
-      const saved =
-        (() => { try { return localStorage.getItem('cloudlast-lang'); } catch(_) { return null; } })()
-        || 'it';
-
-      // Initial render after layout
-      requestAnimationFrame(() => setLang(saved));
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => setLang(btn.getAttribute('data-set-lang')));
-      });
-
-      window.addEventListener('resize', () => {
-        const currentLang = root.getAttribute('data-current-lang') || saved;
-        const active = buttons.find(b => b.getAttribute('data-set-lang') === currentLang);
-        positionIndicator(active);
-      });
-    })();
-
-    // Theme switching (modern switch)
-    (function () {
-      const root = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
-
-      function setTheme(t) {
-        root.setAttribute('data-theme', t);
-        toggle.setAttribute('aria-checked', t === 'light' ? 'true' : 'false');
-        try { localStorage.setItem('cloudlast-theme', t); } catch(_) {}
-      }
-
-      const saved =
-        (() => { try { return localStorage.getItem('cloudlast-theme'); } catch(_) { return null; } })()
-        || 'dark';
-
-      setTheme(saved);
-
-      toggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        setTheme(current === 'dark' ? 'light' : 'dark');
-      });
-    })();
-
-    // WhatsApp links: localized + section/card-aware message
-    (function () {
-      const phone = '393204255705';
-      const langBtns = Array.from(document.querySelectorAll('.lang-btn'));
-      const elementToKey = new Map();
-
-      // Map sections to semantic keys
-      const sections = [
-        { sel: '.hero.section', key: 'home' },
-        { sel: '#servizi', key: 'servizi' },
-        { sel: '#founder', key: 'founder' },
-        { sel: '#uffici', key: 'uffici' },
-        { sel: '#contatti', key: 'contatti' },
-      ];
-
-      const names = {
-        it: {
-          home: 'Home', servizi: 'Servizi', founder: 'Founder', uffici: 'Uffici', contatti: 'Contatti', 'contatti-form': 'Form Contatto',
-          'servizi-mobile': 'App Mobile', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'AI & Automazione', 'servizi-cybersecurity': 'Cybersecurity'
-        },
-        en: {
-          home: 'Home', servizi: 'Services', founder: 'Founder', uffici: 'Offices', contatti: 'Contacts', 'contatti-form': 'Contact Form',
-          'servizi-mobile': 'Mobile Apps', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'AI & Automation', 'servizi-cybersecurity': 'Cybersecurity'
-        },
-        es: {
-          home: 'Inicio', servizi: 'Servicios', founder: 'Fundador', uffici: 'Oficinas', contatti: 'Contacto', 'contatti-form': 'Formulario',
-          'servizi-mobile': 'Aplicaciones móviles', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'IA y Automatización', 'servizi-cybersecurity': 'Ciberseguridad'
-        },
-        fr: {
-          home: 'Accueil', servizi: 'Services', founder: 'Fondateur', uffici: 'Bureaux', contatti: 'Contacts', 'contatti-form': 'Formulaire',
-          'servizi-mobile': 'Apps mobiles', 'servizi-cloud': 'Cloud & Backend', 'servizi-ai': 'IA & Automatisation', 'servizi-cybersecurity': 'Cybersécurité'
-        },
-      };
-
-      const base = {
-        it: (s) => `Ciao CloudLast, vorrei informazioni${s ? ' su ' + s : ''}. Grazie!`,
-        en: (s) => `Hi CloudLast, I'd like some info${s ? ' about ' + s : ''}. Thanks!`,
-        es: (s) => `Hola CloudLast, me gustaría información${s ? ' sobre ' + s : ''}. ¡Gracias!`,
-        fr: (s) => `Bonjour CloudLast, j'aimerais des infos${s ? ' sur ' + s : ''}. Merci !`,
-      };
-
-      const labels = {
-        it: 'Scrivici su WhatsApp',
-        en: 'Chat on WhatsApp',
-        es: 'Escríbenos por WhatsApp',
-        fr: 'Écris‑nous sur WhatsApp',
-      };
-
-      let currentKey = 'home';
-      let visibleSection = { key: 'home', ratio: 0 };
-      let visibleDetail = null;
-
-      function buildHref(lang) {
-        const localized = names[lang] || names.it;
-        const n = localized[currentKey] || '';
-        const text = (base[lang] || base.it)(n || '');
-        return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-      }
-
-      function applyLinks() {
-        ['it', 'en', 'es', 'fr'].forEach((lang) => {
-          const href = buildHref(lang);
-          const title = labels[lang] || labels.it;
-          document.querySelectorAll(`.whatsapp-fab-btn[data-lang="${lang}"]`).forEach((a) => {
-            a.setAttribute('href', href);
-            a.setAttribute('title', title);
+          buttons.forEach((b) => {
+            const isActive = b.getAttribute("data-set-lang") === lang;
+            b.setAttribute("aria-pressed", isActive ? "true" : "false");
+            if (isActive) positionIndicator(b);
           });
-          document.querySelectorAll(`.wa-link[data-lang="${lang}"]`).forEach((a) => {
-            a.setAttribute('href', href);
-            a.setAttribute('title', title);
-          });
-        });
-      }
+        }
 
-      // Observe sections and detailed cards to infer context
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          const key = elementToKey.get(e.target);
-          if (!key) return;
-          const isDetail = key.startsWith('servizi-') || key === 'contatti-form';
-          if (e.isIntersecting) {
-            if (isDetail) {
-              if (!visibleDetail || e.intersectionRatio >= (visibleDetail.ratio || 0)) {
-                visibleDetail = { key, ratio: e.intersectionRatio };
-              }
-            } else {
-              if (!visibleSection || e.intersectionRatio >= (visibleSection.ratio || 0)) {
-                visibleSection = { key, ratio: e.intersectionRatio };
-              }
+        const saved =
+          (() => {
+            try {
+              return localStorage.getItem("cloudlast-lang");
+            } catch (_) {
+              return null;
             }
-          } else {
-            if (visibleDetail && visibleDetail.key === key) visibleDetail = null;
-            if (visibleSection && visibleSection.key === key) visibleSection = { key: 'home', ratio: 0 };
+          })() || "it";
+
+        // Initial render after layout
+        requestAnimationFrame(() => setLang(saved));
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () =>
+            setLang(btn.getAttribute("data-set-lang"))
+          );
+        });
+
+        window.addEventListener("resize", () => {
+          const currentLang = root.getAttribute("data-current-lang") || saved;
+          const active = buttons.find(
+            (b) => b.getAttribute("data-set-lang") === currentLang
+          );
+          positionIndicator(active);
+        });
+      })();
+
+      // Theme switching (modern switch)
+      (function () {
+        const root = document.documentElement;
+        const toggle = document.getElementById("themeToggle");
+
+        function setTheme(t) {
+          root.setAttribute("data-theme", t);
+          toggle.setAttribute("aria-checked", t === "light" ? "true" : "false");
+          try {
+            localStorage.setItem("cloudlast-theme", t);
+          } catch (_) {}
+        }
+
+        const saved =
+          (() => {
+            try {
+              return localStorage.getItem("cloudlast-theme");
+            } catch (_) {
+              return null;
+            }
+          })() || "dark";
+
+        setTheme(saved);
+
+        toggle.addEventListener("click", () => {
+          const current = root.getAttribute("data-theme");
+          setTheme(current === "dark" ? "light" : "dark");
+        });
+      })();
+
+      // WhatsApp links: localized + section/card-aware message
+      (function () {
+        const phone = "393204255705";
+        const langBtns = Array.from(document.querySelectorAll(".lang-btn"));
+        const elementToKey = new Map();
+
+        // Map sections to semantic keys
+        const sections = [
+          { sel: ".hero.section", key: "home" },
+          { sel: "#servizi", key: "servizi" },
+          { sel: "#founder", key: "founder" },
+          { sel: "#uffici", key: "uffici" },
+          { sel: "#contatti", key: "contatti" },
+        ];
+
+        const names = {
+          it: {
+            home: "Home",
+            servizi: "Servizi",
+            founder: "Founder",
+            uffici: "Uffici",
+            contatti: "Contatti",
+            "contatti-form": "Form Contatto",
+            "servizi-mobile": "App Mobile",
+            "servizi-cloud": "Cloud & Backend",
+            "servizi-ai": "AI & Automazione",
+            "servizi-cybersecurity": "Cybersecurity",
+          },
+          en: {
+            home: "Home",
+            servizi: "Services",
+            founder: "Founder",
+            uffici: "Offices",
+            contatti: "Contacts",
+            "contatti-form": "Contact Form",
+            "servizi-mobile": "Mobile Apps",
+            "servizi-cloud": "Cloud & Backend",
+            "servizi-ai": "AI & Automation",
+            "servizi-cybersecurity": "Cybersecurity",
+          },
+          es: {
+            home: "Inicio",
+            servizi: "Servicios",
+            founder: "Fundador",
+            uffici: "Oficinas",
+            contatti: "Contacto",
+            "contatti-form": "Formulario",
+            "servizi-mobile": "Aplicaciones móviles",
+            "servizi-cloud": "Cloud & Backend",
+            "servizi-ai": "IA y Automatización",
+            "servizi-cybersecurity": "Ciberseguridad",
+          },
+          fr: {
+            home: "Accueil",
+            servizi: "Services",
+            founder: "Fondateur",
+            uffici: "Bureaux",
+            contatti: "Contacts",
+            "contatti-form": "Formulaire",
+            "servizi-mobile": "Apps mobiles",
+            "servizi-cloud": "Cloud & Backend",
+            "servizi-ai": "IA & Automatisation",
+            "servizi-cybersecurity": "Cybersécurité",
+          },
+        };
+
+        const base = {
+          it: (s) =>
+            `Ciao CloudLast, vorrei informazioni${
+              s ? " su " + s : ""
+            }. Grazie!`,
+          en: (s) =>
+            `Hi CloudLast, I'd like some info${
+              s ? " about " + s : ""
+            }. Thanks!`,
+          es: (s) =>
+            `Hola CloudLast, me gustaría información${
+              s ? " sobre " + s : ""
+            }. ¡Gracias!`,
+          fr: (s) =>
+            `Bonjour CloudLast, j'aimerais des infos${
+              s ? " sur " + s : ""
+            }. Merci !`,
+        };
+
+        const labels = {
+          it: "Scrivici su WhatsApp",
+          en: "Chat on WhatsApp",
+          es: "Escríbenos por WhatsApp",
+          fr: "Écris‑nous sur WhatsApp",
+        };
+
+        let currentKey = "home";
+        let visibleSection = { key: "home", ratio: 0 };
+        let visibleDetail = null;
+
+        function buildHref(lang) {
+          const localized = names[lang] || names.it;
+          const n = localized[currentKey] || "";
+          const text = (base[lang] || base.it)(n || "");
+          return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+        }
+
+        function applyLinks() {
+          ["it", "en", "es", "fr"].forEach((lang) => {
+            const href = buildHref(lang);
+            const title = labels[lang] || labels.it;
+            document
+              .querySelectorAll(`.whatsapp-fab-btn[data-lang="${lang}"]`)
+              .forEach((a) => {
+                a.setAttribute("href", href);
+                a.setAttribute("title", title);
+              });
+            document
+              .querySelectorAll(`.wa-link[data-lang="${lang}"]`)
+              .forEach((a) => {
+                a.setAttribute("href", href);
+                a.setAttribute("title", title);
+              });
+          });
+        }
+
+        // Observe sections and detailed cards to infer context
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              const key = elementToKey.get(e.target);
+              if (!key) return;
+              const isDetail =
+                key.startsWith("servizi-") || key === "contatti-form";
+              if (e.isIntersecting) {
+                if (isDetail) {
+                  if (
+                    !visibleDetail ||
+                    e.intersectionRatio >= (visibleDetail.ratio || 0)
+                  ) {
+                    visibleDetail = { key, ratio: e.intersectionRatio };
+                  }
+                } else {
+                  if (
+                    !visibleSection ||
+                    e.intersectionRatio >= (visibleSection.ratio || 0)
+                  ) {
+                    visibleSection = { key, ratio: e.intersectionRatio };
+                  }
+                }
+              } else {
+                if (visibleDetail && visibleDetail.key === key)
+                  visibleDetail = null;
+                if (visibleSection && visibleSection.key === key)
+                  visibleSection = { key: "home", ratio: 0 };
+              }
+            });
+
+            const nextKey =
+              (visibleDetail && visibleDetail.key) ||
+              (visibleSection && visibleSection.key) ||
+              "home";
+            if (nextKey !== currentKey) {
+              currentKey = nextKey;
+              applyLinks();
+            }
+          },
+          { threshold: [0.5, 0.75] }
+        );
+
+        sections.forEach(({ sel, key }) => {
+          const el = document.querySelector(sel);
+          if (el) {
+            elementToKey.set(el, key);
+            io.observe(el);
           }
         });
 
-        const nextKey = (visibleDetail && visibleDetail.key) || (visibleSection && visibleSection.key) || 'home';
-        if (nextKey !== currentKey) {
-          currentKey = nextKey;
-          applyLinks();
-        }
-      }, { threshold: [0.5, 0.75] });
-
-      sections.forEach(({ sel, key }) => {
-        const el = document.querySelector(sel);
-        if (el) {
+        // Detailed cards
+        document.querySelectorAll("[data-wa-key]").forEach((el) => {
+          const key = el.getAttribute("data-wa-key");
+          if (!key) return;
           elementToKey.set(el, key);
           io.observe(el);
-        }
-      });
+        });
 
-      // Detailed cards
-      document.querySelectorAll('[data-wa-key]').forEach((el) => {
-        const key = el.getAttribute('data-wa-key');
-        if (!key) return;
-        elementToKey.set(el, key);
-        io.observe(el);
-      });
+        // Initial
+        applyLinks();
 
-      // Initial
-      applyLinks();
-
-      // Update on language switch
-      langBtns.forEach((b) => b.addEventListener('click', () => requestAnimationFrame(applyLinks)));
-      window.addEventListener('resize', () => applyLinks());
-    })();
-</script>
-
-</body>
+        // Update on language switch
+        langBtns.forEach((b) =>
+          b.addEventListener("click", () => requestAnimationFrame(applyLinks))
+        );
+        window.addEventListener("resize", () => applyLinks());
+      })();
+    </script>
+  </body>
 </html>
