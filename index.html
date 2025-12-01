@@ -12,19 +12,20 @@
 
     <style>
       :root {
-        --bg-1: #070b10;
-        --bg-2: #0c1a22;
-        --accent-1: #00cfff;
-        --accent-2: #00ffa6;
-        --text: #e9fbff;
-        --muted: #9bd3dd;
-        --card: rgba(255, 255, 255, 0.04);
-        --card-border: rgba(255, 255, 255, 0.12);
-        --shadow: rgba(0, 0, 0, 0.45);
-        --maxw: 900px;
+        --bg-1: #06080f;
+        --bg-2: #0b1220;
+        --accent-1: #ff9f43;
+        --accent-2: #2dd4ff;
+        --accent-3: #22d3a3;
+        --text: #f5fbff;
+        --muted: #a9c4d3;
+        --card: rgba(255, 255, 255, 0.05);
+        --card-border: rgba(255, 255, 255, 0.14);
+        --shadow: rgba(3, 10, 20, 0.55);
+        --maxw: 1080px;
         --radius-lg: 44px;
-        --radius-xl: 52px;
-        --radius-md: 36px;
+        --radius-xl: 54px;
+        --radius-md: 28px;
       }
 
       /* Base image defaults for layout stability */
@@ -51,15 +52,16 @@
 
       body {
         margin: 0;
-        font-family: -apple-system, Inter, system-ui, sans-serif;
+        font-family: "Inter", "SF Pro Display", system-ui, -apple-system,
+          sans-serif;
         background: radial-gradient(
-            1200px 800px at 20% 10%,
-            rgba(0, 207, 255, 0.12),
-            transparent 60%
+            1200px 900px at 20% 0%,
+            rgba(255, 159, 67, 0.14),
+            transparent 55%
           ),
           radial-gradient(
-            1000px 600px at 80% 10%,
-            rgba(0, 255, 166, 0.1),
+            1200px 900px at 80% 0%,
+            rgba(45, 212, 255, 0.12),
             transparent 55%
           ),
           linear-gradient(180deg, var(--bg-1), var(--bg-2));
@@ -93,10 +95,10 @@
         margin: 56px 0;
       }
       .section h2 {
-        font-size: 28px;
+        font-size: 30px;
         margin-bottom: 18px;
         color: var(--text);
-        text-shadow: 0 0 24px rgba(0, 255, 166, 0.15);
+        text-shadow: 0 0 24px rgba(45, 212, 255, 0.16);
         text-align: left;
       }
 
@@ -437,25 +439,27 @@
       /* ========================================= */
 
       .hero {
-        margin-top: 80px;
+        margin-top: 88px;
       }
 
       .hero-card {
         border-radius: var(--radius-xl);
-        padding: 28px;
+        padding: 32px;
         display: grid;
-        grid-template-columns: 100px 1fr;
-        gap: 20px;
+        grid-template-columns: 1.2fr 0.9fr;
+        gap: 26px;
         align-items: center;
         border: 1px solid var(--card-border);
         background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.06),
-          rgba(255, 255, 255, 0.03)
-        );
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-        box-shadow: 0 20px 40px var(--shadow),
+            145deg,
+            rgba(255, 159, 67, 0.14),
+            rgba(45, 212, 255, 0.09),
+            rgba(34, 211, 163, 0.08)
+          ),
+          rgba(255, 255, 255, 0.03);
+        -webkit-backdrop-filter: blur(22px);
+        backdrop-filter: blur(22px);
+        box-shadow: 0 20px 50px var(--shadow),
           inset 0 0 0 1px rgba(255, 255, 255, 0.06);
         animation: float 12s ease-in-out infinite alternate;
         position: relative;
@@ -465,7 +469,7 @@
       .hero-card::after {
         content: "";
         position: absolute;
-        inset: 6px;
+        inset: 8px;
         border-radius: var(--radius-lg);
         border: 1px solid rgba(255, 255, 255, 0.05);
         pointer-events: none;
@@ -474,16 +478,16 @@
       .hero-card::before {
         content: "";
         position: absolute;
-        width: 220px;
-        height: 220px;
+        width: 260px;
+        height: 260px;
         right: -60px;
         top: -80px;
         background: radial-gradient(
           circle,
-          rgba(0, 255, 166, 0.18),
-          transparent 55%
+          rgba(45, 212, 255, 0.28),
+          transparent 60%
         );
-        filter: blur(12px);
+        filter: blur(14px);
         pointer-events: none;
       }
 
@@ -497,34 +501,46 @@
       }
 
       .hero img {
-        width: 90px;
-        height: 90px;
+        width: 110px;
+        height: 110px;
         aspect-ratio: 1 / 1;
-        border-radius: 28px;
+        border-radius: 32px;
         object-fit: cover;
-        box-shadow: 0 0 18px rgba(0, 255, 166, 0.32);
+        box-shadow: 0 0 24px rgba(45, 212, 255, 0.32);
       }
 
       .hero h1 {
-        font-size: 38px;
-        margin: 0;
-        background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+        font-size: 42px;
+        margin: 8px 0 4px 0;
+        background: linear-gradient(
+          120deg,
+          var(--accent-1),
+          var(--accent-2),
+          var(--accent-3)
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
       .hero .slogan {
-        margin: 2px 0 0 0;
-        font-size: 17px;
+        margin: 6px 0 0 0;
+        font-size: 18px;
         color: var(--muted);
       }
 
       .hero .cta-row {
-        margin-top: 16px;
+        margin-top: 18px;
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
         align-items: center;
+      }
+
+      .hero .pill-row {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
       .btn-ghost {
@@ -550,11 +566,65 @@
         gap: 8px;
         padding: 8px 12px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        color: var(--muted);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--card-border);
+        color: var(--text);
         font-weight: 600;
         font-size: 13px;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .pill-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        box-shadow: 0 0 12px rgba(45, 212, 255, 0.5);
+      }
+
+      .hero-visual {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        justify-items: end;
+      }
+
+      .hero-visual .logo-tile {
+        width: 220px;
+        border-radius: 28px;
+        padding: 16px;
+        background: radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 159, 67, 0.2),
+          rgba(45, 212, 255, 0.12)
+        );
+        border: 1px solid var(--card-border);
+        box-shadow: 0 18px 38px rgba(3, 10, 20, 0.6);
+        display: grid;
+        gap: 12px;
+        justify-items: center;
+      }
+
+      .hero-visual .logo-tile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 32px;
+      }
+
+      .hero-visual .logo-label {
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .hero-note {
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--card-border);
+        color: var(--muted);
+        font-weight: 600;
+        max-width: 260px;
+        text-align: right;
       }
 
       /* Avatar utility for profile-like images */
@@ -593,10 +663,28 @@
         box-shadow: 0 8px 20px var(--shadow);
       }
 
+      .card .service-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 20px rgba(45, 212, 255, 0.25);
+        margin-bottom: 12px;
+      }
+
+      .card .service-icon img {
+        width: 26px;
+        height: 26px;
+        border-radius: 10px;
+      }
+
       .card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 0 0 1px rgba(0, 255, 166, 0.5),
-          0 0 34px rgba(0, 255, 166, 0.18);
+        box-shadow: 0 0 0 1px rgba(45, 212, 255, 0.5),
+          0 0 34px rgba(45, 212, 255, 0.18);
       }
 
       .ribbon {
@@ -606,12 +694,13 @@
         padding: 16px;
         border-radius: var(--radius-lg);
         background: linear-gradient(
-          90deg,
-          rgba(0, 255, 166, 0.08),
-          rgba(0, 207, 255, 0.08)
+          120deg,
+          rgba(255, 159, 67, 0.14),
+          rgba(45, 212, 255, 0.12),
+          rgba(34, 211, 163, 0.12)
         );
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 24px var(--shadow);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 10px 26px var(--shadow);
       }
 
       .ribbon-item {
@@ -971,21 +1060,28 @@
 
       <section class="hero section">
         <div class="hero-card">
-          <img
-            src="mnt/data/logo.png"
-            alt="CloudLast Logo"
-            width="90"
-            height="90"
-            decoding="async"
-            fetchpriority="high"
-          />
           <div>
+            <div class="pill">
+              <span class="pill-dot" aria-hidden="true"></span>
+              <span data-lang="it">Boutique cloud studio</span>
+              <span data-lang="en">Boutique cloud studio</span>
+              <span data-lang="es">Estudio cloud boutique</span>
+              <span data-lang="fr">Studio cloud boutique</span>
+            </div>
             <h1>CloudLast</h1>
             <p class="slogan">
-              <span data-lang="it">Think Cloud. Build Last.</span>
-              <span data-lang="en">Think Cloud. Build Last.</span>
-              <span data-lang="es">Think Cloud. Build Last.</span>
-              <span data-lang="fr">Think Cloud. Build Last.</span>
+              <span data-lang="it"
+                >Soluzioni premium, testo chiaro, esperienza curata.</span
+              >
+              <span data-lang="en"
+                >Premium solutions, simple words, curated experience.</span
+              >
+              <span data-lang="es"
+                >Soluciones premium, palabras sencillas y experiencia cuidada.</span
+              >
+              <span data-lang="fr"
+                >Solutions premium, mots simples et expérience soignée.</span
+              >
             </p>
             <div class="cta-row">
               <button
@@ -1005,6 +1101,41 @@
                 <span data-lang="fr">Échanger</span>
               </a>
             </div>
+            <div class="pill-row">
+              <div class="pill">
+                <span class="pill-dot" aria-hidden="true"></span>
+                <span data-lang="it">App, backend, AI e sicurezza</span>
+                <span data-lang="en">Apps, backends, AI and security</span>
+                <span data-lang="es">Apps, backend, IA y seguridad</span>
+                <span data-lang="fr">Apps, backends, IA et sécurité</span>
+              </div>
+              <div class="pill">
+                <span class="pill-dot" aria-hidden="true"></span>
+                <span data-lang="it">Design curato, tono diretto</span>
+                <span data-lang="en">Polished design, direct tone</span>
+                <span data-lang="es">Diseño pulido, tono directo</span>
+                <span data-lang="fr">Design soigné, ton direct</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="logo-tile">
+              <img
+                src="mnt/data/logo.png"
+                alt="CloudLast logo"
+                width="120"
+                height="120"
+                decoding="async"
+                fetchpriority="high"
+              />
+              <div class="logo-label">CloudLast</div>
+            </div>
+            <div class="hero-note">
+              <span data-lang="it">Dal concept al lancio con cura boutique.</span>
+              <span data-lang="en">From concept to launch with boutique care.</span>
+              <span data-lang="es">Del concepto al lanzamiento con cuidado boutique.</span>
+              <span data-lang="fr">Du concept au lancement avec soin boutique.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -1018,17 +1149,11 @@
             <div class="tag" data-lang="fr">Fiabilité</div>
             <div class="ribbon-title">99.95% SLA</div>
             <p class="muted" data-lang="it">
-              Architetture progettate per la resilienza continua.
+              Uptime garantito e monitoraggio in tempo reale.
             </p>
-            <p class="muted" data-lang="en">
-              Architectures engineered for continuous resilience.
-            </p>
-            <p class="muted" data-lang="es">
-              Arquitecturas diseñadas para la resiliencia continua.
-            </p>
-            <p class="muted" data-lang="fr">
-              Architectures conçues pour une résilience continue.
-            </p>
+            <p class="muted" data-lang="en">Guaranteed uptime and live monitoring.</p>
+            <p class="muted" data-lang="es">Disponibilidad garantizada y monitorización en vivo.</p>
+            <p class="muted" data-lang="fr">Disponibilité garantie et suivi en direct.</p>
           </div>
           <div class="ribbon-item">
             <div class="tag" data-lang="it">Velocità</div>
@@ -1037,17 +1162,11 @@
             <div class="tag" data-lang="fr">Vitesse</div>
             <div class="ribbon-title">4-6 settimane</div>
             <p class="muted" data-lang="it">
-              MVP cloud-first consegnati senza compromessi.
+              MVP pronti in poche settimane, senza giri di parole.
             </p>
-            <p class="muted" data-lang="en">
-              Cloud-first MVPs delivered without compromises.
-            </p>
-            <p class="muted" data-lang="es">
-              MVP cloud-first entregados sin compromisos.
-            </p>
-            <p class="muted" data-lang="fr">
-              MVP cloud-first livrés sans compromis.
-            </p>
+            <p class="muted" data-lang="en">MVPs delivered in weeks with a clear scope.</p>
+            <p class="muted" data-lang="es">MVP listos en semanas con alcance claro.</p>
+            <p class="muted" data-lang="fr">MVP livrés en quelques semaines, périmètre clair.</p>
           </div>
           <div class="ribbon-item">
             <div class="tag" data-lang="it">Sicurezza</div>
@@ -1056,28 +1175,20 @@
             <div class="tag" data-lang="fr">Sécurité</div>
             <div class="ribbon-title">Hardening continuo</div>
             <p class="muted" data-lang="it">
-              Assessment periodici, compliance UE/Italia e log verificati con
-              tolleranza zero al rischio.
-              Riferimenti: <a href="https://www.garanteprivacy.it" target="_blank" rel="noreferrer">Garante Privacy</a>,
-              <a href="https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en" target="_blank" rel="noreferrer">Commissione UE GDPR</a>.
+              Log controllati, backup provati e policy aderenti alle linee
+              guida Apple, Google e GDPR.
             </p>
             <p class="muted" data-lang="en">
-              Regular assessments, EU/Italian compliance and verified logs with
-              zero risk tolerance.
-              References: <a href="https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en" target="_blank" rel="noreferrer">EU Commission on GDPR</a>,
-              <a href="https://www.garanteprivacy.it" target="_blank" rel="noreferrer">Italian Data Protection Authority</a>.
+              Verified logs, tested backups and policies aligned with Apple,
+              Google and GDPR guidance.
             </p>
             <p class="muted" data-lang="es">
-              Evaluaciones periódicas, cumplimiento UE/Italia y registros
-              verificados con tolerancia cero al riesgo.
-              Referencias: <a href="https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en" target="_blank" rel="noreferrer">Comisión Europea (RGPD)</a>,
-              <a href="https://www.garanteprivacy.it" target="_blank" rel="noreferrer">Autoridad Italiana de Protección de Datos</a>.
+              Logs verificados, backups probados y políticas alineadas con Apple,
+              Google y el GDPR.
             </p>
             <p class="muted" data-lang="fr">
-              Audits réguliers, conformité UE/Italie et journaux vérifiés avec
-              tolérance zéro au risque.
-              Références : <a href="https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en" target="_blank" rel="noreferrer">Commission européenne (RGPD)</a>,
-              <a href="https://www.garanteprivacy.it" target="_blank" rel="noreferrer">Autorité italienne de protection des données</a>.
+              Journaux vérifiés, sauvegardes testées et politiques alignées sur
+              Apple, Google et le RGPD.
             </p>
           </div>
         </div>
@@ -1095,76 +1206,85 @@
 
         <div class="grid">
           <article class="card" data-wa-key="servizi-mobile">
+            <div class="service-icon">
+              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+            </div>
             <h3 data-lang="it">App Mobile</h3>
             <h3 data-lang="en">Mobile Apps</h3>
             <h3 data-lang="es">Aplicaciones móviles</h3>
             <h3 data-lang="fr">Apps mobiles</h3>
 
-            <p data-lang="it">Esperienze fluide e moderne per iOS e Android.</p>
-            <p data-lang="en">
-              Smooth, modern experiences for iOS and Android.
+            <p data-lang="it">
+              App veloci, curate e pronte per gli store ufficiali.
             </p>
-            <p data-lang="es">
-              Experiencias fluidas y modernas para iOS y Android.
-            </p>
-            <p data-lang="fr">Expériences fluides pour iOS et Android.</p>
+            <p data-lang="en">Fast, polished apps ready for the stores.</p>
+            <p data-lang="es">Apps rápidas y cuidadas, listas para las stores.</p>
+            <p data-lang="fr">Applications rapides et soignées, prêtes pour les stores.</p>
           </article>
 
           <article class="card" data-wa-key="servizi-cloud">
+            <div class="service-icon">
+              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+            </div>
             <h3 data-lang="it">Cloud & Backend</h3>
             <h3 data-lang="en">Cloud & Backend</h3>
             <h3 data-lang="es">Cloud & Backend</h3>
             <h3 data-lang="fr">Cloud & Backend</h3>
 
-            <p data-lang="it">API sicure e scalabili.</p>
-            <p data-lang="en">Secure, scalable APIs.</p>
-            <p data-lang="es">APIs seguras y escalables.</p>
-            <p data-lang="fr">APIs sécurisées et scalables.</p>
+            <p data-lang="it">API solide, monitorate e con costi chiari.</p>
+            <p data-lang="en">Solid APIs with monitoring and clear costs.</p>
+            <p data-lang="es">APIs sólidas, monitorizadas y con costes claros.</p>
+            <p data-lang="fr">APIs solides, monitorées et aux coûts clairs.</p>
           </article>
 
           <article class="card" data-wa-key="servizi-ai">
+            <div class="service-icon">
+              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+            </div>
             <h3 data-lang="it">AI & Automazione</h3>
             <h3 data-lang="en">AI & Automation</h3>
             <h3 data-lang="es">IA y Automatización</h3>
             <h3 data-lang="fr">IA & Automatisation</h3>
 
-            <p data-lang="it">
-              Processi intelligenti che riducono tempi e costi.
-            </p>
-            <p data-lang="en">Smart workflows that reduce time and cost.</p>
-            <p data-lang="es">
-              Procesos inteligentes que reducen tiempos y costes.
-            </p>
-            <p data-lang="fr">
-              Processus intelligents pour réduire coûts et délais.
-            </p>
+            <p data-lang="it">Automazioni utili che tagliano i tempi noiosi.</p>
+            <p data-lang="en">Useful automations that cut boring work.</p>
+            <p data-lang="es">Automatizaciones útiles que recortan tareas pesadas.</p>
+            <p data-lang="fr">Automatisations utiles qui retirent les tâches pénibles.</p>
           </article>
 
           <article class="card" data-wa-key="servizi-cybersecurity">
+            <div class="service-icon">
+              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+            </div>
             <h3 data-lang="it">Cybersecurity</h3>
             <h3 data-lang="en">Cybersecurity</h3>
             <h3 data-lang="es">Ciberseguridad</h3>
             <h3 data-lang="fr">Cybersécurité</h3>
 
             <p data-lang="it">
-              Protezione continua di dati e infrastrutture con policy conformi e
-              rispetto delle linee guida <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              e <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
+              Difesa continua di dati e infrastrutture, in linea con le policy
+              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
+              e
+              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
             </p>
             <p data-lang="en">
-              Continuous protection of data and infrastructure with compliant
-              policies, aligned with <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              and <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a> privacy and security guidance.
+              Ongoing protection for data and infra, aligned with
+              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
+              and
+              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>
+              guidance.
             </p>
             <p data-lang="es">
-              Protección continua de datos e infraestructura con políticas en
-              regla y alineadas con las guías de <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              y <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a> sobre privacidad y seguridad.
+              Defensa continua de datos e infra, alineada con las guías de
+              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
+              y
+              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
             </p>
             <p data-lang="fr">
-              Protection continue des données et infrastructures avec des
-              politiques conformes et alignées sur les guides <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              et <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a> en matière de confidentialité et de sécurité.
+              Protection continue des données et de l’infra, conforme aux guides
+              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
+              et
+              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
             </p>
           </article>
         </div>
