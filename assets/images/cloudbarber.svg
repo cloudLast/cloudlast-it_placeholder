@@ -1,0 +1,22 @@
+<svg width="900" height="680" viewBox="0 0 900 680" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="gCloud" x1="260" y1="160" x2="680" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb347"/>
+      <stop offset="0.35" stop-color="#ffd166"/>
+      <stop offset="0.65" stop-color="#2dd4ff"/>
+      <stop offset="0.85" stop-color="#22d3a3"/>
+      <stop offset="1" stop-color="#6ea4ff"/>
+    </linearGradient>
+    <linearGradient id="gText" x1="200" y1="480" x2="700" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3fa3ff"/>
+      <stop offset="1" stop-color="#35d4c4"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(340 210) rotate(50) scale(640 500)">
+      <stop stop-color="#111724"/>
+      <stop offset="1" stop-color="#0b0e16"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="680" rx="64" fill="url(#bg)"/>
+  <path d="M310 340c-4-64 36-120 104-128 40-5 78 10 101 36 52-12 98 18 102 72 3 46-30 86-77 92l-232 0c-46-9-82-46-86-96-4-62 42-118 107-124z" stroke="url(#gCloud)" stroke-width="20" stroke-linecap="round"/>
+  <text x="190" y="520" font-family="'Inter', 'SF Pro Display', sans-serif" font-size="98" font-weight="800" fill="url(#gText)">CloudBarber</text>
+</svg>

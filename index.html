@@ -101,6 +101,195 @@
         text-shadow: 0 0 24px rgba(45, 212, 255, 0.16);
         text-align: left;
       }
+      .section-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .section-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--card-border);
+        color: var(--muted);
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        font-size: 12px;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 159, 67, 0.14),
+          rgba(45, 212, 255, 0.12),
+          rgba(34, 211, 163, 0.12)
+        );
+      }
+      .section-subtitle {
+        color: var(--muted);
+        max-width: 720px;
+        margin-top: -6px;
+      }
+
+      .lux-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .service-card {
+        position: relative;
+        padding: 20px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--card-border);
+        background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        box-shadow: 0 14px 32px var(--shadow);
+        overflow: hidden;
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+      }
+      .service-card::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: calc(var(--radius-lg) - 6px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        pointer-events: none;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(0, 255, 166, 0.5);
+        box-shadow: 0 0 0 1px rgba(45, 212, 255, 0.5), 0 18px 38px rgba(0, 0, 0, 0.35);
+      }
+      .service-card__top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .service-pill {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--card-border);
+      }
+      .service-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .service-chip {
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-size: 12px;
+        color: #001013;
+        background: linear-gradient(135deg, rgba(45, 212, 255, 0.9), rgba(34, 211, 163, 0.9));
+      }
+
+      .launches {
+        position: relative;
+      }
+      .launch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+      .launch-card {
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--card-border);
+        padding: 18px;
+        background: radial-gradient(120% 120% at 10% 10%, rgba(255, 159, 67, 0.16), transparent 40%),
+          radial-gradient(90% 80% at 90% 20%, rgba(45, 212, 255, 0.16), transparent 40%),
+          rgba(255, 255, 255, 0.03);
+        box-shadow: 0 16px 36px var(--shadow);
+        backdrop-filter: blur(16px);
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      }
+      .launch-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(0, 255, 166, 0.5);
+        box-shadow: 0 0 0 1px rgba(0, 255, 166, 0.35), 0 20px 40px rgba(0, 0, 0, 0.45);
+      }
+      .launch-hero {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+      .launch-hero img {
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 26px;
+        background: #0c101c;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .launch-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.4px;
+      }
+      .launch-title {
+        font-size: 22px;
+        font-weight: 800;
+        margin: 6px 0 6px;
+        color: var(--text);
+      }
+      .launch-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .launch-chip {
+        padding: 6px 10px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--card-border);
+        color: var(--text);
+        font-size: 12px;
+      }
+      .launch-divider {
+        height: 1px;
+        margin: 16px 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+      }
+
+      .social-rail {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 12px;
+      }
+      .social-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        border: 1px solid var(--card-border);
+        color: var(--text);
+        font-weight: 700;
+        box-shadow: 0 12px 26px var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      .social-btn:hover {
+        transform: translateY(-6px);
+        border-color: rgba(45, 212, 255, 0.6);
+        box-shadow: 0 0 0 1px rgba(45, 212, 255, 0.4), 0 16px 34px rgba(0, 0, 0, 0.38);
+      }
+      .social-btn span:last-child {
+        color: var(--muted);
+        font-weight: 500;
+      }
 
       /* ========================================= */
       /*              LANGUAGE SWITCHER            */
@@ -1198,134 +1387,212 @@
       <!--                 SERVIZI                   -->
       <!-- ========================================= -->
 
-      <section class="section" id="servizi">
-        <h2 data-lang="it">Servizi</h2>
-        <h2 data-lang="en">Services</h2>
-        <h2 data-lang="es">Servicios</h2>
-        <h2 data-lang="fr">Services</h2>
-
-        <div class="grid">
-          <article class="card" data-wa-key="servizi-mobile">
-            <div class="service-icon">
-              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+        <section class="section" id="servizi">
+          <div class="section-header">
+            <div class="section-eyebrow">Boutique tech</div>
+            <div>
+              <h2 data-lang="it">Servizi</h2>
+              <h2 data-lang="en">Services</h2>
+              <h2 data-lang="es">Servicios</h2>
+              <h2 data-lang="fr">Services</h2>
+              <p class="section-subtitle" data-lang="it">
+                Esperienze premium, tono diretto e stack scelto per arrivare subito
+                alla produzione.
+              </p>
+              <p class="section-subtitle" data-lang="en">
+                Premium delivery with a direct tone and a curated stack to ship fast.
+              </p>
             </div>
-            <h3 data-lang="it">App Mobile</h3>
-            <h3 data-lang="en">Mobile Apps</h3>
-            <h3 data-lang="es">Aplicaciones móviles</h3>
-            <h3 data-lang="fr">Apps mobiles</h3>
+          </div>
 
-            <p data-lang="it">
-              App veloci, curate e pronte per gli store ufficiali.
-            </p>
-            <p data-lang="en">Fast, polished apps ready for the stores.</p>
-            <p data-lang="es">Apps rápidas y cuidadas, listas para las stores.</p>
-            <p data-lang="fr">Applications rapides et soignées, prêtes pour les stores.</p>
-          </article>
+          <div class="lux-grid">
+            <article class="service-card" data-wa-key="servizi-mobile">
+              <div class="service-card__top">
+                <span class="pill-dot" aria-hidden="true"></span>
+                <span class="service-pill">Mobile suite</span>
+              </div>
+              <h3 data-lang="it">App Mobile</h3>
+              <h3 data-lang="en">Mobile Apps</h3>
+              <p data-lang="it">Design curato, performance native e store compliance.</p>
+              <p data-lang="en">Polished UX, native performance and store compliance.</p>
+              <div class="service-meta">
+                <span class="service-chip">React Native</span>
+                <span class="service-chip">Store-ready</span>
+              </div>
+            </article>
 
-          <article class="card" data-wa-key="servizi-cloud">
-            <div class="service-icon">
-              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+            <article class="service-card" data-wa-key="servizi-cloud">
+              <div class="service-card__top">
+                <span class="pill-dot" aria-hidden="true"></span>
+                <span class="service-pill">Cloud &amp; backend</span>
+              </div>
+              <h3>Cloud &amp; Backend</h3>
+              <p data-lang="it">API solide, osservabilità e costi chiari fin dall’inizio.</p>
+              <p data-lang="en">Solid APIs, observability and transparent costs.</p>
+              <div class="service-meta">
+                <span class="service-chip">Kubernetes</span>
+                <span class="service-chip">Fast APIs</span>
+              </div>
+            </article>
+
+            <article class="service-card" data-wa-key="servizi-ai">
+              <div class="service-card__top">
+                <span class="pill-dot" aria-hidden="true"></span>
+                <span class="service-pill">AI &amp; automation</span>
+              </div>
+              <h3>AI &amp; Automazione</h3>
+              <p data-lang="it">Copilots, workflow e insight per tagliare i tempi noiosi.</p>
+              <p data-lang="en">Copilots, workflows and insights to cut busywork.</p>
+              <div class="service-meta">
+                <span class="service-chip">LLM</span>
+                <span class="service-chip">Data guardrails</span>
+              </div>
+            </article>
+
+            <article class="service-card" data-wa-key="servizi-cybersecurity">
+              <div class="service-card__top">
+                <span class="pill-dot" aria-hidden="true"></span>
+                <span class="service-pill">Security first</span>
+              </div>
+              <h3>Cybersecurity</h3>
+              <p data-lang="it">Hardening continuo, runbook e risposta rapida.</p>
+              <p data-lang="en">Continuous hardening, runbooks and rapid response.</p>
+              <div class="service-meta">
+                <span class="service-chip">SOC light</span>
+                <span class="service-chip">Playbooks</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section launches" id="lanci">
+          <div class="section-header">
+            <div class="section-eyebrow">Nuove uscite</div>
+            <div>
+              <h2 data-lang="it">Prossime uscite</h2>
+              <h2 data-lang="en">Upcoming launches</h2>
+              <h2 data-lang="es">Próximos lanzamientos</h2>
+              <h2 data-lang="fr">Lancements à venir</h2>
+              <p class="section-subtitle" data-lang="it">
+                Dividiamo bene i prodotti in arrivo con card dedicate, icone ufficiali
+                e transizioni morbide.
+              </p>
+              <p class="section-subtitle" data-lang="en">
+                Each launch gets its own spotlight with official icons and smooth
+                micro-interactions.
+              </p>
             </div>
-            <h3 data-lang="it">Cloud & Backend</h3>
-            <h3 data-lang="en">Cloud & Backend</h3>
-            <h3 data-lang="es">Cloud & Backend</h3>
-            <h3 data-lang="fr">Cloud & Backend</h3>
+          </div>
 
-            <p data-lang="it">API solide, monitorate e con costi chiari.</p>
-            <p data-lang="en">Solid APIs with monitoring and clear costs.</p>
-            <p data-lang="es">APIs sólidas, monitorizadas y con costes claros.</p>
-            <p data-lang="fr">APIs solides, monitorées et aux coûts clairs.</p>
-          </article>
+          <div class="launch-grid">
+            <article class="launch-card" data-wa-key="lanci-cloudbarber">
+              <div class="launch-hero">
+                <img src="assets/images/cloudbarber.svg" alt="Logo CloudBarber" />
+                <div class="launch-meta">
+                  <div class="launch-badge">Booking &amp; POS</div>
+                  <div class="launch-title">CloudBarber</div>
+                  <p data-lang="it">Appuntamenti, clienti e cassa in una sola app curata.</p>
+                  <p data-lang="en">Bookings, clients and payouts inside one polished app.</p>
+                  <div class="launch-stack">
+                    <span class="launch-chip">React</span>
+                    <span class="launch-chip">Stripe</span>
+                    <span class="launch-chip">Push live</span>
+                  </div>
+                </div>
+              </div>
+              <div class="launch-divider" aria-hidden="true"></div>
+              <p class="muted" data-lang="it">In rollout graduale con pubblicazione diretta sugli store ufficiali.</p>
+              <p class="muted" data-lang="en">Gradual rollout with direct publishing to the official stores.</p>
+            </article>
 
-          <article class="card" data-wa-key="servizi-ai">
-            <div class="service-icon">
-              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
+            <article class="launch-card" data-wa-key="lanci-napoliquest">
+              <div class="launch-hero">
+                <img src="assets/images/napoli-quest.svg" alt="Logo Napoli Quest" />
+                <div class="launch-meta">
+                  <div class="launch-badge">Cultura &amp; rewards</div>
+                  <div class="launch-title">Napoli Quest</div>
+                  <p data-lang="it">Percorsi in città, badge da riscattare e gaming leggero.</p>
+                  <p data-lang="en">City quests, redeemable badges and a playful layer.</p>
+                  <div class="launch-stack">
+                    <span class="launch-chip">React</span>
+                    <span class="launch-chip">Maps</span>
+                    <span class="launch-chip">Rewards</span>
+                  </div>
+                </div>
+              </div>
+              <div class="launch-divider" aria-hidden="true"></div>
+              <p class="muted" data-lang="it">Animazioni fluide e onboarding guidato per un’esperienza giovane.</p>
+              <p class="muted" data-lang="en">Fluid animations and guided onboarding for a youthful vibe.</p>
+            </article>
+
+            <article class="launch-card" data-wa-key="lanci-cloudlast">
+              <div class="launch-hero">
+                <img src="assets/images/cloudlast-icon.svg" alt="Icona CloudLast" />
+                <div class="launch-meta">
+                  <div class="launch-badge">Flagship</div>
+                  <div class="launch-title">CloudLast Studio</div>
+                  <p data-lang="it">Un hub premium che unisce dashboard, assistenza e AI copilot.</p>
+                  <p data-lang="en">Premium hub with dashboards, support and an AI copilot.</p>
+                  <div class="launch-stack">
+                    <span class="launch-chip">Next.js</span>
+                    <span class="launch-chip">AI copilot</span>
+                    <span class="launch-chip">Observability</span>
+                  </div>
+                </div>
+              </div>
+              <div class="launch-divider" aria-hidden="true"></div>
+              <p class="muted" data-lang="it">Transizioni morbide, luce neon e onboarding uniforme per tutti i moduli.</p>
+              <p class="muted" data-lang="en">Soft transitions, neon glow and a consistent onboarding across modules.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="social">
+          <div class="section-header">
+            <div class="section-eyebrow">Follow</div>
+            <div>
+              <h2 data-lang="it">Social &amp; redirect ufficiali</h2>
+              <h2 data-lang="en">Official social redirects</h2>
+              <p class="section-subtitle" data-lang="it">
+                Link curati e animati verso LinkedIn e i profili ufficiali, con la
+                tecnologia utilizzata in evidenza.
+              </p>
+              <p class="section-subtitle" data-lang="en">
+                Polished, animated links to LinkedIn and our social homes with the
+                tech stack in view.
+              </p>
             </div>
-            <h3 data-lang="it">AI & Automazione</h3>
-            <h3 data-lang="en">AI & Automation</h3>
-            <h3 data-lang="es">IA y Automatización</h3>
-            <h3 data-lang="fr">IA & Automatisation</h3>
-
-            <p data-lang="it">Automazioni utili che tagliano i tempi noiosi.</p>
-            <p data-lang="en">Useful automations that cut boring work.</p>
-            <p data-lang="es">Automatizaciones útiles que recortan tareas pesadas.</p>
-            <p data-lang="fr">Automatisations utiles qui retirent les tâches pénibles.</p>
-          </article>
-        </div>
-      </section>
-
-          <article class="card" data-wa-key="servizi-cybersecurity">
-            <div class="service-icon">
-              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
-            </div>
-            <h3 data-lang="it">Cybersecurity</h3>
-            <h3 data-lang="en">Cybersecurity</h3>
-            <h3 data-lang="es">Ciberseguridad</h3>
-            <h3 data-lang="fr">Cybersécurité</h3>
-
-      <section class="section" id="lanci">
-        <h2 data-lang="it">Prossime uscite</h2>
-        <h2 data-lang="en">Upcoming launches</h2>
-        <h2 data-lang="es">Próximos lanzamientos</h2>
-        <h2 data-lang="fr">Lancements à venir</h2>
-
-        <div class="grid">
-          <article class="card" data-wa-key="lanci-cloudbarber">
-            <div class="service-icon">
-              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
-            </div>
-            <h3>CloudBarber</h3>
-            <p data-lang="it">
-              Il gestionale in lancio firmato CloudLast: appuntamenti, clienti e
-              incassi in un’unica app.
-            </p>
-            <p data-lang="en">
-              CloudLast’s launch product: a simple manager for bookings, clients
-              and payouts in one app.
-            </p>
-            <p data-lang="es">
-              El producto de lanzamiento de CloudLast: gestor sencillo para
-              citas, clientes y cobros en una sola app.
-            </p>
-            <p data-lang="fr">
-              Le produit de lancement CloudLast : gestion simple des rendez-vous,
-              clients et encaissements dans une seule app.
-            </p>
-          </article>
-
-          <article class="card" data-wa-key="lanci-glamourstudiouno">
-            <div class="service-icon">
-              <img src="mnt/data/logo.png" alt="" aria-hidden="true" />
-            </div>
-            <h3>GlamourStudioUno</h3>
-            <p data-lang="it">
-              Difesa continua di dati e infrastrutture, in linea con le policy
-              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              e
-              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
-            </p>
-            <p data-lang="en">
-              Ongoing protection for data and infra, aligned with
-              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              and
-              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>
-              guidance.
-            </p>
-            <p data-lang="es">
-              Defensa continua de datos e infra, alineada con las guías de
-              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              y
-              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
-            </p>
-            <p data-lang="fr">
-              Protection continue des données et de l’infra, conforme aux guides
-              <a href="https://developer.apple.com/app-store/review/guidelines/#privacy-security" target="_blank" rel="noreferrer">Apple</a>
-              et
-              <a href="https://support.google.com/googleplay/android-developer/answer/10787469" target="_blank" rel="noreferrer">Google</a>.
-            </p>
-          </article>
-        </div>
-      </section>
+          </div>
+          <div class="social-rail">
+            <a
+              class="social-btn"
+              href="https://www.linkedin.com/company/cloudlast"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>LinkedIn</span>
+              <span>React • Cloud native • Security first</span>
+            </a>
+            <a
+              class="social-btn"
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Instagram</span>
+              <span>Dietro le quinte, prototipi e motion design</span>
+            </a>
+            <a
+              class="social-btn"
+              href="https://x.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>X / Twitter</span>
+              <span>Release log, changelog e note tecniche</span>
+            </a>
+          </div>
+        </section>
 
       <!-- ========================================= -->
       <!--                METODO PREMIUM              -->
