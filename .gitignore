@@ -1,0 +1,14 @@
+# IDE folders
+.idea/
+*.iml
+
+# system
+.DS_Store
+
+# node/npm left-overs
+node_modules/
+package-lock.json
+
+# build artifacts (in caso in futuro userai tools)
+dist/
+out/
