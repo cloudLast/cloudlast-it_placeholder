@@ -57,8 +57,29 @@ img {
   padding: 26px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--card-border);
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   box-shadow: 0 18px 38px var(--shadow);
+}
+
+.hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 211, 163, 0.4);
+  background: rgba(34, 211, 163, 0.12);
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(34, 211, 163, 0.18);
 }
 
 .hero h1 {
@@ -101,6 +122,46 @@ img {
   font-weight: 600;
 }
 
+.cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff9f43, #22d3a3);
+  color: var(--bg-1);
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.05);
+}
+
+.button.ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  box-shadow: none;
+}
+
+.button.full {
+  width: 100%;
+}
+
 .section {
   margin-top: 42px;
 }
@@ -135,6 +196,10 @@ img {
   transform: translateY(-4px);
   border-color: rgba(45, 212, 255, 0.45);
   box-shadow: 0 0 0 1px rgba(45, 212, 255, 0.3), 0 18px 38px var(--shadow);
+}
+
+.card.soft {
+  background: linear-gradient(135deg, rgba(255, 159, 67, 0.08), rgba(45, 212, 255, 0.08));
 }
 
 .card h3 {
@@ -195,6 +260,71 @@ img {
 
 .timeline-item small {
   color: var(--muted);
+}
+
+.accent .wide-card {
+  padding: 24px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--card-border);
+  background: linear-gradient(140deg, rgba(255, 159, 67, 0.12), rgba(45, 212, 255, 0.12));
+  box-shadow: 0 18px 42px var(--shadow);
+}
+
+.accent .grid.highlights {
+  margin-top: 16px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.form-card {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 14px 32px var(--shadow);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.form-group label {
+  font-weight: 700;
+}
+
+.form-card input,
+.form-card textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.form-card textarea {
+  resize: vertical;
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+  outline: 2px solid rgba(45, 212, 255, 0.45);
+  box-shadow: 0 0 0 2px rgba(45, 212, 255, 0.25);
+}
+
+.helper {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .footer {
