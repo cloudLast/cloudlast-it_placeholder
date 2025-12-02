@@ -1,0 +1,25 @@
+<svg width="720" height="720" viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="bgNq" x1="120" y1="90" x2="640" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a8be2"/>
+      <stop offset="1" stop-color="#0f4fbf"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="720" rx="120" fill="url(#bgNq)"/>
+  <path d="M140 430c60-32 140-62 220-70 90 8 150 32 220 70" stroke="#f7c94c" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M360 360c20 18 30 40 30 66" stroke="#f7c94c" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <g stroke="#f7c94c" stroke-width="10" fill="none" stroke-linecap="round">
+    <rect x="210" y="210" width="120" height="120" rx="46"/>
+    <rect x="390" y="210" width="120" height="120" rx="46"/>
+    <path d="M246 272c10 12 28 12 38 0"/>
+    <path d="M246 306c16 18 44 18 60 0"/>
+    <circle cx="248" cy="274" r="5" fill="#f7c94c"/>
+    <circle cx="292" cy="274" r="5" fill="#f7c94c"/>
+    <path d="M426 306c16 18 44 18 60 0"/>
+    <path d="M426 272c-10 12-28 12-38 0"/>
+    <circle cx="428" cy="274" r="5" fill="#f7c94c"/>
+    <circle cx="472" cy="274" r="5" fill="#f7c94c"/>
+  </g>
+  <text x="196" y="520" font-family="'Inter','SF Pro Display',sans-serif" font-size="44" fill="#f7c94c">scopri e riscatta</text>
+  <text x="140" y="590" font-family="'Inter','SF Pro Display',sans-serif" font-size="88" font-weight="800" fill="#f7c94c">NAPOLI QUEST</text>
+</svg>
