@@ -12,16 +12,16 @@
 
     <style>
       :root {
-        --bg-1: #06080f;
-        --bg-2: #0b1220;
-        --accent-1: #ff9f43;
-        --accent-2: #2dd4ff;
-        --accent-3: #22d3a3;
-        --text: #f5fbff;
-        --muted: #a9c4d3;
-        --card: rgba(255, 255, 255, 0.05);
-        --card-border: rgba(255, 255, 255, 0.14);
-        --shadow: rgba(3, 10, 20, 0.55);
+        --bg-1: #101626; /* lighter, premium dark */
+        --bg-2: #162037;
+        --accent-1: #ffb86b; /* warm amber */
+        --accent-2: #6bdcff; /* soft sky */
+        --accent-3: #34d399; /* emerald */
+        --text: #f7fbff;
+        --muted: #c4d4de;
+        --card: rgba(255, 255, 255, 0.08);
+        --card-border: rgba(255, 255, 255, 0.18);
+        --shadow: rgba(8, 16, 32, 0.45);
         --maxw: 1080px;
         --radius-lg: 44px;
         --radius-xl: 54px;
@@ -37,13 +37,13 @@
 
       /* Light Theme */
       [data-theme="light"] {
-        --bg-1: #f7fafc;
-        --bg-2: #eef2f5;
-        --text: #0e1b21;
-        --muted: #4c5b62;
-        --card: rgba(0, 0, 0, 0.04);
-        --card-border: rgba(0, 0, 0, 0.12);
-        --shadow: rgba(0, 0, 0, 0.22);
+        --bg-1: #f8fbfd;
+        --bg-2: #eef4f8;
+        --text: #0c141a;
+        --muted: #4a5a62;
+        --card: rgba(0, 0, 0, 0.035);
+        --card-border: rgba(0, 0, 0, 0.10);
+        --shadow: rgba(0, 0, 0, 0.18);
       }
 
       * {
@@ -54,14 +54,16 @@
         margin: 0;
         font-family: "Inter", "SF Pro Display", system-ui, -apple-system,
           sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
         background: radial-gradient(
             1200px 900px at 20% 0%,
-            rgba(255, 159, 67, 0.14),
+            rgba(255, 184, 107, 0.12),
             transparent 55%
           ),
           radial-gradient(
             1200px 900px at 80% 0%,
-            rgba(45, 212, 255, 0.12),
+            rgba(107, 220, 255, 0.10),
             transparent 55%
           ),
           linear-gradient(180deg, var(--bg-1), var(--bg-2));
@@ -142,8 +144,8 @@
         padding: 20px;
         border-radius: var(--radius-lg);
         border: 1px solid var(--card-border);
-        background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-        box-shadow: 0 14px 32px var(--shadow);
+        background: linear-gradient(140deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        box-shadow: 0 12px 28px var(--shadow);
         overflow: hidden;
         transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
       }
@@ -156,9 +158,9 @@
         pointer-events: none;
       }
       .service-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(0, 255, 166, 0.5);
-        box-shadow: 0 0 0 1px rgba(45, 212, 255, 0.5), 0 18px 38px rgba(0, 0, 0, 0.35);
+        transform: translateY(-4px);
+        border-color: rgba(107, 220, 255, 0.55);
+        box-shadow: 0 0 0 1px rgba(107, 220, 255, 0.45), 0 18px 36px rgba(0, 0, 0, 0.32);
       }
       .service-card__top {
         display: flex;
@@ -200,9 +202,9 @@
         border-radius: var(--radius-xl);
         border: 1px solid var(--card-border);
         padding: 18px;
-        background: radial-gradient(120% 120% at 10% 10%, rgba(255, 159, 67, 0.16), transparent 40%),
-          radial-gradient(90% 80% at 90% 20%, rgba(45, 212, 255, 0.16), transparent 40%),
-          rgba(255, 255, 255, 0.03);
+        background: radial-gradient(120% 120% at 10% 10%, rgba(255, 184, 107, 0.16), transparent 40%),
+          radial-gradient(90% 80% at 90% 20%, rgba(107, 220, 255, 0.14), transparent 40%),
+          rgba(255, 255, 255, 0.04);
         box-shadow: 0 16px 36px var(--shadow);
         backdrop-filter: blur(16px);
         transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
@@ -274,7 +276,7 @@
         gap: 4px;
         padding: 14px 16px;
         border-radius: 16px;
-        background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
         border: 1px solid var(--card-border);
         color: var(--text);
         font-weight: 700;
@@ -553,8 +555,8 @@
 
       .theme-toggle:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 0 1px rgba(0, 255, 166, 0.55),
-          0 0 30px rgba(0, 255, 166, 0.18);
+        box-shadow: 0 0 0 1px rgba(107, 220, 255, 0.55),
+          0 0 30px rgba(107, 220, 255, 0.20);
       }
 
       .theme-toggle .icon {
@@ -842,8 +844,8 @@
         border-radius: var(--radius-md);
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.06),
-          rgba(255, 255, 255, 0.03)
+          rgba(255, 255, 255, 0.09),
+          rgba(255, 255, 255, 0.05)
         );
         border: 1px solid var(--card-border);
         -webkit-backdrop-filter: blur(14px);
@@ -911,13 +913,13 @@
       .glow-card {
         background: radial-gradient(
             140% 140% at 10% 20%,
-            rgba(0, 255, 166, 0.09),
+            rgba(107, 220, 255, 0.10),
             transparent 40%
           ),
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.06),
-            rgba(255, 255, 255, 0.03)
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.04)
           );
         border: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 14px 32px var(--shadow);
@@ -1252,10 +1254,10 @@
           <div>
             <div class="pill">
               <span class="pill-dot" aria-hidden="true"></span>
-              <span data-lang="it">Boutique cloud studio</span>
-              <span data-lang="en">Boutique cloud studio</span>
-              <span data-lang="es">Estudio cloud boutique</span>
-              <span data-lang="fr">Studio cloud boutique</span>
+              <span data-lang="it"> cloud studio</span>
+              <span data-lang="en"> cloud studio</span>
+              <span data-lang="es">Estudio cloud </span>
+              <span data-lang="fr">Studio cloud </span>
             </div>
             <h1>CloudLast</h1>
             <p class="slogan">
@@ -1320,10 +1322,10 @@
               <div class="logo-label">CloudLast</div>
             </div>
             <div class="hero-note">
-              <span data-lang="it">Dal concept al lancio con cura boutique.</span>
-              <span data-lang="en">From concept to launch with boutique care.</span>
-              <span data-lang="es">Del concepto al lanzamiento con cuidado boutique.</span>
-              <span data-lang="fr">Du concept au lancement avec soin boutique.</span>
+              <span data-lang="it">Dal concept al lancio con cura.</span>
+              <span data-lang="en">From concept to launch with care.</span>
+              <span data-lang="es">Del concepto al lanzamiento con cuidado.</span>
+              <span data-lang="fr">Du concept au lancement avec soin.</span>
             </div>
           </div>
         </div>
@@ -1389,18 +1391,18 @@
 
         <section class="section" id="servizi">
           <div class="section-header">
-            <div class="section-eyebrow">Boutique tech</div>
+            <div class="section-eyebrow">Servizi</div>
             <div>
               <h2 data-lang="it">Servizi</h2>
               <h2 data-lang="en">Services</h2>
               <h2 data-lang="es">Servicios</h2>
               <h2 data-lang="fr">Services</h2>
               <p class="section-subtitle" data-lang="it">
-                Esperienze premium, tono diretto e stack scelto per arrivare subito
-                alla produzione.
+                Esperienze premium, tono diretto e scelte mirate per arrivare subito
+                alla pubblicazione.
               </p>
               <p class="section-subtitle" data-lang="en">
-                Premium delivery with a direct tone and a curated stack to ship fast.
+                Premium delivery with a direct tone and a curated approach to ship fast.
               </p>
             </div>
           </div>
@@ -1413,61 +1415,45 @@
               </div>
               <h3 data-lang="it">App Mobile</h3>
               <h3 data-lang="en">Mobile Apps</h3>
-              <p data-lang="it">Design curato, performance native e store compliance.</p>
-              <p data-lang="en">Polished UX, native performance and store compliance.</p>
-              <div class="service-meta">
-                <span class="service-chip">React Native</span>
-                <span class="service-chip">Store-ready</span>
-              </div>
+              <p data-lang="it">Design curato e prestazioni fluide.</p>
+              <p data-lang="en">Polished design and smooth performance.</p>
             </article>
 
             <article class="service-card" data-wa-key="servizi-cloud">
               <div class="service-card__top">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span class="service-pill">Cloud &amp; backend</span>
+                <span class="service-pill">Struttura</span>
               </div>
-              <h3>Cloud &amp; Backend</h3>
-              <p data-lang="it">API solide, osservabilità e costi chiari fin dall’inizio.</p>
-              <p data-lang="en">Solid APIs, observability and transparent costs.</p>
-              <div class="service-meta">
-                <span class="service-chip">Kubernetes</span>
-                <span class="service-chip">Fast APIs</span>
-              </div>
+              <h3>Struttura e gestione</h3>
+              <p data-lang="it">Struttura solida e costi chiari fin dall’inizio.</p>
+              <p data-lang="en">Solid setup and transparent costs.</p>
             </article>
 
             <article class="service-card" data-wa-key="servizi-ai">
               <div class="service-card__top">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span class="service-pill">AI &amp; automation</span>
+                <span class="service-pill">Strumenti intelligenti</span>
               </div>
-              <h3>AI &amp; Automazione</h3>
-              <p data-lang="it">Copilots, workflow e insight per tagliare i tempi noiosi.</p>
-              <p data-lang="en">Copilots, workflows and insights to cut busywork.</p>
-              <div class="service-meta">
-                <span class="service-chip">LLM</span>
-                <span class="service-chip">Data guardrails</span>
-              </div>
+              <h3>Strumenti intelligenti</h3>
+              <p data-lang="it">Automazioni e assistenza intelligente per risparmiare tempo.</p>
+              <p data-lang="en">Smart tools and automations to save time.</p>
             </article>
 
             <article class="service-card" data-wa-key="servizi-cybersecurity">
               <div class="service-card__top">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span class="service-pill">Security first</span>
+                <span class="service-pill">Sicurezza</span>
               </div>
-              <h3>Cybersecurity</h3>
-              <p data-lang="it">Hardening continuo, runbook e risposta rapida.</p>
-              <p data-lang="en">Continuous hardening, runbooks and rapid response.</p>
-              <div class="service-meta">
-                <span class="service-chip">SOC light</span>
-                <span class="service-chip">Playbooks</span>
-              </div>
+              <h3>Sicurezza</h3>
+              <p data-lang="it">Protezione continua e risposta rapida.</p>
+              <p data-lang="en">Ongoing protection and quick response.</p>
             </article>
           </div>
         </section>
 
         <section class="section launches" id="lanci">
           <div class="section-header">
-            <div class="section-eyebrow">Nuove uscite</div>
+            <div class="section-eyebrow">Prossime uscite</div>
             <div>
               <h2 data-lang="it">Prossime uscite</h2>
               <h2 data-lang="en">Upcoming launches</h2>
@@ -1487,17 +1473,13 @@
           <div class="launch-grid">
             <article class="launch-card" data-wa-key="lanci-cloudbarber">
               <div class="launch-hero">
-                <img src="assets/images/cloudbarber.svg" alt="Logo CloudBarber" />
+                <img src="assets/images/cloudbarber.svg" alt="Logo CloudBarber" width="110" height="110" loading="lazy" decoding="async" />
                 <div class="launch-meta">
-                  <div class="launch-badge">Booking &amp; POS</div>
+                  <div class="launch-badge">Prenotazioni &amp; pagamenti</div>
                   <div class="launch-title">CloudBarber</div>
                   <p data-lang="it">Appuntamenti, clienti e cassa in una sola app curata.</p>
                   <p data-lang="en">Bookings, clients and payouts inside one polished app.</p>
-                  <div class="launch-stack">
-                    <span class="launch-chip">React</span>
-                    <span class="launch-chip">Stripe</span>
-                    <span class="launch-chip">Push live</span>
-                  </div>
+                  <div class="launch-stack" aria-hidden="true"></div>
                 </div>
               </div>
               <div class="launch-divider" aria-hidden="true"></div>
@@ -1507,17 +1489,13 @@
 
             <article class="launch-card" data-wa-key="lanci-napoliquest">
               <div class="launch-hero">
-                <img src="assets/images/napoli-quest.svg" alt="Logo Napoli Quest" />
+                <img src="assets/images/napoli-quest.svg" alt="Logo Napoli Quest" width="110" height="110" loading="lazy" decoding="async" />
                 <div class="launch-meta">
-                  <div class="launch-badge">Cultura &amp; rewards</div>
+                  <div class="launch-badge">Cultura &amp; premi</div>
                   <div class="launch-title">Napoli Quest</div>
                   <p data-lang="it">Percorsi in città, badge da riscattare e gaming leggero.</p>
                   <p data-lang="en">City quests, redeemable badges and a playful layer.</p>
-                  <div class="launch-stack">
-                    <span class="launch-chip">React</span>
-                    <span class="launch-chip">Maps</span>
-                    <span class="launch-chip">Rewards</span>
-                  </div>
+                  <div class="launch-stack" aria-hidden="true"></div>
                 </div>
               </div>
               <div class="launch-divider" aria-hidden="true"></div>
@@ -1527,17 +1505,13 @@
 
             <article class="launch-card" data-wa-key="lanci-cloudlast">
               <div class="launch-hero">
-                <img src="assets/images/cloudlast-icon.svg" alt="Icona CloudLast" />
+                <img src="assets/images/cloudlast-icon.svg" alt="Icona CloudLast" width="110" height="110" loading="lazy" decoding="async" />
                 <div class="launch-meta">
                   <div class="launch-badge">Flagship</div>
                   <div class="launch-title">CloudLast Studio</div>
-                  <p data-lang="it">Un hub premium che unisce dashboard, assistenza e AI copilot.</p>
-                  <p data-lang="en">Premium hub with dashboards, support and an AI copilot.</p>
-                  <div class="launch-stack">
-                    <span class="launch-chip">Next.js</span>
-                    <span class="launch-chip">AI copilot</span>
-                    <span class="launch-chip">Observability</span>
-                  </div>
+                  <p data-lang="it">Un hub che unisce dashboard e assistenza.</p>
+                  <p data-lang="en">A hub with dashboards and support.</p>
+                  <div class="launch-stack" aria-hidden="true"></div>
                 </div>
               </div>
               <div class="launch-divider" aria-hidden="true"></div>
@@ -1554,12 +1528,10 @@
               <h2 data-lang="it">Social &amp; redirect ufficiali</h2>
               <h2 data-lang="en">Official social redirects</h2>
               <p class="section-subtitle" data-lang="it">
-                Link curati e animati verso LinkedIn e i profili ufficiali, con la
-                tecnologia utilizzata in evidenza.
+                Link curati e animati verso LinkedIn e i profili ufficiali.
               </p>
               <p class="section-subtitle" data-lang="en">
-                Polished, animated links to LinkedIn and our social homes with the
-                tech stack in view.
+                Polished, animated links to LinkedIn and our official profiles.
               </p>
             </div>
           </div>
@@ -1571,7 +1543,7 @@
               rel="noreferrer"
             >
               <span>LinkedIn</span>
-              <span>React • Cloud native • Security first</span>
+              <span>Aggiornamenti e novità</span>
             </a>
             <a
               class="social-btn"
@@ -1589,7 +1561,7 @@
               rel="noreferrer"
             >
               <span>X / Twitter</span>
-              <span>Release log, changelog e note tecniche</span>
+              <span>Aggiornamenti e note</span>
             </a>
           </div>
         </section>
@@ -1600,10 +1572,10 @@
 
       <section class="section" id="metodo">
         <div class="card glow-card">
-          <h2 data-lang="it">Metodo boutique</h2>
-          <h2 data-lang="en">Boutique method</h2>
-          <h2 data-lang="es">Método boutique</h2>
-          <h2 data-lang="fr">Méthode boutique</h2>
+          <h2 data-lang="it">Metodo </h2>
+          <h2 data-lang="en"> method</h2>
+          <h2 data-lang="es">Método </h2>
+          <h2 data-lang="fr">Méthode </h2>
 
             <p class="muted" data-lang="it">
               Cicli brevi e comprensibili: ci confrontiamo, prototipiamo e
@@ -1684,19 +1656,19 @@
             >
               <h3>03 · Grow</h3>
                 <p class="muted" data-lang="it">
-                  Monitoraggio attivo, runbook condivisi e roadmap trimestrali
+                  Monitoraggio attivo, procedure chiare e piani trimestrali
                   per crescere con calma.
                 </p>
                 <p class="muted" data-lang="en">
-                  Active monitoring, shared runbooks and quarterly roadmaps to
+                  Active monitoring, clear procedures and quarterly plans to
                   grow at a steady pace.
                 </p>
                 <p class="muted" data-lang="es">
-                  Monitorización activa, runbooks compartidos y roadmap
+                  Monitorización activa, procedimientos claros y planes
                   trimestrales para crecer con calma.
                 </p>
                 <p class="muted" data-lang="fr">
-                  Monitoring actif, runbooks partagés et roadmaps trimestriels
+                  Monitoring actif, procédures claires et plans trimestriels
                   pour une croissance posée.
                 </p>
             </div>
@@ -2301,7 +2273,27 @@
         </div>
       </section>
 
-      <footer>© CloudLast • Think Cloud. Build Last.</footer>
+      <footer>
+        © CloudLast • Think Cloud. Build Last. • Capitale Sociale €15.000,00
+        •
+        <a href="/privacy.html">Privacy</a>
+        ·
+        <a href="/cookie.html">Cookie</a>
+        ·
+        <a href="/termini.html">Termini</a>
+        ·
+        <a href="/sicurezza.html">Sicurezza</a>
+        ·
+        <a href="/ai-policy.html">AI Policy</a>
+        ·
+        <a href="/licenza.html">Licenza</a>
+        ·
+        <a href="/changelog.html">Changelog</a>
+        ·
+        <a href="/roadmap.html">Roadmap</a>
+        ·
+        <a href="/gdpr-b2b.html">GDPR B2B</a>
+      </footer>
     </main>
 
     <!-- Floating WhatsApp button with localized labels -->
