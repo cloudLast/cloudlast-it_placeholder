@@ -4,22 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Changelog • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>Changelog</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">Changelog</span>
+        <h1 data-lang="it">Aggiornamenti recenti</h1>
+        <h1 data-lang="en">Recent updates</h1>
+        <p class="muted" data-lang="it">Le novità più utili, spiegate in poche righe e senza tecnicismi.</p>
+        <p class="muted" data-lang="en">The most useful changes, explained in a few lines without jargon.</p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Ultime uscite</h2>
+            <h2 data-lang="en">Latest releases</h2>
+            <ul class="list">
+              <li data-lang="it">Nuova homepage bilingue con linguaggio diretto.</li>
+              <li data-lang="en">New bilingual homepage with plain wording.</li>
+              <li data-lang="it">Sezioni legali aggiornate e più leggibili.</li>
+              <li data-lang="en">Updated, clearer legal sections.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Migliorie</h2>
+            <h2 data-lang="en">Improvements</h2>
+            <ul class="list">
+              <li data-lang="it">Transizioni morbide e palette premium.</li>
+              <li data-lang="en">Soft transitions and a premium palette.</li>
+              <li data-lang="it">Ottimizzazione del caricamento immagini.</li>
+              <li data-lang="en">Optimized image loading.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">In corso</h2>
+            <h2 data-lang="en">In progress</h2>
+            <ul class="list">
+              <li data-lang="it">Percorsi di onboarding ancora più rapidi.</li>
+              <li data-lang="en">Even faster onboarding flows.</li>
+              <li data-lang="it">Più esempi pratici su dati e AI.</li>
+              <li data-lang="en">More practical examples on data and AI.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>

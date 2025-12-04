@@ -4,22 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roadmap • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>Roadmap</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">Roadmap</span>
+        <h1 data-lang="it">Cosa stiamo preparando</h1>
+        <h1 data-lang="en">What we are preparing</h1>
+        <p class="muted" data-lang="it">Una panoramica sintetica delle prossime uscite e delle attenzioni principali.</p>
+        <p class="muted" data-lang="en">A short view of upcoming releases and main focus areas.</p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">In arrivo</h2>
+            <h2 data-lang="en">Coming up</h2>
+            <ul class="list">
+              <li data-lang="it">Portale clienti con stato dei progetti in tempo reale.</li>
+              <li data-lang="en">Client portal with live project status.</li>
+              <li data-lang="it">Template di runbook condivisi e pronti all'uso.</li>
+              <li data-lang="en">Shared, ready-to-use runbook templates.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Ottimizzazioni</h2>
+            <h2 data-lang="en">Optimizations</h2>
+            <ul class="list">
+              <li data-lang="it">Automazione dei test di sicurezza nelle pipeline.</li>
+              <li data-lang="en">Automated security checks in pipelines.</li>
+              <li data-lang="it">Report costi più leggibili per prodotto e team.</li>
+              <li data-lang="en">Clearer cost reports per product and team.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Cura continua</h2>
+            <h2 data-lang="en">Continuous care</h2>
+            <ul class="list">
+              <li data-lang="it">Sessioni periodiche con i clienti per rivedere priorità.</li>
+              <li data-lang="en">Regular sessions with clients to review priorities.</li>
+              <li data-lang="it">Miglioramenti di UX basati sui feedback raccolti.</li>
+              <li data-lang="en">UX refinements based on collected feedback.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>

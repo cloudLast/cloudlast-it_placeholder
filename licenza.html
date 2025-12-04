@@ -4,22 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Licenza • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>Licenza</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">Licenza</span>
+        <h1 data-lang="it">Uso del software senza sorprese</h1>
+        <h1 data-lang="en">Software use without surprises</h1>
+        <p class="muted" data-lang="it">
+          Descriviamo in modo semplice cosa puoi fare con le nostre soluzioni e cosa succede in caso di modifica o
+          recesso.
+        </p>
+        <p class="muted" data-lang="en">
+          We explain plainly what you can do with our solutions and what happens if terms change or you leave.
+        </p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Diritti d'uso</h2>
+            <h2 data-lang="en">Usage rights</h2>
+            <ul class="list">
+              <li data-lang="it">Licenze per team e ambienti concordati.</li>
+              <li data-lang="en">Licenses cover agreed teams and environments.</li>
+              <li data-lang="it">Nessun trasferimento dei tuoi dati o contenuti.</li>
+              <li data-lang="en">We never transfer your data or content ownership.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Aggiornamenti</h2>
+            <h2 data-lang="en">Updates</h2>
+            <ul class="list">
+              <li data-lang="it">Notifiche in anticipo su nuove versioni e cambi di prezzo.</li>
+              <li data-lang="en">Advance notice on new versions and price changes.</li>
+              <li data-lang="it">Possibilità di rimanere su versioni stabili quando serve.</li>
+              <li data-lang="en">Option to stay on stable versions when needed.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Chiusura</h2>
+            <h2 data-lang="en">Exit</h2>
+            <ul class="list">
+              <li data-lang="it">Backup e handover dei materiali prima della chiusura.</li>
+              <li data-lang="en">Backups and handover before closing the service.</li>
+              <li data-lang="it">Cancellazione sicura dei dati dopo il trasferimento.</li>
+              <li data-lang="en">Secure deletion of data after transfer.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>

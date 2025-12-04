@@ -4,22 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GDPR B2B • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>GDPR B2B</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">GDPR B2B</span>
+        <h1 data-lang="it">Gestiamo i dati business nel rispetto del GDPR</h1>
+        <h1 data-lang="en">We handle business data in line with GDPR</h1>
+        <p class="muted" data-lang="it">
+          Processiamo dati aziendali solo per erogare i servizi concordati, con ruoli e responsabilità definiti in
+          modo chiaro nei contratti.
+        </p>
+        <p class="muted" data-lang="en">
+          We process business data only to deliver agreed services, with roles and responsibilities clearly stated
+          in our agreements.
+        </p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Ruoli</h2>
+            <h2 data-lang="en">Roles</h2>
+            <ul class="list">
+              <li data-lang="it">Agiamo come responsabili del trattamento per i servizi gestiti.</li>
+              <li data-lang="en">We act as data processors for managed services.</li>
+              <li data-lang="it">Nominiamo subfornitori solo se necessari e comunicati.</li>
+              <li data-lang="en">We engage subprocessors only when needed and disclosed.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Misure</h2>
+            <h2 data-lang="en">Measures</h2>
+            <ul class="list">
+              <li data-lang="it">Crittografia in transito e a riposo dove applicabile.</li>
+              <li data-lang="en">Encryption in transit and at rest where applicable.</li>
+              <li data-lang="it">Audit trail per accessi e modifiche ai dati.</li>
+              <li data-lang="en">Audit trail for data access and changes.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Conservazione</h2>
+            <h2 data-lang="en">Retention</h2>
+            <ul class="list">
+              <li data-lang="it">Conserviamo i dati per il tempo necessario al servizio.</li>
+              <li data-lang="en">We keep data only as long as needed for the service.</li>
+              <li data-lang="it">Cancellazione sicura al termine del rapporto o su richiesta.</li>
+              <li data-lang="en">Secure deletion at the end of engagement or upon request.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>
