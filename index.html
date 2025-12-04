@@ -12,16 +12,16 @@
 
     <style>
       :root {
-        --bg-1: #06080f;
-        --bg-2: #0b1220;
-        --accent-1: #ff9f43;
-        --accent-2: #2dd4ff;
-        --accent-3: #22d3a3;
-        --text: #f5fbff;
-        --muted: #a9c4d3;
-        --card: rgba(255, 255, 255, 0.05);
-        --card-border: rgba(255, 255, 255, 0.14);
-        --shadow: rgba(3, 10, 20, 0.55);
+        --bg-1: #050814;
+        --bg-2: #0b1226;
+        --accent-1: #f5c35f;
+        --accent-2: #8ad3ff;
+        --accent-3: #9c8bff;
+        --text: #f8fcff;
+        --muted: #b7c9d9;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-border: rgba(255, 255, 255, 0.18);
+        --shadow: rgba(4, 9, 24, 0.55);
         --maxw: 1080px;
         --radius-lg: 44px;
         --radius-xl: 54px;
@@ -55,14 +55,19 @@
         font-family: "Inter", "SF Pro Display", system-ui, -apple-system,
           sans-serif;
         background: radial-gradient(
-            1200px 900px at 20% 0%,
-            rgba(255, 159, 67, 0.14),
+            1200px 900px at 15% 10%,
+            rgba(245, 195, 95, 0.18),
             transparent 55%
           ),
           radial-gradient(
-            1200px 900px at 80% 0%,
-            rgba(45, 212, 255, 0.12),
+            1200px 900px at 85% 5%,
+            rgba(140, 199, 255, 0.18),
             transparent 55%
+          ),
+          radial-gradient(
+            1000px 800px at 50% 90%,
+            rgba(156, 139, 255, 0.16),
+            transparent 60%
           ),
           linear-gradient(180deg, var(--bg-1), var(--bg-2));
         background-attachment: fixed;
@@ -142,7 +147,12 @@
         padding: 20px;
         border-radius: var(--radius-lg);
         border: 1px solid var(--card-border);
-        background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        background: linear-gradient(
+            140deg,
+            rgba(245, 195, 95, 0.08),
+            rgba(138, 211, 255, 0.06)
+          ),
+          linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
         box-shadow: 0 14px 32px var(--shadow);
         overflow: hidden;
         transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
@@ -185,7 +195,7 @@
         border-radius: 10px;
         font-size: 12px;
         color: #001013;
-        background: linear-gradient(135deg, rgba(45, 212, 255, 0.9), rgba(34, 211, 163, 0.9));
+        background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
       }
 
       .launches {
@@ -1266,16 +1276,19 @@
             <h1>CloudLast</h1>
             <p class="slogan">
               <span data-lang="it"
-                >Soluzioni chiare, parole semplici, risultati che restano.</span
+                >Progettiamo, curiamo e difendiamo i tuoi sistemi con parole
+                semplici.</span
               >
               <span data-lang="en"
-                >Clear solutions, plain words, results that last.</span
+                >We design, run and protect your systems with clear words.</span
               >
               <span data-lang="es"
-                >Soluciones claras, palabras sencillas y resultados sólidos.</span
+                >Diseñamos, cuidamos y protegemos tus sistemas con palabras
+                claras.</span
               >
               <span data-lang="fr"
-                >Solutions claires, mots simples et résultats durables.</span
+                >Nous concevons, gérons et protégeons vos systèmes avec des
+                mots simples.</span
               >
             </p>
             <div class="cta-row">
@@ -1299,17 +1312,17 @@
             <div class="pill-row">
               <div class="pill">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span data-lang="it">App, backend, AI e sicurezza su AWS</span>
-                <span data-lang="en">Apps, backends, AI and security on AWS</span>
-                <span data-lang="es">Apps, backend, IA y seguridad sobre AWS</span>
-                <span data-lang="fr">Apps, backends, IA et sécurité sur AWS</span>
+                <span data-lang="it">Costruiamo app, backend e AI e li teniamo online</span>
+                <span data-lang="en">We build apps, backends and AI and keep them online</span>
+                <span data-lang="es">Creamos apps, backend y IA y los mantenemos en línea</span>
+                <span data-lang="fr">Nous créons apps, backends et IA et nous les gardons en ligne</span>
               </div>
               <div class="pill">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span data-lang="it">Design curato, privacy e dati personali protetti</span>
-                <span data-lang="en">Polished design, privacy and personal data protected</span>
-                <span data-lang="es">Diseño cuidado, privacidad y datos personales protegidos</span>
-                <span data-lang="fr">Design soigné, vie privée et données protégées</span>
+                <span data-lang="it">Proteggiamo i dati, monitoriamo e rispondiamo ai problemi</span>
+                <span data-lang="en">We protect data, monitor and react when something breaks</span>
+                <span data-lang="es">Protegemos los datos, vigilamos y respondemos si algo falla</span>
+                <span data-lang="fr">Nous protégeons les données, surveillons et répondons vite</span>
               </div>
             </div>
           </div>
@@ -1469,6 +1482,103 @@
                 <span class="service-chip">Playbook</span>
               </div>
             </article>
+          </div>
+        </section>
+
+        <section class="section" id="responsabilita">
+          <div class="section-header">
+            <div class="section-eyebrow">Attività e responsabilità</div>
+            <div>
+              <h2 data-lang="it">Cosa fa un'azienda IT</h2>
+              <h2 data-lang="en">What an IT team does</h2>
+              <h2 data-lang="es">Qué hace una empresa IT</h2>
+              <h2 data-lang="fr">Le rôle d'une entreprise IT</h2>
+              <p class="section-subtitle" data-lang="it">
+                Progettiamo il software, custodiamo i dati e interveniamo quando
+                serve. Tutto spiegato in modo diretto, senza giri di parole.
+              </p>
+              <p class="section-subtitle" data-lang="en">
+                We design the software, protect the data and step in when needed.
+                Straight talk, no jargon.
+              </p>
+              <p class="section-subtitle" data-lang="es">
+                Diseñamos el software, cuidamos los datos y actuamos cuando hace
+                falta. Todo explicado sin tecnicismos.
+              </p>
+              <p class="section-subtitle" data-lang="fr">
+                Nous concevons les outils, protégeons les données et intervenons
+                quand il le faut. Des mots simples, sans jargon.
+              </p>
+            </div>
+          </div>
+
+          <div class="ribbon">
+            <div class="ribbon-item">
+              <div class="ribbon-title" data-lang="it">Pianifica e costruisce</div>
+              <div class="ribbon-title" data-lang="en">Plans and builds</div>
+              <div class="ribbon-title" data-lang="es">Planifica y crea</div>
+              <div class="ribbon-title" data-lang="fr">Planifie et crée</div>
+              <p class="muted" data-lang="it">
+                Analizziamo l'idea, scegliamo gli strumenti e realizziamo app e
+                backend pronti all'uso.
+              </p>
+              <p class="muted" data-lang="en">
+                We study the idea, pick the right stack and deliver ready-to-run
+                apps and backends.
+              </p>
+              <p class="muted" data-lang="es">
+                Analizamos la idea, elegimos las herramientas y creamos apps y
+                backend listos para usar.
+              </p>
+              <p class="muted" data-lang="fr">
+                Nous étudions l'idée, choisissons les outils et livrons apps et
+                backends prêts à tourner.
+              </p>
+            </div>
+
+            <div class="ribbon-item">
+              <div class="ribbon-title" data-lang="it">Custodisce e monitora</div>
+              <div class="ribbon-title" data-lang="en">Guards and monitors</div>
+              <div class="ribbon-title" data-lang="es">Custodia y vigila</div>
+              <div class="ribbon-title" data-lang="fr">Protège et suit</div>
+              <p class="muted" data-lang="it">
+                I dati restano al sicuro, con backup, controlli e log
+                consultabili.
+              </p>
+              <p class="muted" data-lang="en">
+                Data stays safe with backups, checks and readable audit logs.
+              </p>
+              <p class="muted" data-lang="es">
+                Los datos se mantienen seguros con copias, controles y registros
+                claros.
+              </p>
+              <p class="muted" data-lang="fr">
+                Les données sont protégées avec sauvegardes, contrôles et traces
+                claires.
+              </p>
+            </div>
+
+            <div class="ribbon-item">
+              <div class="ribbon-title" data-lang="it">Risponde ai problemi</div>
+              <div class="ribbon-title" data-lang="en">Responds fast</div>
+              <div class="ribbon-title" data-lang="es">Responde rápido</div>
+              <div class="ribbon-title" data-lang="fr">Répond vite</div>
+              <p class="muted" data-lang="it">
+                Se qualcosa si blocca, agiamo con runbook chiari e aggiornamenti
+                continui.
+              </p>
+              <p class="muted" data-lang="en">
+                If something stops, we use clear runbooks and keep you updated.
+              </p>
+              <p class="muted" data-lang="es">
+                Si algo se detiene, seguimos pasos claros y avisamos en cada
+                fase.
+              </p>
+              <p class="muted" data-lang="fr">
+                Si un souci arrive, nous suivons des étapes claires et vous
+                tenons informés.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -2583,6 +2693,7 @@
         const sections = [
           { sel: ".hero.section", key: "home" },
           { sel: "#servizi", key: "servizi" },
+          { sel: "#responsabilita", key: "responsabilita" },
           { sel: "#lanci", key: "lanci" },
           { sel: "#founder", key: "founder" },
           { sel: "#uffici", key: "uffici" },
@@ -2593,6 +2704,7 @@
           it: {
             home: "Home",
             servizi: "Servizi",
+            responsabilita: "Responsabilità IT",
             lanci: "Prossime uscite",
             founder: "Founder",
             uffici: "Uffici",
@@ -2608,6 +2720,7 @@
           en: {
             home: "Home",
             servizi: "Services",
+            responsabilita: "IT responsibilities",
             lanci: "Upcoming launches",
             founder: "Founder",
             uffici: "Offices",
@@ -2623,6 +2736,7 @@
           es: {
             home: "Inicio",
             servizi: "Servicios",
+            responsabilita: "Responsabilidades IT",
             lanci: "Próximos lanzamientos",
             founder: "Fundador",
             uffici: "Oficinas",
@@ -2638,6 +2752,7 @@
           fr: {
             home: "Accueil",
             servizi: "Services",
+            responsabilita: "Responsabilités IT",
             lanci: "Lancements à venir",
             founder: "Fondateur",
             uffici: "Bureaux",
