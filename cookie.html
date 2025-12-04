@@ -4,22 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookie • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>Cookie</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">Cookie</span>
+        <h1 data-lang="it">Usiamo cookie essenziali e leggibili</h1>
+        <h1 data-lang="en">We use essential, easy-to-read cookies</h1>
+        <p class="muted" data-lang="it">
+          Preferiamo pochi cookie tecnici. Nessun tracciamento aggressivo, solo strumenti che servono a tenere il
+          sito sicuro e veloce.
+        </p>
+        <p class="muted" data-lang="en">
+          We stick to a few technical cookies. No heavy tracking, just tools that keep the site safe and fast.
+        </p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Tipi di cookie</h2>
+            <h2 data-lang="en">Types of cookies</h2>
+            <ul class="list">
+              <li data-lang="it">Cookie di sessione per funzioni di lingua e sicurezza.</li>
+              <li data-lang="en">Session cookies for language and security features.</li>
+              <li data-lang="it">Cookie di preferenza per ricordare scelte come tema e lingua.</li>
+              <li data-lang="en">Preference cookies to remember choices like theme and language.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Come li usiamo</h2>
+            <h2 data-lang="en">How we use them</h2>
+            <ul class="list">
+              <li data-lang="it">Non vendiamo né cediamo i dati raccolti dai cookie.</li>
+              <li data-lang="en">We do not sell or pass on data collected through cookies.</li>
+              <li data-lang="it">Misuriamo in modo aggregato le visite per capire cosa migliorare.</li>
+              <li data-lang="en">We measure visits in aggregate to see what to improve.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Le tue scelte</h2>
+            <h2 data-lang="en">Your choices</h2>
+            <ul class="list">
+              <li data-lang="it">Puoi disattivare i cookie non essenziali dal browser.</li>
+              <li data-lang="en">You can disable non-essential cookies in your browser.</li>
+              <li data-lang="it">La lingua resta salvata finché non la cambi.</li>
+              <li data-lang="en">Language stays saved until you change it.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>

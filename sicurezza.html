@@ -4,22 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sicurezza • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>Sicurezza</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">Sicurezza</span>
+        <h1 data-lang="it">Difesa continua e spiegata</h1>
+        <h1 data-lang="en">Continuous, explained security</h1>
+        <p class="muted" data-lang="it">
+          Usiamo controlli chiari e documentati. Ogni misura è pensata per proteggere i dati senza complicare il
+          lavoro dei team.
+        </p>
+        <p class="muted" data-lang="en">
+          We use clear, documented controls. Every measure protects data without getting in the team's way.
+        </p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Protezione</h2>
+            <h2 data-lang="en">Protection</h2>
+            <ul class="list">
+              <li data-lang="it">Accessi minimi e tracciati, MFA ovunque possibile.</li>
+              <li data-lang="en">Least-privilege access with MFA wherever possible.</li>
+              <li data-lang="it">Backup verificati e piani di ripristino provati.</li>
+              <li data-lang="en">Verified backups and tested recovery plans.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Monitoraggio</h2>
+            <h2 data-lang="en">Monitoring</h2>
+            <ul class="list">
+              <li data-lang="it">Alert chiari con percorsi di escalation condivisi.</li>
+              <li data-lang="en">Clear alerts with shared escalation paths.</li>
+              <li data-lang="it">Log strutturati e consultabili dai referenti.</li>
+              <li data-lang="en">Structured logs available to stakeholders.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Gestione incidenti</h2>
+            <h2 data-lang="en">Incident handling</h2>
+            <ul class="list">
+              <li data-lang="it">Runbook pronti, ruoli definiti e comunicazione rapida.</li>
+              <li data-lang="en">Ready runbooks, defined roles and fast communication.</li>
+              <li data-lang="it">Report sintetici dopo ogni evento rilevante.</li>
+              <li data-lang="en">Short reports after every relevant event.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>
