@@ -12,16 +12,16 @@
 
     <style>
       :root {
-        --bg-1: #101626; /* lighter, premium dark */
-        --bg-2: #162037;
-        --accent-1: #ffb86b; /* warm amber */
-        --accent-2: #6bdcff; /* soft sky */
-        --accent-3: #34d399; /* emerald */
-        --text: #f7fbff;
-        --muted: #c4d4de;
-        --card: rgba(255, 255, 255, 0.08);
-        --card-border: rgba(255, 255, 255, 0.18);
-        --shadow: rgba(8, 16, 32, 0.45);
+        --bg-1: #06080f;
+        --bg-2: #0b1220;
+        --accent-1: #ff9f43;
+        --accent-2: #2dd4ff;
+        --accent-3: #22d3a3;
+        --text: #f5fbff;
+        --muted: #a9c4d3;
+        --card: rgba(255, 255, 255, 0.05);
+        --card-border: rgba(255, 255, 255, 0.14);
+        --shadow: rgba(3, 10, 20, 0.55);
         --maxw: 1080px;
         --radius-lg: 44px;
         --radius-xl: 54px;
@@ -37,13 +37,13 @@
 
       /* Light Theme */
       [data-theme="light"] {
-        --bg-1: #f8fbfd;
-        --bg-2: #eef4f8;
-        --text: #0c141a;
-        --muted: #4a5a62;
-        --card: rgba(0, 0, 0, 0.035);
-        --card-border: rgba(0, 0, 0, 0.10);
-        --shadow: rgba(0, 0, 0, 0.18);
+        --bg-1: #f7fafc;
+        --bg-2: #eef2f5;
+        --text: #0e1b21;
+        --muted: #4c5b62;
+        --card: rgba(0, 0, 0, 0.04);
+        --card-border: rgba(0, 0, 0, 0.12);
+        --shadow: rgba(0, 0, 0, 0.22);
       }
 
       * {
@@ -54,16 +54,14 @@
         margin: 0;
         font-family: "Inter", "SF Pro Display", system-ui, -apple-system,
           sans-serif;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
         background: radial-gradient(
             1200px 900px at 20% 0%,
-            rgba(255, 184, 107, 0.12),
+            rgba(255, 159, 67, 0.14),
             transparent 55%
           ),
           radial-gradient(
             1200px 900px at 80% 0%,
-            rgba(107, 220, 255, 0.10),
+            rgba(45, 212, 255, 0.12),
             transparent 55%
           ),
           linear-gradient(180deg, var(--bg-1), var(--bg-2));
@@ -144,8 +142,8 @@
         padding: 20px;
         border-radius: var(--radius-lg);
         border: 1px solid var(--card-border);
-        background: linear-gradient(140deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-        box-shadow: 0 12px 28px var(--shadow);
+        background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        box-shadow: 0 14px 32px var(--shadow);
         overflow: hidden;
         transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
       }
@@ -158,9 +156,9 @@
         pointer-events: none;
       }
       .service-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(107, 220, 255, 0.55);
-        box-shadow: 0 0 0 1px rgba(107, 220, 255, 0.45), 0 18px 36px rgba(0, 0, 0, 0.32);
+        transform: translateY(-6px);
+        border-color: rgba(0, 255, 166, 0.5);
+        box-shadow: 0 0 0 1px rgba(45, 212, 255, 0.5), 0 18px 38px rgba(0, 0, 0, 0.35);
       }
       .service-card__top {
         display: flex;
@@ -202,9 +200,9 @@
         border-radius: var(--radius-xl);
         border: 1px solid var(--card-border);
         padding: 18px;
-        background: radial-gradient(120% 120% at 10% 10%, rgba(255, 184, 107, 0.16), transparent 40%),
-          radial-gradient(90% 80% at 90% 20%, rgba(107, 220, 255, 0.14), transparent 40%),
-          rgba(255, 255, 255, 0.04);
+        background: radial-gradient(120% 120% at 10% 10%, rgba(255, 159, 67, 0.16), transparent 40%),
+          radial-gradient(90% 80% at 90% 20%, rgba(45, 212, 255, 0.16), transparent 40%),
+          rgba(255, 255, 255, 0.03);
         box-shadow: 0 16px 36px var(--shadow);
         backdrop-filter: blur(16px);
         transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
@@ -276,7 +274,7 @@
         gap: 4px;
         padding: 14px 16px;
         border-radius: 16px;
-        background: linear-gradient(120deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
         border: 1px solid var(--card-border);
         color: var(--text);
         font-weight: 700;
@@ -555,8 +553,8 @@
 
       .theme-toggle:hover {
         transform: translateY(-2px);
-        box-shadow: 0 0 0 1px rgba(107, 220, 255, 0.55),
-          0 0 30px rgba(107, 220, 255, 0.20);
+        box-shadow: 0 0 0 1px rgba(0, 255, 166, 0.55),
+          0 0 30px rgba(0, 255, 166, 0.18);
       }
 
       .theme-toggle .icon {
@@ -844,8 +842,8 @@
         border-radius: var(--radius-md);
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.09),
-          rgba(255, 255, 255, 0.05)
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.03)
         );
         border: 1px solid var(--card-border);
         -webkit-backdrop-filter: blur(14px);
@@ -913,13 +911,13 @@
       .glow-card {
         background: radial-gradient(
             140% 140% at 10% 20%,
-            rgba(107, 220, 255, 0.10),
+            rgba(0, 255, 166, 0.09),
             transparent 40%
           ),
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.03)
           );
         border: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 14px 32px var(--shadow);
@@ -1254,24 +1252,24 @@
           <div>
             <div class="pill">
               <span class="pill-dot" aria-hidden="true"></span>
-              <span data-lang="it"> cloud studio</span>
-              <span data-lang="en"> cloud studio</span>
-              <span data-lang="es">Estudio cloud </span>
-              <span data-lang="fr">Studio cloud </span>
+              <span data-lang="it">Studio cloud italiano</span>
+              <span data-lang="en">Italian cloud studio</span>
+              <span data-lang="es">Estudio cloud italiano</span>
+              <span data-lang="fr">Studio cloud italien</span>
             </div>
             <h1>CloudLast</h1>
             <p class="slogan">
               <span data-lang="it"
-                >Soluzioni premium, testo chiaro, esperienza curata.</span
+                >Soluzioni chiare, parole semplici, risultati che restano.</span
               >
               <span data-lang="en"
-                >Premium solutions, simple words, curated experience.</span
+                >Clear solutions, plain words, results that last.</span
               >
               <span data-lang="es"
-                >Soluciones premium, palabras sencillas y experiencia cuidada.</span
+                >Soluciones claras, palabras sencillas y resultados sólidos.</span
               >
               <span data-lang="fr"
-                >Solutions premium, mots simples et expérience soignée.</span
+                >Solutions claires, mots simples et résultats durables.</span
               >
             </p>
             <div class="cta-row">
@@ -1295,17 +1293,17 @@
             <div class="pill-row">
               <div class="pill">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span data-lang="it">App, backend, AI e sicurezza</span>
-                <span data-lang="en">Apps, backends, AI and security</span>
-                <span data-lang="es">Apps, backend, IA y seguridad</span>
-                <span data-lang="fr">Apps, backends, IA et sécurité</span>
+                <span data-lang="it">App, backend, AI e sicurezza su AWS</span>
+                <span data-lang="en">Apps, backends, AI and security on AWS</span>
+                <span data-lang="es">Apps, backend, IA y seguridad sobre AWS</span>
+                <span data-lang="fr">Apps, backends, IA et sécurité sur AWS</span>
               </div>
               <div class="pill">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span data-lang="it">Design curato, tono diretto</span>
-                <span data-lang="en">Polished design, direct tone</span>
-                <span data-lang="es">Diseño pulido, tono directo</span>
-                <span data-lang="fr">Design soigné, ton direct</span>
+                <span data-lang="it">Design curato, privacy e dati personali protetti</span>
+                <span data-lang="en">Polished design, privacy and personal data protected</span>
+                <span data-lang="es">Diseño cuidado, privacidad y datos personales protegidos</span>
+                <span data-lang="fr">Design soigné, vie privée et données protégées</span>
               </div>
             </div>
           </div>
@@ -1322,10 +1320,10 @@
               <div class="logo-label">CloudLast</div>
             </div>
             <div class="hero-note">
-              <span data-lang="it">Dal concept al lancio con cura.</span>
-              <span data-lang="en">From concept to launch with care.</span>
-              <span data-lang="es">Del concepto al lanzamiento con cuidado.</span>
-              <span data-lang="fr">Du concept au lancement avec soin.</span>
+              <span data-lang="it">Dal concept al lancio con cura boutique.</span>
+              <span data-lang="en">From concept to launch with boutique care.</span>
+              <span data-lang="es">Del concepto al lanzamiento con cuidado boutique.</span>
+              <span data-lang="fr">Du concept au lancement avec soin boutique.</span>
             </div>
           </div>
         </div>
@@ -1391,18 +1389,19 @@
 
         <section class="section" id="servizi">
           <div class="section-header">
-            <div class="section-eyebrow">Servizi</div>
+            <div class="section-eyebrow">Tecnologia, parole semplici</div>
             <div>
               <h2 data-lang="it">Servizi</h2>
               <h2 data-lang="en">Services</h2>
               <h2 data-lang="es">Servicios</h2>
               <h2 data-lang="fr">Services</h2>
               <p class="section-subtitle" data-lang="it">
-                Esperienze premium, tono diretto e scelte mirate per arrivare subito
-                alla pubblicazione.
+                App, cloud e sicurezza spiegati in modo chiaro, con dati personali
+                gestiti come da GDPR e standard AWS, Apple e Google.
               </p>
               <p class="section-subtitle" data-lang="en">
-                Premium delivery with a direct tone and a curated approach to ship fast.
+                Apps, cloud and security explained plainly, with personal data
+                handled per GDPR and AWS, Apple and Google standards.
               </p>
             </div>
           </div>
@@ -1411,32 +1410,44 @@
             <article class="service-card" data-wa-key="servizi-mobile">
               <div class="service-card__top">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span class="service-pill">Mobile suite</span>
+                <span class="service-pill">App mobili</span>
               </div>
-              <h3 data-lang="it">App Mobile</h3>
-              <h3 data-lang="en">Mobile Apps</h3>
-              <p data-lang="it">Design curato e prestazioni fluide.</p>
-              <p data-lang="en">Polished design and smooth performance.</p>
+              <h3 data-lang="it">App mobile</h3>
+              <h3 data-lang="en">Mobile apps</h3>
+              <p data-lang="it">Design curato, prestazioni native e regole Apple/Google rispettate.</p>
+              <p data-lang="en">Polished UX, native speed and full Apple/Google store compliance.</p>
+              <div class="service-meta">
+                <span class="service-chip">React Native</span>
+                <span class="service-chip">Store pronte</span>
+              </div>
             </article>
 
             <article class="service-card" data-wa-key="servizi-cloud">
               <div class="service-card__top">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span class="service-pill">Struttura</span>
+                <span class="service-pill">Cloud e backend</span>
               </div>
-              <h3>Struttura e gestione</h3>
-              <p data-lang="it">Struttura solida e costi chiari fin dall’inizio.</p>
-              <p data-lang="en">Solid setup and transparent costs.</p>
+              <h3>Cloud e backend</h3>
+              <p data-lang="it">API solide su AWS, monitoraggio continuo e costi trasparenti.</p>
+              <p data-lang="en">Solid AWS APIs, continuous monitoring and transparent costs.</p>
+              <div class="service-meta">
+                <span class="service-chip">Kubernetes</span>
+                <span class="service-chip">API rapide</span>
+              </div>
             </article>
 
             <article class="service-card" data-wa-key="servizi-ai">
               <div class="service-card__top">
                 <span class="pill-dot" aria-hidden="true"></span>
-                <span class="service-pill">Strumenti intelligenti</span>
+                <span class="service-pill">AI e automazione</span>
               </div>
-              <h3>Strumenti intelligenti</h3>
-              <p data-lang="it">Automazioni e assistenza intelligente per risparmiare tempo.</p>
-              <p data-lang="en">Smart tools and automations to save time.</p>
+              <h3>AI e automazione</h3>
+              <p data-lang="it">Assistenti, flussi e controlli dati per ridurre il lavoro manuale.</p>
+              <p data-lang="en">Assistants, flows and data guardrails to cut manual work.</p>
+              <div class="service-meta">
+                <span class="service-chip">LLM</span>
+                <span class="service-chip">Guide dati</span>
+              </div>
             </article>
 
             <article class="service-card" data-wa-key="servizi-cybersecurity">
@@ -1444,16 +1455,81 @@
                 <span class="pill-dot" aria-hidden="true"></span>
                 <span class="service-pill">Sicurezza</span>
               </div>
-              <h3>Sicurezza</h3>
-              <p data-lang="it">Protezione continua e risposta rapida.</p>
-              <p data-lang="en">Ongoing protection and quick response.</p>
+              <h3>Cybersecurity</h3>
+              <p data-lang="it">Difese continue, runbook chiari e risposta rapida ai rischi.</p>
+              <p data-lang="en">Continuous defenses, clear runbooks and quick incident response.</p>
+              <div class="service-meta">
+                <span class="service-chip">SOC leggero</span>
+                <span class="service-chip">Playbook</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="alleanze">
+          <div class="section-header">
+            <div class="section-eyebrow">Alleanze e cura dei dati</div>
+            <div>
+              <h2 data-lang="it">Vicini ai big, radicati in Italia</h2>
+              <h2 data-lang="en">Close to the big players, rooted in Italy</h2>
+              <h2 data-lang="es">Cerca de los grandes, con raíces en Italia</h2>
+              <h2 data-lang="fr">Proches des grands, ancrés en Italie</h2>
+              <p class="section-subtitle" data-lang="it">
+                Lavoriamo con gli standard di AWS, Apple e Google per offrire un
+                cloud sicuro, leggibile e rispettoso dei dati personali.
+              </p>
+              <p class="section-subtitle" data-lang="en">
+                We follow AWS, Apple and Google standards to keep every cloud
+                project clear, secure and respectful of personal data.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <h3 data-lang="it">AWS, Apple e Google al centro</h3>
+              <h3 data-lang="en">Built with AWS, Apple and Google</h3>
+              <p data-lang="it">
+                Scelte tecniche spiegate in italiano, con linee guida ufficiali,
+                account verificati e tool certificati.
+              </p>
+              <p data-lang="en">
+                Decisions are shared in plain language, using official guides,
+                verified accounts and certified tools.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 data-lang="it">Dati personali protetti</h3>
+              <h3 data-lang="en">Personal data first</h3>
+              <p data-lang="it">
+                Privacy, consenso e registri di trattamento curati. Backup e
+                audit seguono il GDPR e le policy degli store Apple e Google.
+              </p>
+              <p data-lang="en">
+                Privacy, consent and processing logs are handled with care.
+                Backups and audits follow GDPR and the Apple/Google store rules.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 data-lang="it">Formazione informatica in Italia</h3>
+              <h3 data-lang="en">Training made in Italy</h3>
+              <p data-lang="it">
+                Un’area dedicata alla formazione digitale: corsi pratici,
+                sessioni dal vivo e supporto continuo per aziende e scuole.
+              </p>
+              <p data-lang="en">
+                A dedicated training area with hands-on courses, live sessions
+                and continuous support for companies and schools.
+              </p>
             </article>
           </div>
         </section>
 
         <section class="section launches" id="lanci">
           <div class="section-header">
-            <div class="section-eyebrow">Prossime uscite</div>
+            <div class="section-eyebrow">Nuove uscite</div>
             <div>
               <h2 data-lang="it">Prossime uscite</h2>
               <h2 data-lang="en">Upcoming launches</h2>
@@ -1473,13 +1549,17 @@
           <div class="launch-grid">
             <article class="launch-card" data-wa-key="lanci-cloudbarber">
               <div class="launch-hero">
-                <img src="assets/images/cloudbarber.svg" alt="Logo CloudBarber" width="110" height="110" loading="lazy" decoding="async" />
+                <img src="assets/images/cloudbarber.svg" alt="Logo CloudBarber" />
                 <div class="launch-meta">
-                  <div class="launch-badge">Prenotazioni &amp; pagamenti</div>
+                  <div class="launch-badge">Booking &amp; POS</div>
                   <div class="launch-title">CloudBarber</div>
                   <p data-lang="it">Appuntamenti, clienti e cassa in una sola app curata.</p>
                   <p data-lang="en">Bookings, clients and payouts inside one polished app.</p>
-                  <div class="launch-stack" aria-hidden="true"></div>
+                  <div class="launch-stack">
+                    <span class="launch-chip">React</span>
+                    <span class="launch-chip">Stripe</span>
+                    <span class="launch-chip">Push live</span>
+                  </div>
                 </div>
               </div>
               <div class="launch-divider" aria-hidden="true"></div>
@@ -1489,13 +1569,17 @@
 
             <article class="launch-card" data-wa-key="lanci-napoliquest">
               <div class="launch-hero">
-                <img src="assets/images/napoli-quest.svg" alt="Logo Napoli Quest" width="110" height="110" loading="lazy" decoding="async" />
+                <img src="assets/images/napoli-quest.svg" alt="Logo Napoli Quest" />
                 <div class="launch-meta">
-                  <div class="launch-badge">Cultura &amp; premi</div>
+                  <div class="launch-badge">Cultura &amp; rewards</div>
                   <div class="launch-title">Napoli Quest</div>
                   <p data-lang="it">Percorsi in città, badge da riscattare e gaming leggero.</p>
                   <p data-lang="en">City quests, redeemable badges and a playful layer.</p>
-                  <div class="launch-stack" aria-hidden="true"></div>
+                  <div class="launch-stack">
+                    <span class="launch-chip">React</span>
+                    <span class="launch-chip">Maps</span>
+                    <span class="launch-chip">Rewards</span>
+                  </div>
                 </div>
               </div>
               <div class="launch-divider" aria-hidden="true"></div>
@@ -1505,13 +1589,17 @@
 
             <article class="launch-card" data-wa-key="lanci-cloudlast">
               <div class="launch-hero">
-                <img src="assets/images/cloudlast-icon.svg" alt="Icona CloudLast" width="110" height="110" loading="lazy" decoding="async" />
+                <img src="assets/images/cloudlast-icon.svg" alt="Icona CloudLast" />
                 <div class="launch-meta">
                   <div class="launch-badge">Flagship</div>
                   <div class="launch-title">CloudLast Studio</div>
-                  <p data-lang="it">Un hub che unisce dashboard e assistenza.</p>
-                  <p data-lang="en">A hub with dashboards and support.</p>
-                  <div class="launch-stack" aria-hidden="true"></div>
+                  <p data-lang="it">Un hub premium che unisce dashboard, assistenza e AI copilot.</p>
+                  <p data-lang="en">Premium hub with dashboards, support and an AI copilot.</p>
+                  <div class="launch-stack">
+                    <span class="launch-chip">Next.js</span>
+                    <span class="launch-chip">AI copilot</span>
+                    <span class="launch-chip">Observability</span>
+                  </div>
                 </div>
               </div>
               <div class="launch-divider" aria-hidden="true"></div>
@@ -1528,10 +1616,12 @@
               <h2 data-lang="it">Social &amp; redirect ufficiali</h2>
               <h2 data-lang="en">Official social redirects</h2>
               <p class="section-subtitle" data-lang="it">
-                Link curati e animati verso LinkedIn e i profili ufficiali.
+                Link curati e animati verso LinkedIn e i profili ufficiali, con la
+                tecnologia utilizzata in evidenza.
               </p>
               <p class="section-subtitle" data-lang="en">
-                Polished, animated links to LinkedIn and our official profiles.
+                Polished, animated links to LinkedIn and our social homes with the
+                tech stack in view.
               </p>
             </div>
           </div>
@@ -1543,7 +1633,7 @@
               rel="noreferrer"
             >
               <span>LinkedIn</span>
-              <span>Aggiornamenti e novità</span>
+              <span>React • Cloud native • Security first</span>
             </a>
             <a
               class="social-btn"
@@ -1561,7 +1651,7 @@
               rel="noreferrer"
             >
               <span>X / Twitter</span>
-              <span>Aggiornamenti e note</span>
+              <span>Release log, changelog e note tecniche</span>
             </a>
           </div>
         </section>
@@ -1572,10 +1662,10 @@
 
       <section class="section" id="metodo">
         <div class="card glow-card">
-          <h2 data-lang="it">Metodo </h2>
-          <h2 data-lang="en"> method</h2>
-          <h2 data-lang="es">Método </h2>
-          <h2 data-lang="fr">Méthode </h2>
+          <h2 data-lang="it">Metodo boutique</h2>
+          <h2 data-lang="en">Boutique method</h2>
+          <h2 data-lang="es">Método boutique</h2>
+          <h2 data-lang="fr">Méthode boutique</h2>
 
             <p class="muted" data-lang="it">
               Cicli brevi e comprensibili: ci confrontiamo, prototipiamo e
@@ -1656,19 +1746,19 @@
             >
               <h3>03 · Grow</h3>
                 <p class="muted" data-lang="it">
-                  Monitoraggio attivo, procedure chiare e piani trimestrali
+                  Monitoraggio attivo, runbook condivisi e roadmap trimestrali
                   per crescere con calma.
                 </p>
                 <p class="muted" data-lang="en">
-                  Active monitoring, clear procedures and quarterly plans to
+                  Active monitoring, shared runbooks and quarterly roadmaps to
                   grow at a steady pace.
                 </p>
                 <p class="muted" data-lang="es">
-                  Monitorización activa, procedimientos claros y planes
+                  Monitorización activa, runbooks compartidos y roadmap
                   trimestrales para crecer con calma.
                 </p>
                 <p class="muted" data-lang="fr">
-                  Monitoring actif, procédures claires et plans trimestriels
+                  Monitoring actif, runbooks partagés et roadmaps trimestriels
                   pour une croissance posée.
                 </p>
             </div>
@@ -1862,10 +1952,12 @@
             <h3 data-lang="fr">Formation Technique</h3>
 
             <p data-lang="it">
-              Percorsi pratici su linguaggi, cloud e sicurezza.
+              Percorsi pratici su linguaggi, cloud e sicurezza, erogati dalla
+              nostra area formazione in Italia.
             </p>
             <p data-lang="en">
-              Hands-on training in languages, cloud and security.
+              Hands-on training on languages, cloud and security from our
+              Italian training hub.
             </p>
             <p data-lang="es">
               Rutas prácticas en lenguajes, cloud y seguridad.
@@ -1881,8 +1973,14 @@
             <h3 data-lang="es">Formación Empresarial</h3>
             <h3 data-lang="fr">Formation en Entreprise</h3>
 
-            <p data-lang="it">Competenze digitali per team e processi.</p>
-            <p data-lang="en">Digital skills for teams and processes.</p>
+            <p data-lang="it">
+              Competenze digitali per team e processi con tutor dedicati in
+              italiano.
+            </p>
+            <p data-lang="en">
+              Digital skills for teams and processes with Italian-speaking
+              tutors.
+            </p>
             <p data-lang="es">Habilidades digitales para equipos y procesos.</p>
             <p data-lang="fr">
               Compétences digitales pour équipes et processus.
@@ -2273,27 +2371,7 @@
         </div>
       </section>
 
-      <footer>
-        © CloudLast • Think Cloud. Build Last. • Capitale Sociale €15.000,00
-        •
-        <a href="/privacy.html">Privacy</a>
-        ·
-        <a href="/cookie.html">Cookie</a>
-        ·
-        <a href="/termini.html">Termini</a>
-        ·
-        <a href="/sicurezza.html">Sicurezza</a>
-        ·
-        <a href="/ai-policy.html">AI Policy</a>
-        ·
-        <a href="/licenza.html">Licenza</a>
-        ·
-        <a href="/changelog.html">Changelog</a>
-        ·
-        <a href="/roadmap.html">Roadmap</a>
-        ·
-        <a href="/gdpr-b2b.html">GDPR B2B</a>
-      </footer>
+      <footer>© CloudLast • Think Cloud. Build Last.</footer>
     </main>
 
     <!-- Floating WhatsApp button with localized labels -->
