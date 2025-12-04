@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CloudLast • Think Cloud. Build Last.</title>
-    <link rel="icon" type="image/x-icon" href="/mnt/data/logo.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
 
     <!-- ========================================= -->
     <!--                 GLOBAL STYLE               -->
@@ -798,6 +798,10 @@
         width: 120px;
         height: 120px;
         border-radius: 32px;
+        object-fit: contain;
+        padding: 10px;
+        background: radial-gradient(circle at 30% 20%, rgba(45, 212, 255, 0.18), rgba(255, 159, 67, 0.08));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 12px 28px rgba(0, 0, 0, 0.35);
       }
 
       .hero-visual .logo-label {
@@ -823,8 +827,10 @@
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 28px;
-        box-shadow: 0 0 18px rgba(0, 255, 166, 0.3);
+        box-shadow: 0 0 18px rgba(0, 255, 166, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
         flex: none;
+        background: linear-gradient(135deg, rgba(255, 159, 67, 0.16), rgba(45, 212, 255, 0.16));
+        border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       /* ========================================= */
@@ -1190,7 +1196,7 @@
             </div>
             <a href="#top">
               <img
-                src="mnt/data/logo.png"
+                src="/assets/images/cloudlast-logo.svg"
                 alt="CloudLast logo"
                 width="40"
                 height="40"
@@ -1310,7 +1316,7 @@
           <div class="hero-visual" aria-hidden="true">
             <div class="logo-tile">
               <img
-                src="mnt/data/logo.png"
+                src="/assets/images/cloudlast-logo.svg"
                 alt="CloudLast logo"
                 width="120"
                 height="120"
@@ -1782,7 +1788,7 @@
         >
           <img
             class="avatar"
-            src="mnt/data/carlo.jpeg"
+            src="/assets/images/founder-portrait.svg"
             alt="Carlo Gennaro • Founder CloudLast"
             width="92"
             height="92"
