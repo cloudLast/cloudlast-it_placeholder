@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+
+// Minimal Vite config that copies assets/images to dist/images
+export default defineConfig({
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'assets/images/*',
+          dest: 'images',
+        },
+      ],
+    }),
+  ],
+})
+
