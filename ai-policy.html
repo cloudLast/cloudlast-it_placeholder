@@ -3,23 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Policy • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <title>AI policy • CloudLast</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>AI Policy</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">AI policy</span>
+        <h1 data-lang="it">Intelligenza artificiale con regole chiare</h1>
+        <h1 data-lang="en">Artificial intelligence with clear rules</h1>
+        <p class="muted" data-lang="it">
+          Progettiamo assistenti e automazioni che rispettano dati, persone e contesto. Ogni scelta viene spiegata
+          e documentata.
+        </p>
+        <p class="muted" data-lang="en">
+          We design assistants and automation that respect data, people and context. Every choice is explained and
+          documented.
+        </p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Uso dei dati</h2>
+            <h2 data-lang="en">Data use</h2>
+            <ul class="list">
+              <li data-lang="it">Dataset limitati allo scopo dichiarato e verificati prima del training.</li>
+              <li data-lang="en">Datasets limited to the stated purpose and reviewed before training.</li>
+              <li data-lang="it">Nessun invio a terze parti senza consenso esplicito.</li>
+              <li data-lang="en">No sharing with third parties without explicit consent.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Controlli</h2>
+            <h2 data-lang="en">Controls</h2>
+            <ul class="list">
+              <li data-lang="it">Guardrail su prompt, logging e rollback delle versioni.</li>
+              <li data-lang="en">Prompt guardrails, logging and version rollback.</li>
+              <li data-lang="it">Validazioni manuali per casi sensibili o regolati.</li>
+              <li data-lang="en">Manual validation for sensitive or regulated use cases.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Trasparenza</h2>
+            <h2 data-lang="en">Transparency</h2>
+            <ul class="list">
+              <li data-lang="it">Comunicazione chiara su limiti e rischi degli output.</li>
+              <li data-lang="en">Clear communication on output limits and risks.</li>
+              <li data-lang="it">Documentazione breve per utenti e stakeholder.</li>
+              <li data-lang="en">Short docs for users and stakeholders.</li>
+            </ul>
+          </section>
+        </div>
+
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>

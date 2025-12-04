@@ -4,22 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy • CloudLast</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <main class="container page">
-      <div class="policy-card">
-        <span class="badge">Informativa</span>
-        <h1>Privacy</h1>
-        <p class="muted">Pagina informativa in aggiornamento.</p>
-        <p>I contenuti ufficiali saranno pubblicati a breve.</p>
-        <p>
-          <a class="btn-ghost" href="/">Torna alla home</a>
-        </p>
+    <div class="lang-switcher" aria-label="Seleziona lingua">
+      <div class="lang-switcher-inner">
+        <span class="lang-indicator" aria-hidden="true"></span>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
-    </main>
-    <footer>© CloudLast</footer>
-  </body>
-  </html>
+    </div>
 
+    <main class="container page">
+      <article class="policy-card">
+        <span class="badge">Privacy</span>
+        <h1 data-lang="it">Proteggiamo i tuoi dati con chiarezza</h1>
+        <h1 data-lang="en">We protect your data with clarity</h1>
+        <p class="muted" data-lang="it">
+          Raccogliamo solo i dati utili a erogare e migliorare i nostri servizi. Li trattiamo con misure tecniche
+          e organizzative semplici da capire.
+        </p>
+        <p class="muted" data-lang="en">
+          We collect only what is needed to deliver and improve our services. We use technical and organizational
+          measures that are easy to understand.
+        </p>
+
+        <div class="policy-grid">
+          <section>
+            <h2 data-lang="it">Cosa raccogliamo</h2>
+            <h2 data-lang="en">What we collect</h2>
+            <ul class="list">
+              <li data-lang="it">Dati di contatto per comunicazioni operative e supporto.</li>
+              <li data-lang="en">Contact details for operations and support.</li>
+              <li data-lang="it">Log tecnici per sicurezza e diagnostica.</li>
+              <li data-lang="en">Technical logs for security and diagnostics.</li>
+              <li data-lang="it">Preferenze di prodotto e feedback inviati da te.</li>
+              <li data-lang="en">Product preferences and feedback you share.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">Perché li usiamo</h2>
+            <h2 data-lang="en">Why we use them</h2>
+            <ul class="list">
+              <li data-lang="it">Erogare i servizi richiesti e mantenere gli account.</li>
+              <li data-lang="en">Deliver the services you request and manage accounts.</li>
+              <li data-lang="it">Prevenire abusi, incidenti e accessi non autorizzati.</li>
+              <li data-lang="en">Prevent abuse, incidents and unauthorized access.</li>
+              <li data-lang="it">Migliorare funzionalità con analisi aggregate.</li>
+              <li data-lang="en">Improve features with aggregated analysis.</li>
+            </ul>
+          </section>
+          <section>
+            <h2 data-lang="it">I tuoi diritti</h2>
+            <h2 data-lang="en">Your rights</h2>
+            <ul class="list">
+              <li data-lang="it">Accedere, correggere o chiedere la cancellazione dei tuoi dati.</li>
+              <li data-lang="en">Access, correct or request deletion of your data.</li>
+              <li data-lang="it">Opporsi ai trattamenti non essenziali.</li>
+              <li data-lang="en">Object to non-essential processing.</li>
+              <li data-lang="it">Ricevere spiegazioni semplici su come usiamo i dati.</li>
+              <li data-lang="en">Receive clear explanations on how we use data.</li>
+            </ul>
+          </section>
+        </div>
+
+        <p data-lang="it">Scrivi a <a href="mailto:privacy@cloudlast.it">privacy@cloudlast.it</a> per qualsiasi richiesta.</p>
+        <p data-lang="en">Email <a href="mailto:privacy@cloudlast.it">privacy@cloudlast.it</a> for any request.</p>
+        <a class="btn-ghost" href="/" data-lang="it">Torna alla home</a>
+        <a class="btn-ghost" href="/" data-lang="en">Back to home</a>
+      </article>
+    </main>
+
+    <footer class="footer">CloudLast • Think Cloud. Build Last.</footer>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>
