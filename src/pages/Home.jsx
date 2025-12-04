@@ -1,75 +1,65 @@
 const improvementAreas = [
   {
     title: "Avvio guidato",
-    description:
-      "Sequenza di pubblicazione chiara, checklist condivise e aiuto editoriale per rendere il primo rilascio lineare.",
+    description: "Checklist leggere e assistenza dedicata per arrivare al go-live senza attriti.",
   },
   {
     title: "Affidabilità verificata",
-    description:
-      "Controlli di salute automatici, avvisi concordati e prove di carico per evitare sorprese prima del lancio.",
+    description: "Health check automatici, alert concordati e prove di carico pronte.",
   },
   {
     title: "Custodia dei dati",
-    description:
-      "Catalogo delle informazioni, tracciamento degli accessi e regole trasparenti sull'uso di modelli di AI e assistenti.",
+    description: "Accessi tracciati, regole trasparenti e protezione dei dati fin dal design.",
   },
   {
     title: "Costi sorvegliati",
-    description:
-      "Limiti di spesa, spegnimento automatico degli ambienti e sintesi mensili per team e prodotto.",
+    description: "Limiti di spesa chiari, ambienti che si spengono da soli e report sintetici.",
   },
   {
     title: "Prontezza agli imprevisti",
-    description:
-      "Percorsi di intervento chiari, prove di continuità e responsabilità definite per ridurre i tempi di fermo.",
+    description: "Percorsi di intervento provati e owner espliciti per ridurre i tempi di fermo.",
   },
   {
     title: "Esperienza di team",
-    description:
-      "Linee guida uniche, ambienti di prova immediati e verifiche automatiche per evitare differenze tra squadre.",
+    description: "Linee guida uniche, ambienti di prova immediati e verifiche automatiche comuni.",
   },
   {
     title: "Cruscotti unificati",
-    description:
-      "Vista unica su affidabilità, sicurezza e uso delle risorse, pronta per chi decide e per chi opera.",
+    description: "Vista unica su affidabilità, sicurezza e uso risorse per decisioni rapide.",
   },
   {
     title: "Documentazione pronta",
-    description:
-      "Modelli di runbook, FAQ interne e brevi video per ridurre l'inserimento di nuove persone e partner.",
+    description: "Runbook, FAQ e micro-video per inserire persone e partner in poche ore.",
   },
 ];
 
 const nextSteps = [
   {
     title: "Analisi rapida",
-    description: "Sessione di 90 minuti per chiarire obiettivi, vincoli di settore e dati indispensabili.",
+    description: "90 minuti per allineare obiettivi, vincoli di settore e dati indispensabili.",
   },
   {
     title: "Pilot assistito",
-    description: "Un caso d'uso reale seguito da CloudLast per verificare il modello operativo in sicurezza.",
+    description: "Un caso reale seguito insieme per testare il modello operativo in sicurezza.",
   },
   {
     title: "Supporto continuativo",
-    description: "Formazione breve, verifiche periodiche e materiali pronti per governance e team tecnici.",
+    description: "Formazione breve, verifiche periodiche e materiali pronti per governance e team.",
   },
 ];
 
 const launchHighlights = [
   {
     title: "Piena operatività",
-    description:
-      "Da inizio settimana prossima la piattaforma entra a regime con i primi moduli pronti all'uso.",
+    description: "Da inizio settimana prossima la piattaforma è pronta con i primi moduli attivi.",
   },
   {
     title: "Prodotti al lancio",
-    description:
-      "Controllo costi, supervisione della sicurezza e strumenti per dati e AI saranno disponibili fin dal giorno uno.",
+    description: "Controllo costi, supervisione sicurezza e strumenti per dati e AI già disponibili.",
   },
   {
     title: "Accompagnamento dedicato",
-    description: "Affiancamento dei team per l'attivazione iniziale, con risposte rapide e referenti chiari.",
+    description: "Affiancamento dei team al lancio con risposte rapide e referenti chiari.",
   },
 ];
 
@@ -81,17 +71,13 @@ export default function Home() {
           <span className="badge">CloudLast</span>
           <span className="status-pill">Piena operatività da inizio settimana prossima</span>
         </div>
-        <h1>Soluzioni cloud pronte a durare</h1>
-        <p>
-          Base affidabile, controlli chiari e persone accompagnate. Il lancio dei nostri prodotti
-          segna l'inizio della disponibilità completa del software e di un supporto vicino a chi
-          costruisce servizi digitali.
-        </p>
+        <h1>Esperienze cloud curate e veloci</h1>
+        <p>Toolkit, controlli e supporto umano per lanciare servizi digitali con sicurezza e ritmo.</p>
         <div className="pill-row">
-          <span className="pill">Lancio rapido e guidato</span>
-          <span className="pill">Controlli di sicurezza trasparenti</span>
-          <span className="pill">Dati tutelati e auditabili</span>
-          <span className="pill">Esperienza d'uso curata</span>
+          <span className="pill">Lancio guidato</span>
+          <span className="pill">Controlli trasparenti</span>
+          <span className="pill">Dati tutelati</span>
+          <span className="pill">UX curata</span>
         </div>
         <div className="cta-row">
           <a className="button" href="#contatti">
@@ -106,12 +92,8 @@ export default function Home() {
       <section className="section accent" id="novita">
         <div className="wide-card">
           <p className="badge">Lancio prodotti</p>
-          <h2>Da inizio settimana prossima siamo pienamente operativi</h2>
-          <p className="muted">
-            I moduli sono pronti, i processi di onboarding rifiniti e le persone di supporto hanno
-            turni dedicati. Vogliamo che chi parte con noi percepisca subito la solidità della
-            piattaforma e la semplicità d'uso.
-          </p>
+          <h2>Operativi da inizio settimana prossima</h2>
+          <p className="muted">Moduli pronti, onboarding snello e supporto con orari dedicati.</p>
           <div className="grid highlights">
             {launchHighlights.map((item) => (
               <article key={item.title} className="card soft">
@@ -125,11 +107,8 @@ export default function Home() {
 
       <section className="section">
         <p className="badge">Proposte di miglioramento</p>
-        <h2>Riduci il rischio, aumenta la velocità</h2>
-        <p className="muted">
-          Idee operative che puoi adottare subito per portare valore e fiducia in produzione. Sono
-          pensate per contesti enterprise ma restano leggere per i team di prodotto.
-        </p>
+        <h2>Riduci il rischio, accelera il rollout</h2>
+        <p className="muted">Suggerimenti pronti all'uso per team di prodotto e ambienti enterprise.</p>
         <div className="grid">
           {improvementAreas.map((item) => (
             <article key={item.title} className="card">
@@ -143,10 +122,7 @@ export default function Home() {
       <section className="section">
         <p className="badge">Prossimi passi</p>
         <h2>Come lavoriamo insieme</h2>
-        <p className="muted">
-          Un percorso breve per arrivare a un rollout controllato: analisi, pilot, governance e
-          supporto continuo, sempre con metriche misurabili.
-        </p>
+        <p className="muted">Percorso essenziale: analisi, pilot, governance e supporto continuativo.</p>
         <div className="grid">
           {nextSteps.map((step) => (
             <article key={step.title} className="card">
@@ -160,10 +136,7 @@ export default function Home() {
       <section className="section contact" id="contatti">
         <p className="badge">Contatti rapidi</p>
         <h2>Scrivici con un modulo semplice</h2>
-        <p className="muted">
-          Due schede dedicate: una per chi vuole provare subito, una per le aziende che devono
-          indicare la partita IVA per ricevere proposta e documenti.
-        </p>
+        <p className="muted">Due schede: per team di prodotto e per aziende con P.IVA.</p>
         <div className="contact-grid">
           <form className="form-card" onSubmit={(event) => event.preventDefault()}>
             <h3>Per team e prodotti</h3>

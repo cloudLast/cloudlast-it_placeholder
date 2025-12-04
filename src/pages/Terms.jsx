@@ -4,10 +4,7 @@ export default function Terms() {
       <article className="policy-card">
         <span className="badge">Termini</span>
         <h1>Condizioni di utilizzo</h1>
-        <p className="muted">
-          Descrizione sintetica dei termini principali: trasparenza sul servizio, responsabilità
-          condivise e supporto continuativo.
-        </p>
+        <p className="muted">Trasparenza sul servizio, responsabilità condivise e supporto continuativo.</p>
 
         <h2>Servizio</h2>
         <ul className="list">

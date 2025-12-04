@@ -4,10 +4,7 @@ export default function Privacy() {
       <article className="policy-card">
         <span className="badge">Privacy</span>
         <h1>Proteggiamo i tuoi dati</h1>
-        <p className="muted">
-          CloudLast tratta solo i dati strettamente necessari all'erogazione del servizio e
-          applica misure tecniche e organizzative per mantenerli sicuri.
-        </p>
+        <p className="muted">Trattiamo solo ciò che serve per erogare il servizio con misure tecniche chiare.</p>
 
         <h2>Dati trattati</h2>
         <ul className="list">

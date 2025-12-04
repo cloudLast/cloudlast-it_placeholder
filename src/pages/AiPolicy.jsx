@@ -4,10 +4,7 @@ export default function AiPolicy() {
       <article className="policy-card">
         <span className="badge">AI Policy</span>
         <h1>Uso responsabile dell'AI</h1>
-        <p className="muted">
-          Promuoviamo un uso dei modelli generativi che tuteli dati, persone e risultati di
-          business.
-        </p>
+        <p className="muted">Favoriamo modelli generativi sicuri per dati, persone e risultati di business.</p>
 
         <h2>Principi</h2>
         <ul className="list">
@@ -16,12 +13,8 @@ export default function AiPolicy() {
           <li>Valutazioni di bias e aderenza alle policy di settore prima della messa in produzione.</li>
         </ul>
 
-        <h2>Governance</h2>
-        <p className="muted">
-          Ogni integrazione AI viene approvata con un owner chiaro, un modello di rischio, controlli
-          di sicurezza e una strategia di fallback. I clienti possono richiedere isolamento dei
-          workload e dei dati.
-        </p>
+      <h2>Governance</h2>
+        <p className="muted">Ogni integrazione ha owner, modello di rischio, controlli e fallback documentati.</p>
       </article>
     </div>
   );

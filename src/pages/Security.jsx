@@ -4,10 +4,7 @@ export default function Security() {
       <article className="policy-card">
         <span className="badge">Sicurezza</span>
         <h1>Sicurezza operativa</h1>
-        <p className="muted">
-          Difendiamo i workload e i dati con controlli tecnici, monitoraggio e pratiche di risposta
-          agli incidenti mature.
-        </p>
+        <p className="muted">Controlli tecnici, monitoraggio costante e runbook di risposta già pronti.</p>
 
         <h2>Controlli principali</h2>
         <ul className="list">

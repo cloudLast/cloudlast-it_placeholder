@@ -4,10 +4,7 @@ export default function Licenza() {
       <article className="policy-card">
         <span className="badge">Licenza</span>
         <h1>Termini di licenza</h1>
-        <p className="muted">
-          Forniamo la piattaforma CloudLast in modalità subscription. Alcune librerie sono open
-          source e rispettano le relative licenze.
-        </p>
+        <p className="muted">Piattaforma in abbonamento con componenti open source rispettate.</p>
 
         <h2>Diritti</h2>
         <ul className="list">

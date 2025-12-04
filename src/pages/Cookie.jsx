@@ -4,10 +4,7 @@ export default function Cookie() {
       <article className="policy-card">
         <span className="badge">Cookie</span>
         <h1>Uso limitato di cookie</h1>
-        <p className="muted">
-          Usiamo esclusivamente cookie tecnici e di analytics anonimizzati per assicurare il corretto
-          funzionamento della piattaforma e capire come migliorarla.
-        </p>
+        <p className="muted">Solo cookie tecnici e analytics anonimizzati per stabilità e miglioramento.</p>
 
         <h2>Tipologie</h2>
         <ul className="list">

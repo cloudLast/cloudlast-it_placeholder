@@ -22,9 +22,7 @@ export default function Roadmap() {
       <article className="policy-card">
         <span className="badge">Roadmap</span>
         <h1>Prossime uscite</h1>
-        <p className="muted">
-          Linee di sviluppo prioritarie per aumentare sicurezza, velocità e controllo dei costi.
-        </p>
+        <p className="muted">Priorità per sicurezza, velocità e controllo dei costi.</p>
 
         <div className="grid">
           {roadmap.map((item) => (
