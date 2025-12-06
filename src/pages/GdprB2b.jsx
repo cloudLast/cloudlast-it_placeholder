@@ -1,6 +1,6 @@
 export default function GdprB2b() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">GDPR B2B</span>
         <h1>Approccio alla conformità</h1>
@@ -23,6 +23,6 @@ export default function GdprB2b() {
           documentate.
         </p>
       </article>
-    </div>
+    </main>
   );
 }

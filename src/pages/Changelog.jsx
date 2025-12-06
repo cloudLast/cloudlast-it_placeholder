@@ -18,7 +18,7 @@ const releases = [
 
 export default function Changelog() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Changelog</span>
         <h1>Aggiornamenti del prodotto</h1>
@@ -34,6 +34,6 @@ export default function Changelog() {
           ))}
         </div>
       </article>
-    </div>
+    </main>
   );
 }

@@ -18,7 +18,7 @@ const roadmap = [
 
 export default function Roadmap() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Roadmap</span>
         <h1>Prossime uscite</h1>
@@ -36,6 +36,6 @@ export default function Roadmap() {
           ))}
         </div>
       </article>
-    </div>
+    </main>
   );
 }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cloudlast.it/sitemap.xml

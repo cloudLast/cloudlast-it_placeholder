@@ -1,6 +1,6 @@
 export default function Licenza() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Licenza</span>
         <h1>Termini di licenza</h1>
@@ -23,6 +23,6 @@ export default function Licenza() {
           <li>Le librerie open source mantengono i rispettivi copyright e condizioni.</li>
         </ul>
       </article>
-    </div>
+    </main>
   );
 }

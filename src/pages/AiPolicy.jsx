@@ -1,6 +1,6 @@
 export default function AiPolicy() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">AI Policy</span>
         <h1>Uso responsabile dell'AI</h1>
@@ -23,6 +23,6 @@ export default function AiPolicy() {
           workload e dei dati.
         </p>
       </article>
-    </div>
+    </main>
   );
 }

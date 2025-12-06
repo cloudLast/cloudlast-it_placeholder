@@ -1,6 +1,6 @@
 export default function Privacy() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Privacy</span>
         <h1>Proteggiamo i tuoi dati</h1>
@@ -30,6 +30,6 @@ export default function Privacy() {
           privacy.
         </p>
       </article>
-    </div>
+    </main>
   );
 }

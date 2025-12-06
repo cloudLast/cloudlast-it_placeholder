@@ -1,6 +1,6 @@
 export default function Security() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Sicurezza</span>
         <h1>Sicurezza operativa</h1>
@@ -23,6 +23,6 @@ export default function Security() {
           <li>Report periodici sulle vulnerabilità e sui remediation plan.</li>
         </ul>
       </article>
-    </div>
+    </main>
   );
 }
