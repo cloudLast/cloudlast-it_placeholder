@@ -1,6 +1,6 @@
 export default function Terms() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Termini</span>
         <h1>Condizioni di utilizzo</h1>
@@ -29,6 +29,6 @@ export default function Terms() {
           possono essere definiti in base al piano sottoscritto.
         </p>
       </article>
-    </div>
+    </main>
   );
 }

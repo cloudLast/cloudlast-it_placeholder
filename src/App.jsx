@@ -15,6 +15,9 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   return (
     <BrowserRouter>
+      <a className="skip-link" href="#main-content">
+        Salta al contenuto principale
+      </a>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<Privacy />} />

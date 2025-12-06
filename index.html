@@ -3,16 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CloudLast offre prodotti e servizi cloud affidabili, sicuri e pronti all'uso con supporto umano rapido." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#06080f" />
     <title>CloudLast • soluzioni cloud semplici e curate</title>
+    <link rel="canonical" href="https://cloudlast.it/" />
     <link rel="icon" type="image/svg+xml" href="/assets/images/cloudlast_logo_white.svg" />
+    <link rel="icon" type="image/png" href="/assets/images/cloudlast_logo_black.png" sizes="180x180" />
+    <link rel="apple-touch-icon" href="/assets/images/cloudlast_logo_black.png" sizes="180x180" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href="/assets/style.css" as="style" />
     <link rel="stylesheet" href="/assets/style.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content="CloudLast • soluzioni cloud semplici e curate" />
+    <meta property="og:description" content="Prodotti cloud, dati e AI con controlli chiari, onboarding guidato e supporto umano veloce." />
+    <meta property="og:url" content="https://cloudlast.it/" />
+    <meta property="og:image" content="https://cloudlast.it/assets/images/cloudlast_logo_black.png" />
+    <meta property="og:site_name" content="CloudLast" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CloudLast • soluzioni cloud semplici e curate" />
+    <meta name="twitter:description" content="Prodotti cloud affidabili, sicurezza trasparente e supporto vicino ai team." />
+    <meta name="twitter:image" content="https://cloudlast.it/assets/images/cloudlast_logo_black.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://cloudlast.it/#organization",
+            "name": "CloudLast",
+            "url": "https://cloudlast.it/",
+            "logo": "https://cloudlast.it/assets/images/cloudlast_logo_black.png",
+            "sameAs": []
+          },
+          {
+            "@type": "WebSite",
+            "name": "CloudLast",
+            "url": "https://cloudlast.it/",
+            "inLanguage": "it-IT",
+            "publisher": {
+              "@id": "https://cloudlast.it/#organization"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Salta al contenuto principale</a>
     <div class="lang-switcher" aria-label="Seleziona lingua">
       <div class="lang-switcher-inner">
         <span class="lang-indicator" aria-hidden="true"></span>
-        <button class="lang-btn" data-set-lang="it" aria-pressed="true">IT</button>
-        <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-set-lang="it" aria-pressed="true" type="button">IT</button>
+        <button class="lang-btn" data-set-lang="en" aria-pressed="false" type="button">EN</button>
       </div>
     </div>
 
@@ -46,7 +90,7 @@
       </div>
     </header>
 
-    <main class="page">
+    <main class="page" id="main-content">
       <section class="hero" id="hero">
         <span class="highlight-banner" data-lang="it">Semplice, sicura, pronta all'uso</span>
         <span class="highlight-banner" data-lang="en">Simple, secure, ready to use</span>
@@ -269,18 +313,18 @@
           <div class="contact-card">
             <h3 data-lang="it">Richiedi una call</h3>
             <h3 data-lang="en">Request a call</h3>
-            <form onsubmit="event.preventDefault();">
+            <form aria-label="Richiesta di contatto" onsubmit="event.preventDefault();">
               <label for="nome" data-lang="it">Nome e cognome</label>
               <label for="nome" data-lang="en">Full name</label>
-              <input id="nome" name="nome" type="text" placeholder="Il tuo nome" required />
+              <input id="nome" name="nome" type="text" placeholder="Il tuo nome" autocomplete="name" required />
 
               <label for="email" data-lang="it">Email</label>
               <label for="email" data-lang="en">Email</label>
-              <input id="email" name="email" type="email" placeholder="nome@azienda.it" required />
+              <input id="email" name="email" type="email" placeholder="nome@azienda.it" autocomplete="email" required />
 
               <label for="nota" data-lang="it">Cosa ti serve</label>
               <label for="nota" data-lang="en">What you need</label>
-              <textarea id="nota" name="nota" placeholder="Scrivici in poche parole"></textarea>
+              <textarea id="nota" name="nota" placeholder="Scrivici in poche parole" autocomplete="off"></textarea>
 
               <button class="button" type="submit" data-lang="it">Invia</button>
               <button class="button" type="submit" data-lang="en">Send</button>

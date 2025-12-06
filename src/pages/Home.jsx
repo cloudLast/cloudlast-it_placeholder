@@ -75,7 +75,7 @@ const launchHighlights = [
 
 export default function Home() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <header className="hero">
         <div className="hero-top">
           <span className="badge">CloudLast</span>
@@ -165,16 +165,30 @@ export default function Home() {
           indicare la partita IVA per ricevere proposta e documenti.
         </p>
         <div className="contact-grid">
-          <form className="form-card" onSubmit={(event) => event.preventDefault()}>
+          <form className="form-card" aria-label="Richiesta per team" onSubmit={(event) => event.preventDefault()}>
             <h3>Per team e prodotti</h3>
             <p className="muted">Risposta entro un giorno lavorativo.</p>
             <div className="form-group">
               <label htmlFor="nome">Nome e cognome</label>
-              <input id="nome" name="nome" type="text" required placeholder="Inserisci il tuo nome" />
+              <input
+                id="nome"
+                name="nome"
+                type="text"
+                autoComplete="name"
+                required
+                placeholder="Inserisci il tuo nome"
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" required placeholder="nome@azienda.it" />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                placeholder="nome@azienda.it"
+              />
             </div>
             <div className="form-group">
               <label htmlFor="obiettivo">Obiettivo principale</label>
@@ -182,6 +196,7 @@ export default function Home() {
                 id="obiettivo"
                 name="obiettivo"
                 type="text"
+                autoComplete="on"
                 placeholder="Esempio: lanciare un nuovo servizio"
               />
             </div>
@@ -191,12 +206,19 @@ export default function Home() {
             <p className="helper">Nessun invio automatico: ti ricontattiamo noi.</p>
           </form>
 
-          <form className="form-card" onSubmit={(event) => event.preventDefault()}>
+          <form className="form-card" aria-label="Richiesta per aziende" onSubmit={(event) => event.preventDefault()}>
             <h3>Per aziende</h3>
             <p className="muted">Modulo con i dati essenziali, inclusa la P.IVA.</p>
             <div className="form-group">
               <label htmlFor="ragione">Ragione sociale</label>
-              <input id="ragione" name="ragione" type="text" required placeholder="Nome dell'azienda" />
+              <input
+                id="ragione"
+                name="ragione"
+                type="text"
+                autoComplete="organization"
+                required
+                placeholder="Nome dell'azienda"
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email-azienda">Email di contatto</label>
@@ -204,23 +226,38 @@ export default function Home() {
                 id="email-azienda"
                 name="email-azienda"
                 type="email"
+                autoComplete="email"
                 required
                 placeholder="referente@azienda.it"
               />
             </div>
             <div className="form-group">
               <label htmlFor="telefono">Telefono (opzionale)</label>
-              <input id="telefono" name="telefono" type="tel" placeholder="Preferito per un contatto rapido" />
+              <input
+                id="telefono"
+                name="telefono"
+                type="tel"
+                autoComplete="tel"
+                placeholder="Preferito per un contatto rapido"
+              />
             </div>
             <div className="form-group">
               <label htmlFor="piva">Partita IVA</label>
-              <input id="piva" name="piva" type="text" required placeholder="Inserisci P.IVA" />
+              <input
+                id="piva"
+                name="piva"
+                type="text"
+                autoComplete="off"
+                required
+                placeholder="Inserisci P.IVA"
+              />
             </div>
             <div className="form-group">
               <label htmlFor="nota">Messaggio</label>
               <textarea
                 id="nota"
                 name="nota"
+                autoComplete="off"
                 rows="3"
                 placeholder="Indicaci urgenze, prodotti da lanciare o vincoli di settore"
               ></textarea>
@@ -234,6 +271,6 @@ export default function Home() {
       </section>
 
       <footer className="footer">CloudLast • pensata per durare</footer>
-    </div>
+    </main>
   );
 }

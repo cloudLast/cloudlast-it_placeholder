@@ -4,6 +4,23 @@
   const indicator = document.querySelector(".lang-indicator");
   const buttons = Array.from(document.querySelectorAll(".lang-btn"));
   const supported = ["it", "en"];
+  const defaultLang = "it";
+
+  function safeStorageGet(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function safeStorageSet(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (_) {
+      /* no-op */
+    }
+  }
 
   function positionIndicator(activeBtn) {
     if (!activeBtn || !indicator || !container) return;
@@ -13,34 +30,25 @@
     indicator.style.transform = `translateX(${left}px)`;
   }
 
-  function setLang(lang) {
-    const safeLang = supported.includes(lang) ? lang : "it";
+  function applyLangState(lang) {
+    const safeLang = supported.includes(lang) ? lang : defaultLang;
     root.setAttribute("data-current-lang", safeLang);
-    try {
-      localStorage.setItem("cloudlast-lang", safeLang);
-    } catch (_) {}
+    safeStorageSet("cloudlast-lang", safeLang);
 
-    buttons.forEach((b) => {
-      const isActive = b.getAttribute("data-set-lang") === safeLang;
-      b.setAttribute("aria-pressed", isActive ? "true" : "false");
-      if (isActive) positionIndicator(b);
+    buttons.forEach((button) => {
+      const isActive = button.getAttribute("data-set-lang") === safeLang;
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      if (isActive) positionIndicator(button);
     });
   }
 
-  const saved = (() => {
-    try {
-      return localStorage.getItem("cloudlast-lang");
-    } catch (_) {
-      return null;
-    }
-  })();
+  const saved = safeStorageGet("cloudlast-lang");
+  requestAnimationFrame(() => applyLangState(saved || defaultLang));
 
-  requestAnimationFrame(() => setLang(saved || "it"));
-
-  buttons.forEach((btn) => btn.addEventListener("click", () => setLang(btn.getAttribute("data-set-lang"))));
+  buttons.forEach((btn) => btn.addEventListener("click", () => applyLangState(btn.getAttribute("data-set-lang"))));
   window.addEventListener("resize", () => {
-    const currentLang = root.getAttribute("data-current-lang") || "it";
-    const active = buttons.find((b) => b.getAttribute("data-set-lang") === currentLang);
+    const currentLang = root.getAttribute("data-current-lang") || defaultLang;
+    const active = buttons.find((button) => button.getAttribute("data-set-lang") === currentLang);
     positionIndicator(active);
   });
 })();
@@ -50,23 +58,30 @@
   const toggle = document.getElementById("themeToggle");
   if (!toggle) return;
 
-  function setTheme(t) {
-    const theme = t === "light" ? "light" : "dark";
-    root.setAttribute("data-theme", theme);
-    toggle.setAttribute("aria-checked", theme === "light" ? "true" : "false");
+  function safeStorageSet(key, value) {
     try {
-      localStorage.setItem("cloudlast-theme", theme);
-    } catch (_) {}
+      localStorage.setItem(key, value);
+    } catch (_) {
+      /* no-op */
+    }
   }
 
-  const saved = (() => {
+  function safeStorageGet(key) {
     try {
-      return localStorage.getItem("cloudlast-theme");
+      return localStorage.getItem(key);
     } catch (_) {
       return null;
     }
-  })();
+  }
 
+  function setTheme(theme) {
+    const normalized = theme === "light" ? "light" : "dark";
+    root.setAttribute("data-theme", normalized);
+    toggle.setAttribute("aria-checked", normalized === "light" ? "true" : "false");
+    safeStorageSet("cloudlast-theme", normalized);
+  }
+
+  const saved = safeStorageGet("cloudlast-theme");
   setTheme(saved || "dark");
 
   toggle.addEventListener("click", () => {

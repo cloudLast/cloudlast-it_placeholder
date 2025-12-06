@@ -41,6 +41,32 @@ img {
   height: auto;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 6px;
+  padding: 10px 16px;
+  background: var(--card-strong);
+  color: var(--text);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  transition: left 0.2s ease;
+  z-index: 10;
+}
+
+.skip-link:focus-visible {
+  left: 12px;
+}
+
 a {
   color: var(--accent-1);
   text-decoration: none;

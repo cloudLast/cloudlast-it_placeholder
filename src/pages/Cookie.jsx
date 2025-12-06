@@ -1,6 +1,6 @@
 export default function Cookie() {
   return (
-    <div className="page">
+    <main className="page" id="main-content">
       <article className="policy-card">
         <span className="badge">Cookie</span>
         <h1>Uso limitato di cookie</h1>
@@ -22,6 +22,6 @@ export default function Cookie() {
           per erogare il servizio.
         </p>
       </article>
-    </div>
+    </main>
   );
 }
